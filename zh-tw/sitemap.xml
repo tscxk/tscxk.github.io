@@ -5,13 +5,13 @@
     <loc>https://tscxk.github.io/zh-tw/categories/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
+                hreflang="zh-cn"
                 href="https://tscxk.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
-                href="https://tscxk.github.io/zh-cn/categories/"
+                hreflang="en"
+                href="https://tscxk.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -22,13 +22,13 @@
     <loc>https://tscxk.github.io/zh-tw/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
+                hreflang="zh-cn"
                 href="https://tscxk.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
-                href="https://tscxk.github.io/zh-cn/"
+                hreflang="en"
+                href="https://tscxk.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -39,13 +39,13 @@
     <loc>https://tscxk.github.io/zh-tw/tags/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en"
+                hreflang="zh-cn"
                 href="https://tscxk.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="zh-cn"
-                href="https://tscxk.github.io/zh-cn/tags/"
+                hreflang="en"
+                href="https://tscxk.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"

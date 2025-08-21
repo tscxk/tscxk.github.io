@@ -2,33 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tscxk.github.io/archives/</loc>
-    <lastmod>2022-07-26T21:46:25+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/</loc>
-    <lastmod>2022-07-26T21:46:25+08:00</lastmod>
+    <loc>https://tscxk.github.io/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tscxk.github.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://tscxk.github.io/zh-tw/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tscxk.github.io/"
-                />
-  </url><url>
-    <loc>https://tscxk.github.io/categories/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://tscxk.github.io/zh-cn/categories/"
+                href="https://tscxk.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -38,21 +16,31 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tscxk.github.io/categories/"
+                href="https://tscxk.github.io/en/categories/"
                 />
   </url><url>
-    <loc>https://tscxk.github.io/tags/markdown/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/post/main/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/tags/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
+    <loc>https://tscxk.github.io/en/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://tscxk.github.io/zh-cn/tags/"
+                href="https://tscxk.github.io/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://tscxk.github.io/zh-tw/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://tscxk.github.io/en/"
+                />
+  </url><url>
+    <loc>https://tscxk.github.io/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://tscxk.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -62,22 +50,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tscxk.github.io/tags/"
+                href="https://tscxk.github.io/en/tags/"
                 />
-  </url><url>
-    <loc>https://tscxk.github.io/categories/test/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/tags/test/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/post/chinese/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/about/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
-  </url><url>
-    <loc>https://tscxk.github.io/friend/</loc>
-    <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url>
 </urlset>
