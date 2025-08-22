@@ -1,15 +1,21 @@
 [
   {
+    "objectID": "502a5a5e4979112e1e864b1183ff6fc8dff3a14b",
+    "permalink": "/post/interview/jvm/",
+    "title": "Jvm面试题","content": "\rJVM面试题\r综合\r1. 说说JVM的主要组成部分和流程\rJVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。\nClass loader(类装载)：根据类的全限定名来装载class到运行时数据区域的方法区中 Runtime data area(运行时数据区)：即我们常说的JVM的内存 Execution engine(执行引擎)：负责将字节码文件“翻译”成对应平台上的机器指令并执行 Native Interface(本地接口)：和其它编程语言交互的接口 流程：编译器首先将Java代码转换成字节码。类加载器负责将字节码加载到运行时数据区域的方法区中。由于字节码是跨平台语言，因此需要解释器引擎根据平台翻译成具体的机器指令再交由cpu执行。本地库接口则是方面java代码进行系统调用或者其他函数的调用。\n方法区相关\r1. 永久代和元空间的联系和区别\r方法区是虚拟的规范，是逻辑上的定义\n永久代是JDK8之前的方法区实现，元空间是JDK8以及之后之后的方法区实现\n核心区别如下（主要是位置区别）：\n永久代：位于Java堆内存中，其大小收到堆容量的限制，其垃圾回收受到Java堆垃圾回收机制管理 元空间：从Java堆中移除转而使用本地内存，Java堆垃圾回收机制不再负责其垃圾回收，但是其垃圾回收仍然由JVM负责 其他改进如下：\njdk7：将字符串常量池（interned strings）和类静态变量（class statics）转移到Java堆中\njdk8：元空间彻底取代永久代\n2. 为什么要替换永久代？\r消除永久代的大小限制：永久代经常因为加载的类过多（尤其是在应用服务器、大量使用反射、动态代理的场景）而出现OutOfMemoryError，使用本地内存可以大幅减少这类问题。（永久代的调优通常是十分困难的） 垃圾回收优化：永久代的垃圾回收通常和老年代的垃圾回收（通常是Full GC）捆绑在一起，而Full GC的代价非常高。元空间在本地内存可以使用高效、独立的垃圾回收 未来改进优化：将HotSpot与JRockit虚拟机代码库合并（两者都是Oracle的），JRockit本来就没有永久代的概念 ","date": "2025-08-22 10:08:31",
+    "updated": "2025-08-22 15:33:12"
+  }, 
+  {
     "objectID": "44c057bc80b2bbf34b6b410a9e99ebc0e55c3e61",
     "permalink": "/post/mysql/index_fail/",
     "title": "索引失效场景","content": "\r前言\r把啦啦啦\n一、测试表设计\rCREATE TABLE `user` ( `id` INT PRIMARY KEY AUTO_INCREMENT COMMENT \u0026#39;主键\u0026#39;, `user_id` VARCHAR(20) NOT NULL COMMENT \u0026#39;用户ID（字符串类型）\u0026#39;, `username` VARCHAR(50) NOT NULL COMMENT \u0026#39;用户名\u0026#39;, `age` TINYINT NOT NULL COMMENT \u0026#39;年龄\u0026#39;, `city` VARCHAR(20) NOT NULL COMMENT \u0026#39;城市\u0026#39;, `salary` INT NOT NULL COMMENT \u0026#39;薪资\u0026#39;, `phone` CHAR(11) COMMENT \u0026#39;手机号\u0026#39;, `status` TINYINT NOT NULL DEFAULT 0 COMMENT \u0026#39;状态\u0026#39;, `score` INT NOT NULL DEFAULT 0 COMMENT \u0026#39;分数\u0026#39;, `create_time` DATETIME NOT NULL COMMENT \u0026#39;创建时间\u0026#39;, `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- 索引配置 UNIQUE KEY `uniq_user_id` (`user_id`), KEY `idx_username_age_city` (`username`,`age`,`city`), KEY `idx_create_time` (`create_time`), KEY `idx_score` (`score`), KEY `idx_phone` (`phone`), KEY `idx_status` (`status`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4; 二、失效场景\r场景1： 索引列参与计算\r-- ❌ 错误写法：对索引列使用函数 SELECT * FROM user WHERE YEAR(create_time) = 2025; -- ✅ 优化方案：保持索引列原始值 SELECT * FROM user WHERE create_time BETWEEN \u0026#39;2025-01-01\u0026#39; AND \u0026#39;2025-12-31\u0026#39;; ","date": "2025-08-21 20:25:47",
     "updated": "2025-08-21 20:39:10"
   }, 
   {
-    "objectID": "5437e3af6077f26c77c4fec380c899d2798eb802",
-    "permalink": "/post/java/spring/source_code/test/",
+    "objectID": "ceb80812863e8da5a15c9726e238ed12e52de6da",
+    "permalink": "/post/study/java/spring/source_code/test/",
     "title": "Test","content": "This is a Chinese test post.\n善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。\n以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？\n就竟在，是我童示讓利分和異種百路關母信過明驗有個歷洋中前合著區亮風值新底車有正結，進快保的行戰從：弟除文辦條國備當來際年每小腳識世可的的外的廣下歌洲保輪市果底天影；全氣具些回童但倒影發狀在示，數上學大法很，如要我……月品大供這起服滿老？應學傳者國：山式排只不之然清同關；細車是！停屋常間又，資畫領生，相們制在？公別的人寫教資夠。資再我我！只臉夫藝量不路政吃息緊回力之；兒足灣電空時局我怎初安。意今一子區首者微陸現際安除發連由子由而走學體區園我車當會，經時取頭，嚴了新科同？很夫營動通打，出和導一樂，查旅他。坐是收外子發物北看蘭戰坐車身做可來。道就學務。\n國新故。\n工步他始能詩的，裝進分星海演意學值例道……於財型目古香亮自和這乎？化經溫詩。只賽嚴大一主價世哥受的沒有中年即病行金拉麼河。主小路了種就小為廣不？\nFrom 亂數假文產生器 - Chinese Lorem Ipsum\n","date": "2025-08-21 10:12:19",
-    "updated": "2025-08-21 19:44:14"
+    "updated": "2025-08-22 10:10:20"
   }, 
   {
     "objectID": "504adca92ad95fbf4c471bdb6cbcb300a8685a40",
@@ -20,6 +26,6 @@
   {
     "objectID": "daeb6251321373d6006136db1dfff66c0d518fbd",
     "permalink": "/post/first/",
-    "title": "模板创建来源","content": "This is a Chinese test post.\n文章模板转载来源： Github\rhttps://github.com/D-Sketon/hugo-theme-reimu\r","date": "2022-06-09 20:12:52",
-    "updated": "2025-08-22 08:41:12"
+    "title": "模板创建来源","content": "This is a Chinese test post.\n文章模板转载来源： Github\rhttps://github.com/D-Sketon/hugo-theme-reimu\r部署参考： 部署参考\rhttps://linux.do/t/topic/878595\r","date": "2022-06-09 20:12:52",
+    "updated": "2025-08-22 08:55:38"
   }]
