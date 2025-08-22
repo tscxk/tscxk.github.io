@@ -537,7 +537,6 @@ a, .main-nav-icon, .popup-btn-close, button {
 
 #header img {
   position: fixed;
-  top: 56px;
   left: 50%;
   /* 将左边定位到50%位置 */
   transform: translateX(-50%);
@@ -589,14 +588,14 @@ a, .main-nav-icon, .popup-btn-close, button {
   right: 0;
   display: flex;
   justify-content: center;
-  background: var(--color-header-background);
+  background-color: rgba(49, 44, 44, 0.8);
   box-shadow: var(--shadow-card);
   transition: background 1s, top 0.3s;
   z-index: 200;
 }
 
 #header-nav:hover {
-  background: rgba(255, 255, 255, 0.95);
+  background-color: rgba(49, 44, 44, 0.8);
 }
 
 #header-nav.header-nav-hidden {
@@ -2866,6 +2865,11 @@ mjx-container::-webkit-scrollbar {
 
 #sidebar {
   display: none;
+}
+
+.sidebar-left,
+.sidebar-right {
+  opacity: 0.85;
 }
 
 .sidebar-left #sidebar,

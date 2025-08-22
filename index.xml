@@ -12,12 +12,49 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Thu, 21 Aug 2025 20:39:10 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 08:41:12 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>模板创建来源</title>
+      <link>https://tscxk.github.io/post/first/</link>
+      <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
+      <author>xxx@example.com (D-Sketon)</author>
+      <guid>https://tscxk.github.io/post/first/</guid>
+      <description>
+        <![CDATA[<h1>模板创建来源</h1><p>作者：D-Sketon（xxx@example.com）</p>
+        
+          <p>This is a Chinese test post.</p>
+<p>文章模板转载来源：
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://github.com/D-Sketon/hugo-theme-reimu" title="Github" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap">
+        <img
+          src="https://github.githubassets.com/assets/apple-touch-icon-144x144-b882e354c005.png"
+          class="no-lightbox"
+          title="Github"
+          alt="Github"
+        />
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">Github</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://github.com/D-Sketon/hugo-theme-reimu
+      </div>
+    </div>
+  </div>
+</div>
+</p>
+        
+        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-22</p>]]>
+      </description>
+      
+    </item>
     
     
 
@@ -97,26 +134,6 @@
       </description>
       
         <category>JAVA</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>中文測試</title>
-      <link>https://tscxk.github.io/post/chinese/</link>
-      <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://tscxk.github.io/post/chinese/</guid>
-      <description>
-        <![CDATA[<h1>中文測試</h1><p>作者：D-Sketon（xxx@example.com）</p>
-        
-          <p>This is a Chinese test post.</p>
-<p>善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。</p>
-<p>以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？</p>
-        
-        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2022-06-09</p>]]>
-      </description>
       
     </item>
     
