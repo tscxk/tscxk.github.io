@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on My New Hugo Site</title>
-    <link>https://tscxk.github.io/categories/test/</link>
+    <link>http://localhost:1313/categories/test/</link>
     <description>Recent content from My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Thu, 21 Aug 2025 20:39:10 +0800</lastBuildDate>
     
     
-    <atom:link href="https://tscxk.github.io/categories/test/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/categories/test/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>索引失效场景</title>
-      <link>https://tscxk.github.io/post/mysql/index_fail/</link>
+      <link>http://localhost:1313/post/mysql/index_fail/</link>
       <pubDate>Thu, 21 Aug 2025 20:25:47 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://tscxk.github.io/post/mysql/index_fail/</guid>
+      <guid>http://localhost:1313/post/mysql/index_fail/</guid>
       <description>
         <![CDATA[<h1>索引失效场景</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -71,7 +71,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">create_time</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2025-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2025-12-31&#39;</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div>
         
-        <hr><p>本文2025-08-21首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-21</p>]]>
+        <hr><p>本文2025-08-21首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2025-08-21</p>]]>
       </description>
       
         <category>test</category>
@@ -82,10 +82,10 @@
 
     <item>
       <title>Markdown Basic Elements</title>
-      <link>https://tscxk.github.io/post/main/</link>
+      <link>http://localhost:1313/post/main/</link>
       <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://tscxk.github.io/post/main/</guid>
+      <guid>http://localhost:1313/post/main/</guid>
       <description>
         <![CDATA[<h1>Markdown Basic Elements</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -148,7 +148,7 @@ Unordered List (ul)
 段落
 </h3><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <!-- raw HTML omitted -->Underline text<!-- raw HTML omitted --> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
         
-        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2022-06-09</p>]]>
+        <hr><p>本文2022-06-09首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2022-06-09</p>]]>
       </description>
       
         <category>test</category>

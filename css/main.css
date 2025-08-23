@@ -541,20 +541,20 @@ a, .main-nav-icon, .popup-btn-close, button {
   /* 将左边定位到50%位置 */
   transform: translateX(-50%);
   /* 向左移动自身宽度的一半 */
-  width: 90%;
+  width: 100%;
   /* 添加px单位 */
-  height: 90%;
+  height: 100%;
   z-index: -2;
   user-select: none;
   display: block;
   object-fit: cover;
   transition: 0.3s;
   /* 组合遮罩渐变效果 */
-  -webkit-mask: linear-gradient(to top, transparent, #fff 20%), linear-gradient(to right, transparent, #fff 5%, #fff 95%, transparent);
+  -webkit-mask: linear-gradient(to top, transparent, #fff 10%), linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent);
   -webkit-mask-composite: multiply;
   /* 混合模式：叠加两个渐变遮罩的交集区域 */
   /* 标准语法（兼容Firefox等） */
-  mask: linear-gradient(to top, transparent, #fff 30%), linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent);
+  mask: linear-gradient(to top, transparent, #fff 10%), linear-gradient(to right, transparent, #fff 10%, #fff 90%, transparent);
   mask-composite: intersect;
   /* 等效于-webkit-mask-composite: multiply */
 }
@@ -1151,6 +1151,7 @@ a, .main-nav-icon, .popup-btn-close, button {
 }
 
 .post-wrapper {
+  opacity: 0.9;
   border-radius: 10px;
   transition: 0.3s;
 }
@@ -2867,13 +2868,9 @@ mjx-container::-webkit-scrollbar {
   display: none;
 }
 
-.sidebar-left,
-.sidebar-right {
-  opacity: 0.85;
-}
-
 .sidebar-left #sidebar,
 .sidebar-right #sidebar {
+  opacity: 0.9;
   display: block;
 }
 
