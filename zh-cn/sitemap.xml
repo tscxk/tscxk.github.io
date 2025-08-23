@@ -2,109 +2,109 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://tscxk.github.io/categories/</loc>
     <lastmod>2025-08-23T15:21:22+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/categories/"
+                href="https://tscxk.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="http://localhost:1313/zh-tw/categories/"
+                href="https://tscxk.github.io/zh-tw/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/categories/"
+                href="https://tscxk.github.io/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/jvm/</loc>
+    <loc>https://tscxk.github.io/tags/jvm/</loc>
     <lastmod>2025-08-23T15:21:22+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/interview/jvm/</loc>
+    <loc>https://tscxk.github.io/post/interview/jvm/</loc>
     <lastmod>2025-08-23T15:21:22+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://tscxk.github.io/</loc>
     <lastmod>2025-08-23T15:21:22+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/"
+                href="https://tscxk.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="http://localhost:1313/zh-tw/"
+                href="https://tscxk.github.io/zh-tw/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/"
+                href="https://tscxk.github.io/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://tscxk.github.io/tags/</loc>
     <lastmod>2025-08-23T15:21:22+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/en/tags/"
+                href="https://tscxk.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="http://localhost:1313/zh-tw/tags/"
+                href="https://tscxk.github.io/zh-tw/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
+                href="https://tscxk.github.io/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://tscxk.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2025-08-23T15:21:22+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/test/</loc>
+    <loc>https://tscxk.github.io/categories/test/</loc>
     <lastmod>2025-08-21T20:39:10+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/test/</loc>
+    <loc>https://tscxk.github.io/tags/test/</loc>
     <lastmod>2025-08-21T20:39:10+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/mysql/index_fail/</loc>
+    <loc>https://tscxk.github.io/post/mysql/index_fail/</loc>
     <lastmod>2025-08-21T20:39:10+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/java/</loc>
+    <loc>https://tscxk.github.io/tags/java/</loc>
     <lastmod>2025-08-22T10:10:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/springboot/</loc>
+    <loc>https://tscxk.github.io/tags/springboot/</loc>
     <lastmod>2025-08-22T10:10:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/study/java/spring/source_code/test/</loc>
+    <loc>https://tscxk.github.io/post/study/java/spring/source_code/test/</loc>
     <lastmod>2025-08-22T10:10:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://tscxk.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-08-22T10:10:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/%E6%BA%90%E7%A0%81/</loc>
+    <loc>https://tscxk.github.io/tags/%E6%BA%90%E7%A0%81/</loc>
     <lastmod>2025-08-22T10:10:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://tscxk.github.io/archives/</loc>
     <lastmod>2025-08-20T20:58:46+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/markdown/</loc>
+    <loc>https://tscxk.github.io/tags/markdown/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/main/</loc>
+    <loc>https://tscxk.github.io/post/main/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://tscxk.github.io/about/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/first/</loc>
+    <loc>https://tscxk.github.io/post/first/</loc>
     <lastmod>2025-08-22T08:55:38+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/friend/</loc>
+    <loc>https://tscxk.github.io/friend/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url>
 </urlset>

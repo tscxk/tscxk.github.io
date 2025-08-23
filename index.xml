@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://localhost:1313/algolia.json</link>
+    <link>https://tscxk.github.io/algolia.json</link>
     <description>Recent content from My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Sat, 23 Aug 2025 15:21:22 +0800</lastBuildDate>
     
     
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://tscxk.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>Jvm面试题</title>
-      <link>http://localhost:1313/post/interview/jvm/</link>
+      <link>https://tscxk.github.io/post/interview/jvm/</link>
       <pubDate>Fri, 22 Aug 2025 10:08:31 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/interview/jvm/</guid>
+      <guid>https://tscxk.github.io/post/interview/jvm/</guid>
       <description>
         <![CDATA[<h1>Jvm面试题</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -41,7 +41,7 @@ JVM面试题
 1. 说说JVM的主要组成部分和流程
 </h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
         
-        <hr><p>本文2025-08-22首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2025-08-23</p>]]>
+        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-23</p>]]>
       </description>
       
         <category>面试题</category>
@@ -52,10 +52,10 @@ JVM面试题
 
     <item>
       <title>Test</title>
-      <link>http://localhost:1313/post/study/java/spring/source_code/test/</link>
+      <link>https://tscxk.github.io/post/study/java/spring/source_code/test/</link>
       <pubDate>Thu, 21 Aug 2025 10:12:19 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/study/java/spring/source_code/test/</guid>
+      <guid>https://tscxk.github.io/post/study/java/spring/source_code/test/</guid>
       <description>
         <![CDATA[<h1>Test</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -63,7 +63,7 @@ JVM面试题
 <p>善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。</p>
 <p>以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？</p>
         
-        <hr><p>本文2025-08-21首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2025-08-22</p>]]>
+        <hr><p>本文2025-08-21首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-22</p>]]>
       </description>
       
         <category>学习笔记</category>
@@ -74,10 +74,10 @@ JVM面试题
 
     <item>
       <title>模板创建来源</title>
-      <link>http://localhost:1313/post/first/</link>
+      <link>https://tscxk.github.io/post/first/</link>
       <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/first/</guid>
+      <guid>https://tscxk.github.io/post/first/</guid>
       <description>
         <![CDATA[<h1>模板创建来源</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -114,7 +114,7 @@ JVM面试题
 </div>
 </p>
         
-        <hr><p>本文2022-06-09首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2025-08-22</p>]]>
+        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-22</p>]]>
       </description>
       
     </item>
@@ -123,10 +123,10 @@ JVM面试题
 
     <item>
       <title>索引失效场景</title>
-      <link>http://localhost:1313/post/mysql/index_fail/</link>
+      <link>https://tscxk.github.io/post/mysql/index_fail/</link>
       <pubDate>Thu, 21 Aug 2025 20:25:47 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/mysql/index_fail/</guid>
+      <guid>https://tscxk.github.io/post/mysql/index_fail/</guid>
       <description>
         <![CDATA[<h1>索引失效场景</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -171,7 +171,7 @@ JVM面试题
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">create_time</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2025-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2025-12-31&#39;</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div>
         
-        <hr><p>本文2025-08-21首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2025-08-21</p>]]>
+        <hr><p>本文2025-08-21首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-21</p>]]>
       </description>
       
         <category>test</category>
@@ -182,10 +182,10 @@ JVM面试题
 
     <item>
       <title>Markdown Basic Elements</title>
-      <link>http://localhost:1313/post/main/</link>
+      <link>https://tscxk.github.io/post/main/</link>
       <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
       <author>xxx@example.com (D-Sketon)</author>
-      <guid>http://localhost:1313/post/main/</guid>
+      <guid>https://tscxk.github.io/post/main/</guid>
       <description>
         <![CDATA[<h1>Markdown Basic Elements</h1><p>作者：D-Sketon（xxx@example.com）</p>
         
@@ -248,7 +248,7 @@ Unordered List (ul)
 段落
 </h3><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <!-- raw HTML omitted -->Underline text<!-- raw HTML omitted --> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
         
-        <hr><p>本文2022-06-09首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2022-06-09</p>]]>
+        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2022-06-09</p>]]>
       </description>
       
         <category>test</category>
