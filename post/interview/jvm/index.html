@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  Jvm面试题 | D-Sketon
+  Jvm面试题 | tscxk
 </title>
 <meta
   name="description"
@@ -43,7 +43,7 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.14df05c02c63459533ffcbb5e07f8ba38b8a4eed13a1e5c3b19d3045491c4e2a.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="Jvm面试题 | D-Sketon" />
+  <meta property="og:title" content="Jvm面试题 | tscxk" />
   <meta
     property="og:description"
     content="默认描述"
@@ -57,11 +57,11 @@
     property="og:image"
     content="/"
   />
-  <meta property="article:author" content="D-Sketon" />
+  <meta property="article:author" content="tscxk" />
   <meta property="article:published_time" content="2025-08-22T10:08:31&#43;08:00" />
-  <meta property="article:modified_time" content="2025-08-24T15:00:46&#43;08:00" /><meta property="article:tag" content="jvm" /><meta name="twitter:card" content="summary" />
+  <meta property="article:modified_time" content="2025-08-25T20:34:37&#43;08:00" /><meta property="article:tag" content="jvm" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" />
-<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.23a0da79d23fba10bbdb113b491313bd703e273302aeff3f991021d4065b20ed.css" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.ff3c4479322066a1e01dbf58078af12b743583cf6314e036e335a7e46f67c3d7.css" />
 <link
     rel="preload"
     as="style"
@@ -203,12 +203,23 @@
       <ul>
         <li><a href="#1-说说jvm的主要组成部分和流程">1. 说说JVM的主要组成部分和流程</a></li>
         <li><a href="#2-讲讲jvm内存模型">2. 讲讲JVM内存模型</a></li>
+        <li><a href="#3jva堆内存划分">3.Jva堆内存划分</a></li>
+        <li><a href="#4说说jvm有哪些垃圾回收器">4.说说JVM有哪些垃圾回收器</a></li>
+        <li><a href="#5详细介绍一下cms">5.详细介绍一下CMS</a></li>
       </ul>
     </li>
     <li><a href="#方法区相关">方法区相关</a>
       <ul>
         <li><a href="#1-永久代和元空间的联系和区别">1. 永久代和元空间的联系和区别</a></li>
         <li><a href="#2-为什么要替换永久代">2. 为什么要替换永久代？</a></li>
+        <li><a href="#3-类常量池运行时常量池和字符串常量池">3. 类常量池、运行时常量池和字符串常量池</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他">其他</a>
+      <ul>
+        <li><a href="#1-如何计算对象的内存占用">1. 如何计算对象的内存占用</a></li>
+        <li><a href="#2-进阶空string对象占用">2. 进阶：空String对象占用</a></li>
+        <li><a href="#3-java有哪些引用类型">3. Java有哪些引用类型?</a></li>
       </ul>
     </li>
   </ul>
@@ -218,11 +229,11 @@
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
-    alt="D-Sketon"
+    alt="tscxk"
     class="lazyload"
   />
-  <div class="sidebar-author-name">D-Sketon</div>
-  <div class="sidebar-description">少女祈祷中...</div>
+  <div class="sidebar-author-name">tscxk</div>
+  <div class="sidebar-description">叽里咕噜...</div>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
@@ -301,14 +312,14 @@
       >2025-08-22</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-08-24</time
+      >2025-08-25</time
     >
   </span><span
       class="article-date-link icon-calendar-plus"
       data-aos="zoom-in"
     >
-      <time datetime="2025-08-24 15:00:46.885389 &#43;0800 CST" itemprop="dateModified"
-        >2025-08-24</time
+      <time datetime="2025-08-25 20:34:37.1280059 &#43;0800 CST" itemprop="dateModified"
+        >2025-08-25</time
       >
     </span></div>
 <div class="article-category"><a
@@ -372,8 +383,7 @@ JVM面试题
 <p>动态链接：栈帧内部的一个<strong>指针</strong>，指向<strong>运行时常量池（Runtime Constant Pool）</strong> 中该栈帧所属方法的引用。主要作用是将符号引用转为直接引用。其中**“动态”**的含义在于有些方法的直接引用需要到运行时才能确定。</p>
 <p>方法出口：存放着<strong>调用该方法的指令的下一条指令的地址</strong></p>
 <p>常量池（Constant Pool Table）：class文件的一部分，用于存放编译器的各种字面量和符号引用，这部分内容在类加载后存放到方法区的运行时常量池中</p>
-<p>字符串常量池（interned strings）：字符串常量池存储的是<strong>string对象的直接引用</strong>，真正的实例一直都在java堆中</p>
-<p>运行时常量池：主要包含符号引用和字面量（即就是代码中声明的<strong>常量值</strong>  例如被final修饰的整数、浮点数等）</p></p>
+<p>字符串常量池（interned strings）：字符串常量池存储的是<strong>string对象的直接引用</strong>，真正的实例一直都在java堆中</p></p>
   </blockquote>
 
 
@@ -386,6 +396,58 @@ JVM面试题
 <p>全局常量(static final)：在编译的时候就会被赋值</p></p>
   </blockquote>
 
+<h3 id="3jva堆内存划分">
+<a class="header-anchor" href="#3jva%e5%a0%86%e5%86%85%e5%ad%98%e5%88%92%e5%88%86"></a>
+3.Jva堆内存划分
+</h3><p>Java堆 = 新生代+老年代 （通常是1:2）</p>
+<p>新生代 = Eden + S0 + S1 (通常是8:1:1)</p>
+<h3 id="4说说jvm有哪些垃圾回收器">
+<a class="header-anchor" href="#4%e8%af%b4%e8%af%b4jvm%e6%9c%89%e5%93%aa%e4%ba%9b%e5%9e%83%e5%9c%be%e5%9b%9e%e6%94%b6%e5%99%a8"></a>
+4.说说JVM有哪些垃圾回收器
+</h3><p>新生代垃圾回收器有：</p>
+<ol>
+<li>
+<p>Serial（复制算法）：</p>
+<p>新生代单线程收集器，标记和清除过程都是单线程，简单高效。<strong>在进行GC时，必须暂停其他所有的工作线程直到GC结束。</strong></p>
+</li>
+<li>
+<p>ParNew（复制算法）：</p>
+<p>新生代并行收集器，实际上是Serial的多线程版本，在多核环境下效果比Serial更好。<strong>在进行GC时，必须暂停其他所有的工作线程直到GC结束。</strong></p>
+</li>
+<li>
+<p>Parallel Scavenge（复制算法）：</p>
+<p>新生代并行收集器，追求最高的吞吐量，尽可能减少总的GC时间，意味着不适用交互频繁的任务（如互联网需要较低的响应延迟），但适合科学计算等。<strong>在进行GC时，必须暂停其他所有的工作线程直到GC结束。</strong></p>
+</li>
+</ol>
+<p>老年代垃圾回收器有：</p>
+<ol>
+<li>
+<p>Serial Old（整理算法）：</p>
+<p>老年代单线程收集器，Serial收集器的老年版本。<strong>在进行GC时，必须暂停其他所有的工作线程直到GC结束。</strong></p>
+</li>
+<li>
+<p>Parallel Old（整理算法）：</p>
+<p>老年代并行收集器，吞吐量优先，Parallel Scavenge的老年代版本。<strong>在进行GC时，必须暂停其他所有的工作线程直到GC结束。</strong></p>
+</li>
+<li>
+<p>CMS（清除算法）：</p>
+<p>追求最短GC回收停顿时间，具备高并发、低停顿的特点。</p>
+</li>
+</ol>
+<p>面向全堆收集器：</p>
+<ol>
+<li>G1</li>
+<li>ZGC</li>
+</ol>
+<h3 id="5详细介绍一下cms">
+<a class="header-anchor" href="#5%e8%af%a6%e7%bb%86%e4%bb%8b%e7%bb%8d%e4%b8%80%e4%b8%8bcms"></a>
+5.详细介绍一下CMS
+</h3><blockquote>
+<p><strong>CMS（Concurrent Mark-Sweep）</strong>：以获取<strong>最短回收停顿时间</strong>为目标的垃圾收集器。其名字暗号了核心特点</p>
+<ul>
+<li>并发：大部分垃圾收集工作线程可以与用户应用程序线程<strong>同时工作</strong>。</li>
+<li>标记清除：使用标记-清除算法进行垃圾回收工作。</li>
+</ul></blockquote>
 <h2 id="方法区相关">
 <a class="header-anchor" href="#%e6%96%b9%e6%b3%95%e5%8c%ba%e7%9b%b8%e5%85%b3"></a>
 方法区相关
@@ -420,6 +482,104 @@ JVM面试题
 <li>消除永久代的大小限制：永久代经常因为加载的类过多（尤其是在应用服务器、大量使用反射、动态代理的场景）而出现<code>OutOfMemoryError</code>，使用本地内存可以大幅减少这类问题。（永久代的调优通常是十分困难的）</li>
 <li>垃圾回收优化：永久代的垃圾回收通常和老年代的垃圾回收（通常是Full GC）捆绑在一起，而Full GC的代价非常高。元空间在本地内存可以使用高效、独立的垃圾回收</li>
 <li>未来改进优化：将HotSpot与JRockit虚拟机代码库合并（两者都是Oracle的），JRockit本来就没有永久代的概念</li>
+<li>元空间使用堆外内存：减轻GC压力；减少复制消耗（堆内在flush到远程时，会先复制到直接内存（非堆内存），然后在发送；而堆外内存相当于省略掉了这个工作。</li>
+<li>）</li>
+</ul>
+<h3 id="3-类常量池运行时常量池和字符串常量池">
+<a class="header-anchor" href="#3-%e7%b1%bb%e5%b8%b8%e9%87%8f%e6%b1%a0%e8%bf%90%e8%a1%8c%e6%97%b6%e5%b8%b8%e9%87%8f%e6%b1%a0%e5%92%8c%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%b8%b8%e9%87%8f%e6%b1%a0"></a>
+3. 类常量池、运行时常量池和字符串常量池
+</h3><!-- raw HTML omitted -->
+<ul>
+<li>类常量池：
+属于class文件的一部分，在编译期间，编译器将各种字面量和符号引用（如类和接口的全限定名）收集起来生成一个常量池</li>
+<li>运行时常量池：
+当JVM加载某个类的时候，会将该类的类常量池加载到方法区中，并<strong>将类常量池中的符号引用解析为直接引用</strong>（例如将某个方法解析为实际的方法代码在内存中的地址）
+同时运行时常量池还具备动态性（例如某个动态方法，或者是存储运行时产生的新常量）</li>
+<li>字符串常量池：
+隶属于运行时常量池的一个子集，专门用于存储字符串对象的直接引用来实现字符串的唯一性，从而节省内存并提升性能。</li>
+</ul>
+<h2 id="其他">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96"></a>
+其他
+</h2><h3 id="1-如何计算对象的内存占用">
+<a class="header-anchor" href="#1-%e5%a6%82%e4%bd%95%e8%ae%a1%e7%ae%97%e5%af%b9%e8%b1%a1%e7%9a%84%e5%86%85%e5%ad%98%e5%8d%a0%e7%94%a8"></a>
+1. 如何计算对象的内存占用
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyOrder</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">orderId</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">userId</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">byte</span><span class="w"> </span><span class="n">state</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">createMillis</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Java对象在内存中由以下三部分组成：</p>
+<ul>
+<li>对象头
+<ul>
+<li>标记字：8个字节（包含哈希码（HashCode）、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳）</li>
+<li>类型指针：8个字节（堆内存小于32GB默认开启指针压缩  仅占4个字节  因为对象都按照8字节对齐，即8B，那么4个字节即4G最大寻址32GB）</li>
+<li>数组长度（仅数组对象持有）：4字节</li>
+</ul>
+</li>
+<li>实例数据</li>
+<li>对齐填充字节：保证对象总大小为8字节（64位系统，32位系统通常为4字节）的倍数</li>
+</ul>
+<p>对于上面的例子：</p>
+<blockquote>
+<p>假设堆大小小于32GB，64位操作系统</p></blockquote>
+<p>那么对象头大小为12字节，实例数据为25字节，合计37字节，根据对齐填充规则需要补充到40字节</p>
+<h3 id="2-进阶空string对象占用">
+<a class="header-anchor" href="#2-%e8%bf%9b%e9%98%b6%e7%a9%bastring%e5%af%b9%e8%b1%a1%e5%8d%a0%e7%94%a8"></a>
+2. 进阶：空String对象占用
+</h3><p>String对象占用在不同jdk版本占用不同</p>
+<p>在<strong>jdk8及之前</strong>，String构造如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">String</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="p">,</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">CharSequence</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">value</span><span class="o">[]</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span><span class="w"> </span><span class="c1">// Default to 0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>此时String对象占用：</p>
+<ul>
+<li>对象头（12字节）</li>
+<li>实例数据（8字节）：value引用（4字节）+hash（4字节）</li>
+<li>对齐填充：4字节</li>
+</ul>
+<p>另外还包括value数组本身占用（16字节）：对齐（16）+填充（0）</p>
+<p>因此合计为40字节</p>
+<p>从jdk9开始，String引入了紧凑字符串优化，string内部不再用char[] 而是改用byte[]</p>
+<p><strong>这里以jdk17为例</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">String</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">implements</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="p">,</span><span class="w"> </span><span class="n">Comparable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">CharSequence</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">               </span><span class="n">Constable</span><span class="p">,</span><span class="w"> </span><span class="n">ConstantDesc</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Stable</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//标识 value 数组中字节的编码格式 区分是占用1个字节编码 还是 2个字节编码（相当于jdk8之前的 也就是两个byte组成一个char这样）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">byte</span><span class="w"> </span><span class="n">coder</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                   
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hash</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="c1">//解决哈希码缓存中的歧义问题(因为哈希码缓存字段 hash 的默认值是 0)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="c1">//区分是没计算过 or 计算后的哈希码仍然是0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">hashIsZero</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">                   
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">COMPACT_STRINGS</span><span class="p">;</span><span class="w">                  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>和上面同理：
+string对象占用12+4+1+4+1=20字节（COMPACT_STRINGS为静态变量 不属于对象）
+value本身占用16字节
+合计40字节</p>
+<p>尽管最终答案一样 但是中间过程明显有所不同 需要注意</p>
+<h3 id="3-java有哪些引用类型">
+<a class="header-anchor" href="#3-java%e6%9c%89%e5%93%aa%e4%ba%9b%e5%bc%95%e7%94%a8%e7%b1%bb%e5%9e%8b"></a>
+3. Java有哪些引用类型?
+</h3><ul>
+<li>强引用：gc不会回收</li>
+<li>软引用：在内存溢出前会被回收
+使用场景：可以用于一些不确定还用不用得到的缓存</li>
+<li>弱引用：下一次gc会被回收
+使用场景：当某个短生命周期的被长生命周期的对象临时引用 可以使用软引用避免前者一直无法回收</li>
+<li>虚引用：无法通过虚引用获取对象，虚引用的用途是在gc时返回一个通知。主要来跟踪对象被垃圾回收器回收的活动。虚引用能够正确判断对象是否被销毁回收。</li>
 </ul>
 </div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
@@ -449,7 +609,7 @@ JVM面试题
   </div>
   <div id="footer-info"><div>
       <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
-      D-Sketon
+      tscxk
     </div><div>
         基于&nbsp;<a
           href="https://gohugo.io/"
@@ -462,10 +622,10 @@ JVM面试题
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;4.4k</span
+          >&nbsp;6.4k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:11</span>
+        <span class="icon-coffee">&nbsp;00:15</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -495,12 +655,23 @@ JVM面试题
       <ul>
         <li><a href="#1-说说jvm的主要组成部分和流程">1. 说说JVM的主要组成部分和流程</a></li>
         <li><a href="#2-讲讲jvm内存模型">2. 讲讲JVM内存模型</a></li>
+        <li><a href="#3jva堆内存划分">3.Jva堆内存划分</a></li>
+        <li><a href="#4说说jvm有哪些垃圾回收器">4.说说JVM有哪些垃圾回收器</a></li>
+        <li><a href="#5详细介绍一下cms">5.详细介绍一下CMS</a></li>
       </ul>
     </li>
     <li><a href="#方法区相关">方法区相关</a>
       <ul>
         <li><a href="#1-永久代和元空间的联系和区别">1. 永久代和元空间的联系和区别</a></li>
         <li><a href="#2-为什么要替换永久代">2. 为什么要替换永久代？</a></li>
+        <li><a href="#3-类常量池运行时常量池和字符串常量池">3. 类常量池、运行时常量池和字符串常量池</a></li>
+      </ul>
+    </li>
+    <li><a href="#其他">其他</a>
+      <ul>
+        <li><a href="#1-如何计算对象的内存占用">1. 如何计算对象的内存占用</a></li>
+        <li><a href="#2-进阶空string对象占用">2. 进阶：空String对象占用</a></li>
+        <li><a href="#3-java有哪些引用类型">3. Java有哪些引用类型?</a></li>
       </ul>
     </li>
   </ul>
@@ -510,11 +681,11 @@ JVM面试题
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
-    alt="D-Sketon"
+    alt="tscxk"
     class="lazyload"
   />
-  <div class="sidebar-author-name">D-Sketon</div>
-  <div class="sidebar-description">少女祈祷中...</div>
+  <div class="sidebar-author-name">tscxk</div>
+  <div class="sidebar-description">叽里咕噜...</div>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
@@ -601,7 +772,7 @@ JVM面试题
 <div id="lazy-script">
   <div><script data-pjax>
         window.REIMU_POST = {
-          author: "D-Sketon",
+          author: "tscxk",
           title: "Jvm面试题",
           url: "https:\/\/tscxk.github.io\/post\/interview\/jvm\/",
           description: "默认描述",

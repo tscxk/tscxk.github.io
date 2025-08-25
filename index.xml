@@ -7,12 +7,12 @@
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
-    <managingEditor>xxx@example.com (D-Sketon)</managingEditor>
-    <webMaster>xxx@example.com (D-Sketon)</webMaster>
+    <managingEditor>952505116@qq.com (tscxk)</managingEditor>
+    <webMaster>952505116@qq.com (tscxk)</webMaster>
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 25 Aug 2025 09:03:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 Aug 2025 20:34:37 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,13 +22,100 @@
     
 
     <item>
+      <title>Jvm面试题</title>
+      <link>https://tscxk.github.io/post/interview/jvm/</link>
+      <pubDate>Fri, 22 Aug 2025 10:08:31 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/jvm/</guid>
+      <description>
+        <![CDATA[<h1>Jvm面试题</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h1 id="jvm面试题">
+<a class="header-anchor" href="#jvm%e9%9d%a2%e8%af%95%e9%a2%98"></a>
+JVM面试题
+</h1><h2 id="综合">
+<a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
+综合
+</h2><h3 id="1-说说jvm的主要组成部分和流程">
+<a class="header-anchor" href="#1-%e8%af%b4%e8%af%b4jvm%e7%9a%84%e4%b8%bb%e8%a6%81%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86%e5%92%8c%e6%b5%81%e7%a8%8b"></a>
+1. 说说JVM的主要组成部分和流程
+</h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
+        
+        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
+      </description>
+      
+        <category>面试题</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>模板创建来源</title>
+      <link>https://tscxk.github.io/post/first/</link>
+      <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/first/</guid>
+      <description>
+        <![CDATA[<h1>模板创建来源</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <p>This is a Chinese test post.</p>
+<p>文章模板转载来源：
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://github.com/D-Sketon/hugo-theme-reimu" title="Github" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap">
+        <img
+          src="https://github.githubassets.com/assets/apple-touch-icon-144x144-b882e354c005.png"
+          class="no-lightbox"
+          title="Github"
+          alt="Github"
+        />
+      </div><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">Github</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://github.com/D-Sketon/hugo-theme-reimu
+      </div>
+    </div>
+  </div>
+</div>
+</p>
+<p>部署参考：
+<div class="post-link-card-wrap">
+  <div class="post-link-card">
+    <a href="https://linux.do/t/topic/878595" title="部署参考" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-item-wrap">
+      <div class="post-link-card-title">部署参考</div>
+      <div class="post-link-card-excerpt">
+        <span class="icon-link"></span>https://linux.do/t/topic/878595
+      </div>
+    </div>
+  </div>
+</div>
+</p>
+<p>引入github警告框参考：</p>
+<p><a href="https://blog.grew.cc/posts/hugo-alert-blockquote/">Hugo系列(八)：添加GitHub风格的Alert块引用 | Tom&rsquo;s Blog</a></p>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>要在main.css引入我们的自定义样式文件：
+@import &ldquo;custom&rdquo;;</p>
+        
+        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
       <title>Markdown Basic Elements</title>
       <link>https://tscxk.github.io/post/main/</link>
       <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
+      <author>952505116@qq.com (tscxk)</author>
       <guid>https://tscxk.github.io/post/main/</guid>
       <description>
-        <![CDATA[<h1>Markdown Basic Elements</h1><p>作者：D-Sketon（xxx@example.com）</p>
+        <![CDATA[<h1>Markdown Basic Elements</h1><p>作者：tscxk（952505116@qq.com）</p>
         
           <h2 id="markdown-基本元素">
 <a class="header-anchor" href="#markdown-%e5%9f%ba%e6%9c%ac%e5%85%83%e7%b4%a0"></a>
@@ -99,100 +186,13 @@ Unordered List (ul)
     
 
     <item>
-      <title>模板创建来源</title>
-      <link>https://tscxk.github.io/post/first/</link>
-      <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://tscxk.github.io/post/first/</guid>
-      <description>
-        <![CDATA[<h1>模板创建来源</h1><p>作者：D-Sketon（xxx@example.com）</p>
-        
-          <p>This is a Chinese test post.</p>
-<p>文章模板转载来源：
-<div class="post-link-card-wrap">
-  <div class="post-link-card">
-    <a href="https://github.com/D-Sketon/hugo-theme-reimu" title="Github" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap">
-        <img
-          src="https://github.githubassets.com/assets/apple-touch-icon-144x144-b882e354c005.png"
-          class="no-lightbox"
-          title="Github"
-          alt="Github"
-        />
-      </div><div class="post-link-card-item-wrap">
-      <div class="post-link-card-title">Github</div>
-      <div class="post-link-card-excerpt">
-        <span class="icon-link"></span>https://github.com/D-Sketon/hugo-theme-reimu
-      </div>
-    </div>
-  </div>
-</div>
-</p>
-<p>部署参考：
-<div class="post-link-card-wrap">
-  <div class="post-link-card">
-    <a href="https://linux.do/t/topic/878595" title="部署参考" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-item-wrap">
-      <div class="post-link-card-title">部署参考</div>
-      <div class="post-link-card-excerpt">
-        <span class="icon-link"></span>https://linux.do/t/topic/878595
-      </div>
-    </div>
-  </div>
-</div>
-</p>
-<p>引入github警告框参考：</p>
-<p><a href="https://blog.grew.cc/posts/hugo-alert-blockquote/">Hugo系列(八)：添加GitHub风格的Alert块引用 | Tom&rsquo;s Blog</a></p>
-
-  <blockquote class="alert-blockquote important">
-    <p class="alert-heading">
-      Important
-    </p>
-    <p><p>要在main.css引入我们的自定义样式文件：
-@import &ldquo;custom&rdquo;;</p>
-        
-        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>Jvm面试题</title>
-      <link>https://tscxk.github.io/post/interview/jvm/</link>
-      <pubDate>Fri, 22 Aug 2025 10:08:31 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
-      <guid>https://tscxk.github.io/post/interview/jvm/</guid>
-      <description>
-        <![CDATA[<h1>Jvm面试题</h1><p>作者：D-Sketon（xxx@example.com）</p>
-        
-          <h1 id="jvm面试题">
-<a class="header-anchor" href="#jvm%e9%9d%a2%e8%af%95%e9%a2%98"></a>
-JVM面试题
-</h1><h2 id="综合">
-<a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
-综合
-</h2><h3 id="1-说说jvm的主要组成部分和流程">
-<a class="header-anchor" href="#1-%e8%af%b4%e8%af%b4jvm%e7%9a%84%e4%b8%bb%e8%a6%81%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86%e5%92%8c%e6%b5%81%e7%a8%8b"></a>
-1. 说说JVM的主要组成部分和流程
-</h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
-        
-        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-24</p>]]>
-      </description>
-      
-        <category>面试题</category>
-      
-    </item>
-    
-    
-
-    <item>
       <title>Test</title>
       <link>https://tscxk.github.io/post/study/java/spring/source_code/test/</link>
       <pubDate>Thu, 21 Aug 2025 10:12:19 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
+      <author>952505116@qq.com (tscxk)</author>
       <guid>https://tscxk.github.io/post/study/java/spring/source_code/test/</guid>
       <description>
-        <![CDATA[<h1>Test</h1><p>作者：D-Sketon（xxx@example.com）</p>
+        <![CDATA[<h1>Test</h1><p>作者：tscxk（952505116@qq.com）</p>
         
           <p>This is a Chinese test post.</p>
 <p>善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。</p>
@@ -211,10 +211,10 @@ JVM面试题
       <title>索引失效场景</title>
       <link>https://tscxk.github.io/post/mysql/index_fail/</link>
       <pubDate>Thu, 21 Aug 2025 20:25:47 &#43;0800</pubDate>
-      <author>xxx@example.com (D-Sketon)</author>
+      <author>952505116@qq.com (tscxk)</author>
       <guid>https://tscxk.github.io/post/mysql/index_fail/</guid>
       <description>
-        <![CDATA[<h1>索引失效场景</h1><p>作者：D-Sketon（xxx@example.com）</p>
+        <![CDATA[<h1>索引失效场景</h1><p>作者：tscxk（952505116@qq.com）</p>
         
           <h3 id="前言">
 <a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
