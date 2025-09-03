@@ -12,12 +12,46 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 25 Aug 2025 20:34:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Sep 2025 16:50:51 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>Mysql面试题</title>
+      <link>https://tscxk.github.io/post/interview/mysql/</link>
+      <pubDate>Tue, 26 Aug 2025 20:22:56 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/mysql/</guid>
+      <description>
+        <![CDATA[<h1>Mysql面试题</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="mysql基础">
+<a class="header-anchor" href="#mysql%e5%9f%ba%e7%a1%80"></a>
+Mysql基础
+</h2><h3 id="1-mysql数据库中myisam和innodb的区别">
+<a class="header-anchor" href="#1-mysql%e6%95%b0%e6%8d%ae%e5%ba%93%e4%b8%admyisam%e5%92%8cinnodb%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+1. MySQL数据库中MyISAM和InnoDB的区别
+</h3><p>MyISAM:</p>
+<ul>
+<li>不支持事务，但每次查询都是原子的</li>
+<li>不支持行级锁</li>
+<li>不支持外键约束</li>
+<li>使用非聚簇索引</li>
+<li>存储表的总行数</li>
+</ul>
+<p>InnoDB:</p>
+        
+        <hr><p>本文2025-08-26首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-03</p>]]>
+      </description>
+      
+        <category>面试题</category>
+      
+    </item>
     
     
 
@@ -30,10 +64,7 @@
       <description>
         <![CDATA[<h1>Jvm面试题</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          <h1 id="jvm面试题">
-<a class="header-anchor" href="#jvm%e9%9d%a2%e8%af%95%e9%a2%98"></a>
-JVM面试题
-</h1><h2 id="综合">
+          <h2 id="综合">
 <a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
 综合
 </h2><h3 id="1-说说jvm的主要组成部分和流程">
@@ -41,7 +72,7 @@ JVM面试题
 1. 说说JVM的主要组成部分和流程
 </h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
         
-        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
+        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-26</p>]]>
       </description>
       
         <category>面试题</category>
@@ -60,7 +91,7 @@ JVM面试题
         <![CDATA[<h1>模板创建来源</h1><p>作者：tscxk（952505116@qq.com）</p>
         
           <p>This is a Chinese test post.</p>
-<p>文章模板转载来源：
+<p>文章模板转载来源：<br>
 <div class="post-link-card-wrap">
   <div class="post-link-card">
     <a href="https://github.com/D-Sketon/hugo-theme-reimu" title="Github" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-cover-wrap">
@@ -79,7 +110,7 @@ JVM面试题
   </div>
 </div>
 </p>
-<p>部署参考：
+<p>部署参考：<br>
 <div class="post-link-card-wrap">
   <div class="post-link-card">
     <a href="https://linux.do/t/topic/878595" title="部署参考" rel="noopener external nofollow noreferrer" target="_blank"></a><div class="post-link-card-item-wrap">
@@ -98,7 +129,7 @@ JVM面试题
     <p class="alert-heading">
       Important
     </p>
-    <p><p>要在main.css引入我们的自定义样式文件：
+    <p><p>要在main.css引入我们的自定义样式文件：<br>
 @import &ldquo;custom&rdquo;;</p>
         
         <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
@@ -154,7 +185,7 @@ H6
 </h3><h4 id="definition-list-dl">
 <a class="header-anchor" href="#definition-list-dl"></a>
 Definition List (dl)
-</h4><!-- raw HTML omitted -->
+</h4><dl><dt>Definition List Title</dt><dd>This is a definition list division.</dd></dl>
 <h4 id="ordered-list-ol">
 <a class="header-anchor" href="#ordered-list-ol"></a>
 Ordered List (ol)
@@ -174,7 +205,7 @@ Unordered List (ul)
 <h3 id="段落">
 <a class="header-anchor" href="#%e6%ae%b5%e8%90%bd"></a>
 段落
-</h3><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <!-- raw HTML omitted -->Underline text<!-- raw HTML omitted --> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
+</h3><p>Lorem ipsum dolor sit amet, <a href="">test link</a> consectetur adipiscing elit. <strong>Strong text</strong> pellentesque ligula commodo viverra vehicula. <em>Italic text</em> at ullamcorper enim. Morbi a euismod nibh. <u>Underline text</u> non elit nisl. <del>Deleted text</del> tristique, sem id condimentum tempus, metus lectus venenatis mauris, sit amet semper lorem felis a eros. Fusce egestas nibh at sagittis auctor. Sed ultricies ac arcu quis molestie. Donec dapibus nunc in nibh egestas, vitae volutpat sem iaculis. Curabitur sem tellus, elementum nec quam id, fermentum laoreet mi. Ut mollis ullamcorper turpis, vitae facilisis velit ultricies sit amet. Etiam laoreet dui odio, id tempus justo tincidunt id. Phasellus scelerisque nunc sed nunc ultricies accumsan.</p>
         
         <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
       </description>

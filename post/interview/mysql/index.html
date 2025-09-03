@@ -1,0 +1,2140 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  Mysql面试题 | tscxk
+</title>
+<meta
+  name="description"
+  content="Mysql面试"
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://tscxk.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"i18n_languages\":[{\"Lang\":\"en\",\"LanguageName\":\"English\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"zh-cn\",\"LanguageName\":\"简体中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"zh-tw\",\"LanguageName\":\"繁體中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false}],\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link
+    rel="preload"
+    as="style"
+    crossorigin
+    href="https://fontsapi.zeoseven.com/292/main/result.css"
+    onload="this.rel='stylesheet'"
+  /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic%7cNoto%20Serif%20SC:400,400italic,700,700italic%7c&amp;display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_0khxww3tj3q9.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.14df05c02c63459533ffcbb5e07f8ba38b8a4eed13a1e5c3b19d3045491c4e2a.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="Mysql面试题 | tscxk" />
+  <meta
+    property="og:description"
+    content="Mysql面试"
+  />
+  <meta property="og:url" content="https://tscxk.github.io/post/interview/mysql/" />
+  <meta
+    property="og:site_name"
+    content="My New Hugo Site"
+  />
+  <meta
+    property="og:image"
+    content="/"
+  />
+  <meta property="article:author" content="tscxk" />
+  <meta property="article:published_time" content="2025-08-26T20:22:56&#43;08:00" />
+  <meta property="article:modified_time" content="2025-09-03T16:50:51&#43;08:00" /><meta property="article:tag" content="mysql" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.ff3c4479322066a1e01dbf58078af12b743583cf6314e036e335a7e46f67c3d7.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.css"
+    integrity="sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj&#43;vDDLIL&#43;xBGQU/voDBY5XE2lVh" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var startLoading = () => {
+      time = Date.now();
+      document.getElementById('loader').classList.remove("loading");
+    }
+    var endLoading = () => {
+      if (!time) {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loader').classList.add("loading");
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          document.body.style.overflow = 'auto';
+          document.getElementById('loader').classList.add("loading");
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    document.getElementById('loader').addEventListener('click', endLoading);
+  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+</div>
+<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">首页</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">归档</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">关于</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/friend">友链</a>
+      </span><a id="main-nav-toggle" class="nav-icon"></a>
+  </nav>
+  <nav id="sub-nav"></nav><nav id="i18n-nav">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">简体中文</span>
+        </div>
+        <ul class="select-items" id="select-items"><li data-value="en"  >English</li><li data-value="zh-cn" class="selected" >简体中文</li><li data-value="zh-tw"  >繁體中文</li></ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            if (item.dataset.value === 'zh-cn') {
+              return;
+            }
+            if (!langMap[item.dataset.value]) {
+              _$("#lang-tooltip").style.opacity = "1";
+              setTimeout(() => {
+                _$("#lang-tooltip").style.opacity = "0";
+              }, 1000);
+              return;
+            }
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+          }
+        });
+      </script>
+    </nav></div>
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="Mysql面试题"><div id="header-outer">
+    <div id="header-title"><a href="/" id="logo">
+            <h1 data-aos="slide-up">Mysql面试题</h1>
+          </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          class="sidebar-left"
+            ><aside id="sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql基础">Mysql基础</a>
+      <ul>
+        <li><a href="#1-mysql数据库中myisam和innodb的区别">1. MySQL数据库中MyISAM和InnoDB的区别</a></li>
+        <li><a href="#2-数据库的三范式">2. 数据库的三范式</a></li>
+        <li><a href="#3-b树和b树-为什么mysql选择b树">3. B树和B+树 为什么Mysql选择B+树</a></li>
+        <li><a href="#4-一条sql的执行过程">4. 一条sql的执行过程</a></li>
+        <li><a href="#5-sql的执行顺序">5. SQL的执行顺序</a></li>
+        <li><a href="#6-spring中事务的传播行为">6. Spring中事务的传播行为</a></li>
+        <li><a href="#7-mysql的四大事务特性是如何实现的">7. Mysql的四大事务特性是如何实现的？</a></li>
+        <li><a href="#8-为什么mysql的可重复读不会产生幻读">8. 为什么mysql的可重复读不会产生幻读</a></li>
+        <li><a href="#9-说说记录锁间隙锁和临键锁">9. 说说记录锁、间隙锁和临键锁</a></li>
+        <li><a href="#10-介绍下mvcc">10. 介绍下MVCC</a></li>
+        <li><a href="#11-什么是意向锁">11. 什么是意向锁</a></li>
+        <li><a href="#12-索引下推是什么">12. 索引下推是什么？</a></li>
+        <li><a href="#13-非聚簇索引为什么不存数据地址值而存储主键">13. 非聚簇索引为什么不存数据地址值而存储主键？</a></li>
+        <li><a href="#14-说说explain">14. 说说explain</a></li>
+        <li><a href="#15-binlog的三种模式">15. BinLog的三种模式</a></li>
+        <li><a href="#16-说说三大日志的刷盘时机">16. 说说三大日志的刷盘时机</a></li>
+        <li><a href="#17-innodb是如何实现事务的以update为例">17. InnoDB是如何实现事务的？以update为例</a></li>
+        <li><a href="#18-mysql三大日志">18. Mysql三大日志</a></li>
+        <li><a href="#19-change-buffer">19. Change Buffer</a></li>
+        <li><a href="#20-说说checkpoint">20. 说说CheckPoint</a></li>
+        <li><a href="#21-mysql主从复制原理与方式">21. Mysql主从复制原理与方式</a></li>
+        <li><a href="#22-mysql主从同步延时产生原因">22. Mysql主从同步延时产生原因</a></li>
+      </ul>
+    </li>
+    <li><a href="#sql相关">Sql相关</a>
+      <ul>
+        <li><a href="#1-通用sql函数">1. 通用sql函数</a></li>
+        <li><a href="#2-sql语句优化有哪些办法todo">2. sql语句优化有哪些办法（TODO）</a></li>
+        <li><a href="#3-countcount1和count列名的区别">3. count(*)、count(1)和count(列名)的区别</a></li>
+        <li><a href="#4-说说exists和in的区别">4. 说说exists和in的区别</a></li>
+        <li><a href="#5-distinct和grout-by">5. Distinct和Grout By</a></li>
+        <li><a href="#6-索引失效的场景">6. 索引失效的场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#综合">综合</a>
+      <ul>
+        <li><a href="#1mysql-数据库作发布系统的存储一天五万条以上的增量预计运维三">1.MySQL 数据库作发布系统的存储，一天五万条以上的增量，预计运维三</a></li>
+        <li><a href="#2-大批量如千万级数据导入该怎么优化">2. 大批量（如千万级）数据导入该怎么优化？</a></li>
+        <li><a href="#3-分库分表会带来什么问题如果解决">3. 分库分表会带来什么问题，如果解决</a></li>
+        <li><a href="#4-一条sql执行时间过长如何优化">4. 一条sql执行时间过长如何优化？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="tscxk"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">tscxk</div>
+  <div class="sidebar-description">叽里咕噜...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">6</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      3
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">7</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><meting-js
+        theme="var(--color-link)"
+        id="2265921590"server="netease"type="playlist"class="aplayer-after-sidebar"
+        >
+      </meting-js><div class="sidebar-widget"></div></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-08-26 20:22:56 &#43;0800 CST" itemprop="datePublished"
+      >2025-08-26</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-09-03</time
+    >
+  </span><span
+      class="article-date-link icon-calendar-plus"
+      data-aos="zoom-in"
+    >
+      <time datetime="2025-09-03 16:50:51.7598117 &#43;0800 CST" itemprop="dateModified"
+        >2025-09-03</time
+      >
+    </span></div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/%e9%9d%a2%e8%af%95%e9%a2%98"
+      data-aos="zoom-in"
+      >面试题</a
+    ></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="mysql基础">
+<a class="header-anchor" href="#mysql%e5%9f%ba%e7%a1%80"></a>
+Mysql基础
+</h2><h3 id="1-mysql数据库中myisam和innodb的区别">
+<a class="header-anchor" href="#1-mysql%e6%95%b0%e6%8d%ae%e5%ba%93%e4%b8%admyisam%e5%92%8cinnodb%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+1. MySQL数据库中MyISAM和InnoDB的区别
+</h3><p>MyISAM:</p>
+<ul>
+<li>不支持事务，但每次查询都是原子的</li>
+<li>不支持行级锁</li>
+<li>不支持外键约束</li>
+<li>使用非聚簇索引</li>
+<li>存储表的总行数</li>
+</ul>
+<p>InnoDB:</p>
+<ul>
+<li>支持事务并且有四种隔离级别</li>
+<li>支持行级锁</li>
+<li>拥有redo log，支持崩溃后数据恢复</li>
+<li>用户undo log，支持事务回滚</li>
+<li>使用聚簇索引</li>
+<li>不存储表的总行数</li>
+</ul>
+<h3 id="2-数据库的三范式">
+<a class="header-anchor" href="#2-%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9a%84%e4%b8%89%e8%8c%83%e5%bc%8f"></a>
+2. 数据库的三范式
+</h3><ol>
+<li>每个字段具有原子性，即每列数据不可再拆分</li>
+<li>非主键字段完全依赖主键</li>
+<li>非主键字段直接依赖主键字段，不存在间接依赖</li>
+</ol>
+<h3 id="3-b树和b树-为什么mysql选择b树">
+<a class="header-anchor" href="#3-b%e6%a0%91%e5%92%8cb%e6%a0%91-%e4%b8%ba%e4%bb%80%e4%b9%88mysql%e9%80%89%e6%8b%a9b%e6%a0%91"></a>
+3. B树和B+树 为什么Mysql选择B+树
+</h3><p>B树和B+树都是多路平衡搜索树，B+树是B树的变种，在数据库索引领域几乎取代了B树</p>
+<ol>
+<li>
+<p>B树结构特点：</p>
+<ul>
+<li>所有节点存储数据</li>
+<li>叶子结点和非叶子节点结构相同，非叶子节点的键不会在叶子节点中再次出现</li>
+<li>节点内部存储数据有序：节点内部数据可以用二分法查找</li>
+</ul>
+</li>
+<li>
+<p>B+树结构特点：</p>
+<ul>
+<li>数据只存储在叶子节点，非叶子节点只存储指针</li>
+<li>叶子节点形成有序链表</li>
+<li>非叶子节点的键会在叶子结点再次出现</li>
+</ul>
+</li>
+<li>
+<p>为什么选择B+树</p>
+<ul>
+<li>
+<p><strong>更低的树高，更少的IO</strong></p>
+<p>由于非叶子节点不存储数据，这意味着每个非叶子节点可以存储更多的键，在相同的数据规模的情况下，B+树会更矮，这会消耗更少的IO次数</p>
+</li>
+<li>
+<p><strong>支持范围查询</strong></p>
+<p>由于B+数的叶子节点有序，这意味着它可以更好的支持范围查询，相较之下，B树则需要复杂的中序遍历</p>
+</li>
+<li>
+<p><strong>更稳定的查询效率</strong></p>
+<p>这是B+树相对于B树最大的优势。叶子节点的链表结构使得范围查询几乎是线性的，性能极佳。而B树需要进行复杂的中序遍历。</p>
+</li>
+<li>
+<p><strong>更好的空间局部性</strong></p>
+<p>叶子节点存储所有数据，并且是顺序的，更适合磁盘的预读特性。全表扫描只需要遍历叶子节点链表即可，效率非常高。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-一条sql的执行过程">
+<a class="header-anchor" href="#4-%e4%b8%80%e6%9d%a1sql%e7%9a%84%e6%89%a7%e8%a1%8c%e8%bf%87%e7%a8%8b"></a>
+4. 一条sql的执行过程
+</h3><ol>
+<li>
+<p>连接器</p>
+<p>作用：管理客户端连接、身份认证和权限校验</p>
+</li>
+<li>
+<p>查询缓存</p>
+<p>作用：缓存select查询结果，如果命中则直接缓存，否则继续执行并将结果存入缓存</p>
+<blockquote>
+<p><strong>但是在Mysql8.0之后，查询缓存已被移除</strong></p>
+<p>原因：任何对表的更改操作（INSERT/UPDATE/DELETE）都会使该表的所有查询缓存失效。对于更新频繁的系统，缓存命中率极低，维护缓存反而带来巨大开销。</p></blockquote>
+</li>
+<li>
+<p>分析器</p>
+<p>作用：进行词法分析+语法分析</p>
+<ul>
+<li>词法分析：对sql语句进行拆分识别，例如识别出字段、表、查询条件等</li>
+<li>语法分析：根据mysql的语法规则判断SQL语法的正确性</li>
+</ul>
+</li>
+<li>
+<p>优化器</p>
+<p>作用：它会选择它认为成本最低的方案，但这个方案不一定总是最优的。这正是有时需要使用<code>FORCE INDEX</code>或优化SQL写法来干预的原因。它本身主要关注以下几个方面：</p>
+<ul>
+<li>索引选择</li>
+<li>多表关联的顺序</li>
+<li>子查询优化</li>
+<li>条件排序和化简</li>
+</ul>
+<p>执行器主要从IO和CPU消耗来考虑成本</p>
+</li>
+<li>
+<p>执行器</p>
+<p>作用：根据优化器生成的执行计划，调用存储引擎的接口进行操作，主要过程有:</p>
+<ul>
+<li>再次校验用户权限</li>
+<li>根据执行计划调用存储引擎</li>
+<li>将满足条件的行组成结果集返回给客户端</li>
+</ul>
+</li>
+<li>
+<p>存储引擎</p>
+<p>作用：负责数据的<strong>存储和提取</strong>，位于架构底层。MySQL是插件式的，支持多种存储引擎（如InnoDB, MyISAM, Memory）</p>
+</li>
+</ol>
+<h3 id="5-sql的执行顺序">
+<a class="header-anchor" href="#5-sql%e7%9a%84%e6%89%a7%e8%a1%8c%e9%a1%ba%e5%ba%8f"></a>
+5. SQL的执行顺序
+</h3><blockquote>
+<p>更详细的可以参考：<br>
+<a href="https://www.yanfukun.com/read/sql/runorder">SQL语句执行顺序深度解析 - 《SQL查询实战》 - 严富坤的知识库专栏(yanfukun.com)</a></p></blockquote>
+<p>select语句通常结构如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="p">[</span><span class="k">DISTINCT</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">select_list</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="o">&lt;</span><span class="n">table_source</span><span class="o">&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">JOIN</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">...]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">WHERE</span><span class="w"> </span><span class="o">&lt;</span><span class="n">where_condition</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">group_by_list</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">HAVING</span><span class="w"> </span><span class="o">&lt;</span><span class="n">having_condition</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">&lt;</span><span class="n">order_by_list</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">LIMIT</span><span class="w"> </span><span class="o">&lt;</span><span class="n">limit_number</span><span class="o">&gt;</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></div><p>其实际的逻辑执行顺序如下：</p>
+<ol>
+<li>FROM        确定数据源 联表查询</li>
+<li>ON          ON筛选</li>
+<li>JOIN        连接其他数据表</li>
+<li>WHERE       行级过滤</li>
+<li>GROUP BY    分组</li>
+<li>HAVING      组级过滤</li>
+<li>SELECT      选择和计算字段</li>
+<li>ORDER BY    排序</li>
+<li>LIMIT       数量</li>
+</ol>
+<p>更详细的信息如下（这里假设是两张表的联表查询）：</p>
+<h4 id="from笛卡尔积">
+<a class="header-anchor" href="#from%e7%ac%9b%e5%8d%a1%e5%b0%94%e7%a7%af"></a>
+FROM：笛卡尔积
+</h4><p>在这一阶段，数据库会对参与查询的两张表执行笛卡尔积（交叉连接），生成<strong>虚拟表VT1</strong>。（如果有更多的表。通常基于小表驱动大表的规则）</p>
+<h4 id="on过滤器">
+<a class="header-anchor" href="#on%e8%bf%87%e6%bb%a4%e5%99%a8"></a>
+ON：过滤器
+</h4><p>对<strong>虚拟表VT1</strong>应用ON筛选器，筛选出满足ON条件的行保存在<strong>虚拟表VT2</strong>中。</p>
+<h4 id="join添加外部行">
+<a class="header-anchor" href="#join%e6%b7%bb%e5%8a%a0%e5%a4%96%e9%83%a8%e8%a1%8c"></a>
+JOIN：添加外部行
+</h4><p>如果指定了参数，如LEFT JOIN， RIGHT JOIN，则数据库还会降未不满足ON条件的行作为外部行添加到VT2中生成新的<strong>虚拟表VT3。</strong></p>
+<ul>
+<li>LEFT OUTER JOIN 把左表记为保留表，对于没有符合条件的右边赋值为NULL</li>
+<li>RIGHT OUTER JOIN 把右表记为保留表，对于没有符合条件的左表赋值为NULL</li>
+<li>FULL OUTER JOIN 把左右表都作为保留表</li>
+</ul>
+<h4 id="where行级过滤器">
+<a class="header-anchor" href="#where%e8%a1%8c%e7%ba%a7%e8%bf%87%e6%bb%a4%e5%99%a8"></a>
+WHERE：行级过滤器
+</h4><p>对虚拟表VT3的每一行的数据应用WHERE过滤器，并将满足条件的数据插入<strong>虚拟表VT4</strong></p>
+<h4 id="group-by分组">
+<a class="header-anchor" href="#group-by%e5%88%86%e7%bb%84"></a>
+GROUP BY：分组
+</h4><p>按照GROUP BY的条件将VT4中行唯一值合并成一组生成<strong>虚拟表VT5</strong>，</p>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>如果应用了 GROUP BY，那么后面的所有步骤都只能得到的虚拟表 VT5 的列或者是聚合函数（count、sum、avg等）。原因在于最终的结果集中都要已经是组结果了。</p>
+<p>常见的聚合函数包括：</p>
+<ul>
+<li>COUNT</li>
+<li>MIN、MAX、AVG、SUM</li>
+<li>FIRST、LAST</li>
+</ul></p>
+  </blockquote>
+
+<h4 id="having组级过滤器">
+<a class="header-anchor" href="#having%e7%bb%84%e7%ba%a7%e8%bf%87%e6%bb%a4%e5%99%a8"></a>
+HAVING：组级过滤器
+</h4><p>对<strong>虚拟表VT5</strong>应用组过滤器，会将符合条件的数据保存在<strong>虚拟表VT6</strong>中</p>
+<h4 id="select">
+<a class="header-anchor" href="#select"></a>
+SELECT：
+</h4><p>将<strong>虚拟表VT6</strong>中的结果按照SELECT进行刷选，生成<strong>虚拟表VT7</strong><br>
+同时，从这一步开始，后面的语句中都可以使用 SELECT 中的别名。</p>
+<p>例如以下是一个 查询当天的访客 并根据访问时间倒序排序</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">visitor_id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">visit_time</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">latest_visit_time</span><span class="w"> </span><span class="c1">-- 1. 分组后，取最大时间作为最近访问时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">FROM</span><span class="w"> </span><span class="n">visit_log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="nb">DATE</span><span class="p">(</span><span class="n">visit_time</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;2023-10-27&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">visitor_id</span><span class="w"> </span><span class="c1">-- 2. 按访客ID分组，实现“每个访客一条记录”
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 3. 对分组聚合后的结果按最新时间排序 可以使用别名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">latest_visit_time</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w"> 
+</span></span></span></code></pre></div><h4 id="distinct">
+<a class="header-anchor" href="#distinct"></a>
+DISTINCT
+</h4><p>对<strong>虚拟表VT7</strong>中的结果按照条件进行去重，生成<strong>虚拟表VT8</strong></p>
+<h4 id="order-by排序">
+<a class="header-anchor" href="#order-by%e6%8e%92%e5%ba%8f"></a>
+ORDER BY：排序
+</h4><p>根据条件对<strong>虚拟表VT8</strong>进行排序生成游标，注意这里不是<strong>虚拟表</strong>。因此使用 ORDER BY 子句查询不能应用于表达式。同时，ORDER BY 子句的执行顺序为从左到右排序，是非常消耗资源的。</p>
+<h4 id="limit分页">
+<a class="header-anchor" href="#limit%e5%88%86%e9%a1%b5"></a>
+LIMIT：分页
+</h4><p>根据游标从VT8里面选择指定数量行生成<strong>虚拟表VT9</strong>，并返回调用者</p>
+<h3 id="6-spring中事务的传播行为">
+<a class="header-anchor" href="#6-spring%e4%b8%ad%e4%ba%8b%e5%8a%a1%e7%9a%84%e4%bc%a0%e6%92%ad%e8%a1%8c%e4%b8%ba"></a>
+6. Spring中事务的传播行为
+</h3><ol>
+<li>
+<p>REQUIRED</p>
+<p>需要一个事务，如果当前有则加入，没有则新建</p>
+</li>
+<li>
+<p>SUPPORTS</p>
+<p>支持事务，有则加入，无则无事发生</p>
+</li>
+<li>
+<p>MANDATORY</p>
+<p>强制当前存在事务，没有则抛出异常</p>
+</li>
+<li>
+<p>REQUIRES_NEW</p>
+<p>需要一个新的事务，不管当前有没有都会创建一个新的事务</p>
+</li>
+<li>
+<p>NOT_SUPPORTED</p>
+<p>不支持事务，如果当前有事务则挂机</p>
+</li>
+<li>
+<p>NEVER</p>
+<p>如果当前存在事务会抛出异常</p>
+</li>
+<li>
+<p>NESTED</p>
+<p>如果当前有事务，则使用嵌套事务，没有则新建事务</p>
+
+  <blockquote class="alert-blockquote tip">
+    <p class="alert-heading">
+      Tip
+    </p>
+    <p><p>嵌套事务：子事务会创建保存点</p>
+<p>如果子事务执行成功，则会跟随父事务的提交而提交</p>
+<p>如果子事务执行失败，则子事务的回滚状态并不会影响到父事务的回滚状态，但是如果在同一个事务中则会影响</p>
+<p><strong>注意：事务的回滚状态和异常是两个概念，异常的捕获并不会影响回滚状态的变更</strong></p>
+<p>可以参考：[Spring事务大坑：明明捕获了异常，为什么事务还是回滚了？_异常捕获了会不会事务回滚-CSDN博客</p>
+<p><a href="https://blog.csdn.net/zhu719224032/article/details/146085097"></a></p></p>
+  </blockquote>
+
+</li>
+</ol>
+<h3 id="7-mysql的四大事务特性是如何实现的">
+<a class="header-anchor" href="#7-mysql%e7%9a%84%e5%9b%9b%e5%a4%a7%e4%ba%8b%e5%8a%a1%e7%89%b9%e6%80%a7%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84"></a>
+7. Mysql的四大事务特性是如何实现的？
+</h3><p>Mysql的四大特性：</p>
+<ul>
+<li>
+<p>原子性</p>
+<p>通过Undo log（撤销日志）保证事务的原子性</p>
+</li>
+<li>
+<p>一致性</p>
+<p>通过Redo Log（重做日志）保障事务的一致性</p>
+</li>
+<li>
+<p>隔离性</p>
+<p>通过数据库锁的机制，保障事务的隔离性</p>
+</li>
+<li>
+<p>持久性</p>
+<p>通过Redo Log+Bing Log保证事务的持久性</p>
+</li>
+</ul>
+<h3 id="8-为什么mysql的可重复读不会产生幻读">
+<a class="header-anchor" href="#8-%e4%b8%ba%e4%bb%80%e4%b9%88mysql%e7%9a%84%e5%8f%af%e9%87%8d%e5%a4%8d%e8%af%bb%e4%b8%8d%e4%bc%9a%e4%ba%a7%e7%94%9f%e5%b9%bb%e8%af%bb"></a>
+8. 为什么mysql的可重复读不会产生幻读
+</h3><p>通常情况下可重复读会产生幻读，但是mysql的可重复级别却并不会产生幻读问题，mysql是如何实现的？</p>
+<p>mysql的读取分为两种</p>
+<ul>
+<li>
+<p>快照读（Snapshot Read）：普通的、不加锁的select语句。<strong>如果在事务里面，读取的是事务开始时的最新数据</strong></p>
+<p>解决幻读的方式：<strong>基于MVCC读取历史快照</strong></p>
+</li>
+<li>
+<p>当前读（Current Read）:需要加锁的读操作，目的是为了获取数据的最新版本。<strong>如果在事务里面，读取的是仍然是当前时刻的最新数据</strong>。</p>
+<p>解决幻读的方式：<strong>临键锁</strong></p>
+</li>
+</ul>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>实际上插入/更新/删除属于特殊的当前读，也需要对对应的数据进行加锁</p>
+<p>其中</p>
+<ul>
+<li>update/delete：会对被修改的数据加上排他锁，还可能加上间隙锁</li>
+<li>insert：对插入行所在的间隙添加<strong>插入意向锁</strong>的间隙锁，插入成功后，会对新插入的这条记录加上排它锁</li>
+</ul></p>
+  </blockquote>
+
+<h3 id="9-说说记录锁间隙锁和临键锁">
+<a class="header-anchor" href="#9-%e8%af%b4%e8%af%b4%e8%ae%b0%e5%bd%95%e9%94%81%e9%97%b4%e9%9a%99%e9%94%81%e5%92%8c%e4%b8%b4%e9%94%ae%e9%94%81"></a>
+9. 说说记录锁、间隙锁和临键锁
+</h3>
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>**这些高级行锁一定要有索引才能工作。**如果没有索引，InnoDB会几乎退化锁住整张表，这会严重影响对应表的并发性能甚至导致死锁。</p>
+<ol>
+<li>
+<p>有索引：</p>
+<p>InnoDB通过索引树快速找到满足条件的记录，然后只对这些索引和它们之间的间隙加锁。<br>
+优点是锁定范围小、精度高、并发高</p>
+</li>
+<li>
+<p>没有索引：</p>
+<p>由于没有索引可以利用，InnoDB为了确保查询的正确性和隔离性，不得不进行全表扫描。<strong>在全表扫描的过程中，它会对所有扫描到的记录加锁</strong>。同时还会对所有可能的间隙加锁，这实际上相当于锁住了整张表。</p>
+</li>
+</ol>
+<p><strong>InnoDB默认使用临键锁，如果是唯一索引等值匹配才会使用记录锁。</strong></p></p>
+  </blockquote>
+
+<h4 id="记录锁record-lock">
+<a class="header-anchor" href="#%e8%ae%b0%e5%bd%95%e9%94%81record-lock"></a>
+记录锁（Record Lock）
+</h4><p>作用：锁住索引上的某一条具体记录，防止其他事务修改或删除这条被锁定的记录</p>
+<p>例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- id是唯一索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- type为非唯一索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">15</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><strong>需要注意的是：</strong></p>
+<p>当where条件用的不是非唯一索引，记录锁不仅仅锁住某一条记录，还可能锁住多条记录和间隙</p>
+<p>核心原因是因为非唯一索引的“重复”问题。</p>
+<p>最终会导致：</p>
+<ol>
+<li>在type索引树上加锁：包含记录锁+临键锁</li>
+<li>回表到主键id上加锁：只有记录锁</li>
+</ol>
+<p><strong>另外非唯一索引的等值匹配如果匹配到了 会使用到前后两个区间的临键锁(实际上是一个临键锁+间隙锁)  否则就是所在区间的临键锁</strong></p>
+<p>例如：一个age 索引包含值，10，11，13和20</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 会锁住(13, 20]这个临键锁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">15</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 会锁住(10, 11]和(11, 13]两个临键锁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">11</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><h4 id="间隙锁gap-lock">
+<a class="header-anchor" href="#%e9%97%b4%e9%9a%99%e9%94%81gap-lock"></a>
+间隙锁（Gap Lock）
+</h4><p>作用：锁住记录之间的“间隙”，或者第一个记录之前/最后一个记录之后的无限空间。</p>
+<p>特点：间隙锁之间并不冲突，多个事务可以同时锁住同一个间隙，只要它们之间插入的位置不冲突（例如大家都锁住id为2-10的间隙，但是一个插入id为5，另一个插入id为6的数据）</p>
+<h4 id="临键锁next-key-lock">
+<a class="header-anchor" href="#%e4%b8%b4%e9%94%ae%e9%94%81next-key-lock"></a>
+临键锁（Next-Key Lock）
+</h4><p>定义：记录锁+间隙锁的组合。它锁住的是一个左开右闭（包含下一个记录）的区间(A, B]，可重复读通过临键锁解决了当前读的幻读问题。</p>
+<h4 id="临键锁的退化">
+<a class="header-anchor" href="#%e4%b8%b4%e9%94%ae%e9%94%81%e7%9a%84%e9%80%80%e5%8c%96"></a>
+临键锁的退化
+</h4><h5 id="临键锁退化为记录锁">
+<a class="header-anchor" href="#%e4%b8%b4%e9%94%ae%e9%94%81%e9%80%80%e5%8c%96%e4%b8%ba%e8%ae%b0%e5%bd%95%e9%94%81"></a>
+临键锁退化为记录锁
+</h5><ol>
+<li><strong>唯一索引的等值查询</strong>：当使用唯一索引进行精确等值匹配查询(如<code>WHERE id = 10</code>)，且查询的记录确实存在时，InnoDB会将临键锁退化为记录锁，只锁定该行记录。</li>
+<li><strong>主键的等值查询</strong>：与唯一索引类似，对主键进行等值查询且记录存在时，也会退化为记录锁。</li>
+</ol>
+<h5 id="临键锁退化为间隙锁">
+<a class="header-anchor" href="#%e4%b8%b4%e9%94%ae%e9%94%81%e9%80%80%e5%8c%96%e4%b8%ba%e9%97%b4%e9%9a%99%e9%94%81"></a>
+临键锁退化为间隙锁
+</h5><ol>
+<li><strong>唯一索引的等值查询但记录不存在</strong>：当使用唯一索引进行等值查询(如<code>WHERE id = 15</code>)，但该记录不存在时，临键锁会退化为间隙锁，锁定该值前后的间隙。</li>
+<li><strong>非唯一索引的等值查询</strong>：对非唯一索引进行等值查询时，即使记录存在，InnoDB也会使用多使用一个间隙锁来防止其他事务插入相同的值。</li>
+<li><strong>范围查询的边界条件</strong>：在范围查询的边界条件下，可能会退化为间隙锁。 具体看后面样例4</li>
+</ol>
+<h4 id="样例一-间隙锁和插入意向锁">
+<a class="header-anchor" href="#%e6%a0%b7%e4%be%8b%e4%b8%80-%e9%97%b4%e9%9a%99%e9%94%81%e5%92%8c%e6%8f%92%e5%85%a5%e6%84%8f%e5%90%91%e9%94%81"></a>
+样例一 间隙锁和插入意向锁
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 建表语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">test</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>此时有事务B</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 情况1：会被阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 情况2：不会被阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>事务A会对(5, 10)施加插入意向锁 并给id=12上记录锁</p>
+<p>事务B很明显是要获取临键锁（记录锁+间隙锁 在mysql中为原子操作）</p>
+<ul>
+<li>
+<p>情况1：</p>
+<p>获取间隙锁(10, 15)和(15, +∞)</p>
+<p>获取记录锁15</p>
+</li>
+<li>
+<p>情况2：</p>
+<p>获取间隙锁(10, 15)和(15, +∞)</p>
+<p>获取记录锁12和15 此时与情况1的记录锁冲突 导致阻塞</p>
+</li>
+</ul>
+<p>这说明<strong>间隙锁不会被插入意向锁阻塞的</strong></p>
+<p>但是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 事务B
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A  会被阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="p">(</span><span class="mi">12</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>这说明<strong>插入意向锁会被间隙锁阻塞</strong></p>
+<p>总的来说：插入意向锁并不阻塞其他事务，但是其他事务通常会阻塞插入意向锁</p>
+<p>ps: 我觉得也可能使插入意向锁和间隙锁不互斥 只是因为插入后要获取记录锁，然后才和间隙锁互斥了</p>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>需要注意的是，mysql可能会上多个间隙锁</p>
+<p>例如有一个表有一个主键和一个唯一索引三个非唯一索引</p>
+<p>在插入数据的时候，会添加</p>
+<ul>
+<li>对主键的记录锁</li>
+<li>对唯一索引的记录锁</li>
+<li>对三个非唯一索引添加（两边的间隙锁+等值的记录锁）</li>
+</ul>
+<p>非唯一索引的间隙锁会添加两边的！！！！！</p></p>
+  </blockquote>
+
+<h4 id="样例二-非唯一索引的等值匹配">
+<a class="header-anchor" href="#%e6%a0%b7%e4%be%8b%e4%ba%8c-%e9%9d%9e%e5%94%af%e4%b8%80%e7%b4%a2%e5%bc%95%e7%9a%84%e7%ad%89%e5%80%bc%e5%8c%b9%e9%85%8d"></a>
+样例二 非唯一索引的等值匹配
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 有唯一索引id和非唯一索引age
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">test</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_age</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">情况</span><span class="mi">1</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">情况</span><span class="mi">2</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">情况</span><span class="mi">3</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 不阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">情况</span><span class="mi">4</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 不阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">情况</span><span class="mi">5</span><span class="err">（情况</span><span class="mi">2</span><span class="err">的变种）：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">id</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 不阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>情况1和情况2说明了数据库在对非唯一索引进行加锁会用到临键锁，事务A实际上获取了：
+<ul>
+<li>临键锁：(5,10]</li>
+<li>间隙锁：(10,15)</li>
+</ul>
+</li>
+<li>情况2和情况3说明了在面对唯一索引将会直接使用记录锁，事务A实际上获取了
+<ul>
+<li>记录锁：10</li>
+</ul>
+</li>
+</ul>
+<p>对于情况5：因为使用了唯一索引id+非唯一索引可以唯一确定一条数据，因此仍然只获取了记录锁而不是间隙锁</p>
+<p><strong>这也印证了前面说的：InnoDB默认使用临键锁，如果是唯一索引等值匹配才会使用记录锁。</strong></p>
+<h4 id="样例三-多索引下的抉择">
+<a class="header-anchor" href="#%e6%a0%b7%e4%be%8b%e4%b8%89-%e5%a4%9a%e7%b4%a2%e5%bc%95%e4%b8%8b%e7%9a%84%e6%8a%89%e6%8b%a9"></a>
+样例三 多索引下的抉择
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 一个唯一索引和两个非唯一索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">test2</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="k">type</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_age</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_type</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="k">type</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">22</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test2</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="k">type</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 情况1：
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test2</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">type</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 被阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test2</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 情况2：
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test2</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">type</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">age</span><span class="o">=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务B 不阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test2</span><span class="p">(</span><span class="k">type</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div><p>通过explain计划我们可以发现如下：</p>
+<p><img src="./images/image-20250829161357324.png" alt="image-20250829161357324"></p>
+<p>这说明了事务A使用了索引age，因此只会对age建立两个间隙锁和一个记录锁。而不会使用type的间隙锁和记录锁，因次情况1中事务B会被阻塞，而情况2的事务B不会被阻塞。</p>
+<h4 id="样例四-范围查询">
+<a class="header-anchor" href="#%e6%a0%b7%e4%be%8b%e5%9b%9b-%e8%8c%83%e5%9b%b4%e6%9f%a5%e8%af%a2"></a>
+样例四 范围查询
+</h4><p>对于范围匹配，上锁基础单位为<strong>临键锁</strong>，数据库会从左到右依次判断右边界是否在条件里面，如果在则上锁，否则继续往右边判断，直到找到不在搜索条件中的右边界，然后加入这个范围的<strong>间隙锁</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 有唯一索引id和非唯一索引age
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="n">test</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_age</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 事务A
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">begin</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&gt;=</span><span class="mi">5</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">&lt;=</span><span class="mi">10</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 下面的语句都会被阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- insert into test(id) values(2);
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- insert into test(id) values(12);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 如果查询条件为[5,10)  则会阻塞(-∞, 10] 因为10不在范围查询条件里面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 但是注意唯一索引和非唯一索引的加锁区别
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 情况一：加锁范围是 (-∞,10)  （会给id上锁）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- select * from test where id &gt;=5 and id &lt;8 for update;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 情况二：加锁范围是 (-∞,10]  （会给age和id都上锁，其中id会回表上锁）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- select * from test where age &gt;=5 and age &lt;8 for update;
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 下面都会被阻塞
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- select * from test where age=10 for update;
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- select * from test where id=10 for update;
+</span></span></span></code></pre></div><ol>
+<li>第一个临键锁右边界为5，5在条件里面，添加临键锁(-∞,5]</li>
+<li>第二个临键锁右边界为10，也在条件里面，添加临键锁(5,10]</li>
+<li>第三个临键锁右边界为15，不在条件里面。添加间隙锁(10,15)</li>
+</ol>
+<h4 id="总结">
+<a class="header-anchor" href="#%e6%80%bb%e7%bb%93"></a>
+总结
+</h4><p>总的来说，加锁的基础单位是<strong>临键锁</strong></p>
+<blockquote>
+<p>mysql会从叶子结点从左到右依次扫描已有的数据，不存在的意思指对应的数据是否在查询条件里面,例如id有5,10,15 查询条件为[5, 10):<br>
+那么先扫描到5存在 则加入临键锁(-∞, 5)<br>
+然后扫描到10 发现不存在 加入间隙锁(5,10) 结束</p></blockquote>
+<ul>
+<li>唯一索引
+<ul>
+<li>等值查询
+<ul>
+<li>存在：临键锁退化为<strong>记录锁</strong></li>
+<li>不存在：临键锁退化为<strong>间隙锁</strong>  （实际上跟范围查询一样的）</li>
+</ul>
+</li>
+<li>范围查询：临键锁+间隙锁</li>
+</ul>
+</li>
+<li>非唯一索引
+<ul>
+<li>等值查询 （实际上跟范围查询一样的）
+<ul>
+<li>存在：**临键锁+间隙锁 **</li>
+<li>不存在：间隙锁</li>
+</ul>
+</li>
+<li>范围查询：临键锁 （最后一个不会退化为间隙锁）</li>
+</ul>
+</li>
+</ul>
+<p>这样看来，加锁的基础单位为临键锁，加锁的规则基本分为以下三类</p>
+<ul>
+<li>唯一索引+等值查询+存在：记录锁</li>
+<li>非唯一索引+范围查询：临键锁</li>
+<li>其他：临键锁（存在）+间隙锁（不存在）</li>
+</ul>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>需要注意的是，如果加锁的时候没有用到索引，那么数据库实际上会锁定所有的记录+间隙，相当于锁表了，平时开发一定要注意规避这类问题。</p></p>
+  </blockquote>
+
+<h3 id="10-介绍下mvcc">
+<a class="header-anchor" href="#10-%e4%bb%8b%e7%bb%8d%e4%b8%8bmvcc"></a>
+10. 介绍下MVCC
+</h3><blockquote>
+<p>MVCC（Multi-Version Concurrent Control）：多版本并发控制，是用来解决读写冲突的<strong>无锁并发控制</strong>，目的是高并发</p>
+<p>在没有MVCC的情况下，数据库通常通过锁来实现并发控制，这不仅会使数据库的并发能力变差，大量的锁还会带来严重的性能开销和死锁风险。</p>
+<p>特点：</p>
+<ul>
+<li>读写不阻塞</li>
+<li>降低死锁概率</li>
+<li>解决快照读的幻读问题</li>
+</ul></blockquote>
+<p>MVCC的核心思想是为每一行数据维护多个版本。当一个事务需要读取数据室，数据库会基于某个时间点给他提供一“快照”，这个快照包含了当时所有已提交的数据版本，这样读操作和写操作就会在互不干扰的情况下处理同一份数据的不同版本。</p>
+<h4 id="实现原理">
+<a class="header-anchor" href="#%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86"></a>
+实现原理
+</h4><ol>
+<li>
+<p>InnoDB引擎为了支持MVCC，在每行数据中还添加了一些隐藏字段：</p>
+<ul>
+<li>
+<p>DB_ROW_ID（<strong>行id</strong>）</p>
+<p>隐含的自增ID（隐藏主键）。如果表有主键则用表主键；如果表没有主键，InnoDB会自动生成一个隐藏的主键，并根据其生成聚簇索引。</p>
+</li>
+<li>
+<p>DB_TRX_ID（<strong>最近修改事务id</strong>）</p>
+<p>记录最后一次对本行数据做修改操作的事务id</p>
+</li>
+<li>
+<p>DB_ROLL_PTR（<strong>回滚指针</strong>）</p>
+<p>指向该行数据在Undo Log中的上一个历史版本。所有旧版本的数据都通过这个指针连接成一个链表，成为<strong>版本链</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Undo Log</p>
+<p>这是 MVCC 的基石。当你更新或删除一条记录时，旧版本的数据不会被立刻物理删除，而是会被拷贝到 Undo Log 中。这个旧版本的数据就成为了该行数据的一个历史快照。</p>
+</li>
+<li>
+<p>Read View(读视图)</p>
+<p>当一个事务执行<strong>快照读</strong>（普通的 <code>SELECT ...</code> 语句，不包括 <code>SELECT ... FOR UPDATE</code> 或 <code>SELECT ... LOCK IN SHARE MODE</code> 这类加锁读）时，InnoDB 会为它创建一个 <strong>Read View</strong>。</p>
+<p>在一个事务中假设有多个快照读：</p>
+<ul>
+<li>
+<p>隔离级别为读已提交（RC）</p>
+<p>每个快照读都会生成并获取最新的Read View</p>
+</li>
+<li>
+<p>隔离级别为可重复读（RR）</p>
+<p>只会在</p>
+</li>
+</ul>
+<p>Read View决定了这个事务能看到哪些版本的数据。Read View 主要包含以下关键信息：</p>
+<ul>
+<li>m_ids:<strong>创建read_view时（即首次快照读而不是事务开始）</strong>，当前数据库中所有未提交的活跃事务的事务id集合</li>
+<li>m_creator_trx_id:读视图所在的事务id  如果版本链的事务id等于这个说明是自己修改的 直接可见</li>
+<li>m_up_limit_id:活跃事务m_ids中的最小的事务。小于这个ID的数据版本均可见</li>
+<li>m_low_limit_id:目前出现过的最大的事务ID+1，大于这个事务的id都不可见</li>
+</ul>
+<p>如果在后两者之间则使用二分法查找对应的事务id是否在m_ids里面 如果在说明事务还活跃着没有提交说明不可见，不在则说明可见</p>
+</li>
+<li>
+<p>Purge机制</p>
+<p>由于 MVCC 需要保留旧版本数据，Undo Log 会不断增长。InnoDB 有后台的 <code>purge</code> 线程，它会定期检查和删除那些<strong>不再被任何活跃事务的快照所需要</strong>的旧版本数据，从而回收空间。</p>
+</li>
+</ol>
+<h3 id="11-什么是意向锁">
+<a class="header-anchor" href="#11-%e4%bb%80%e4%b9%88%e6%98%af%e6%84%8f%e5%90%91%e9%94%81"></a>
+11. 什么是意向锁
+</h3><h4 id="基本概念">
+<a class="header-anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"></a>
+基本概念
+</h4><p>意向锁（Intention Lock）是InnoDB实现多粒度锁机制的关键组成部分，它表示“某个事物打算在表的某个部分加锁”，这意味着它属于<strong>表级锁</strong>，意向锁分为两种：</p>
+<ul>
+<li>意向共享锁（IS：Intention Shared Lock）：表示事务打算在表的某些行上设置共享锁</li>
+<li>意向排它锁（XS：Intention Exclusive Lock）：表示事务打算在表的某些行上设置排它锁</li>
+</ul>
+<p><strong>事务在获取行锁之前，必须先获取表级的意向锁</strong></p>
+<h4 id="作用">
+<a class="header-anchor" href="#%e4%bd%9c%e7%94%a8"></a>
+作用
+</h4><p>意向锁的主要作用就是方便快速判断表是否被锁定，避免逐行检查锁状态</p>
+<p>意向锁之间并不互斥，他们只是表示表里面有某些行上了对应的锁，</p>
+<p>意向锁和表级锁互斥，例如有某个事务想要对表上互斥锁，那么它只需要判断表上是否有意向排它锁即可，不用去逐行检查行数据是否被上了排它锁。</p>
+<p>总的来说，意向锁是为表级锁服务的</p>
+<h4 id="和插入意向锁的区别">
+<a class="header-anchor" href="#%e5%92%8c%e6%8f%92%e5%85%a5%e6%84%8f%e5%90%91%e9%94%81%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+和插入意向锁的区别
+</h4><p>尽管插入意向锁包含意向锁三个字，但插入意向锁实际上是一种特殊的间隙锁，属于行锁的范畴，和表级锁的意向锁并没有关系</p>
+<h3 id="12-索引下推是什么">
+<a class="header-anchor" href="#12-%e7%b4%a2%e5%bc%95%e4%b8%8b%e6%8e%a8%e6%98%af%e4%bb%80%e4%b9%88"></a>
+12. 索引下推是什么？
+</h3><p>索引下推(Index Condition Pushdown, ICP)是Mysql5.6引入的一项重要优化技术，它主要改变存储引擎层和服务器层的写作方式。</p>
+<h4 id="什么是下推">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af%e4%b8%8b%e6%8e%a8"></a>
+什么是下推？
+</h4><p>下推的内容主要是索引列的部分判断逻辑，将过滤操作从服务层下推到存储引擎层。例如:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 表结构
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">create_time</span><span class="w"> </span><span class="n">DATETIME</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">status</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_user_status</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查询：找出用户1001状态包含&#34;paid&#34;的订单
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1111</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">AND</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%paid%&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 再比如有联合索引（a,b,c）
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 对于查询语句select * from t where a=1 and c=1;
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 尽管只有a用到索引，但是该语句能使用ICP
+</span></span></span></code></pre></div><ul>
+<li>没有ICP
+<ol>
+<li>存储引擎首先找到所有user_id = 1111的记录（假设有1000条）</li>
+<li>存储引擎将这1000条数据传输给服务层</li>
+<li>服务层检查每条记录是否匹配要求的通配条件</li>
+<li>最终返回符合条件的记录（假设10条）</li>
+</ol>
+</li>
+<li>有ICP
+<ol>
+<li>存储引擎首先找到所有user_id = 1111的记录（假设有1000条）</li>
+<li>存储引擎内部检查是否符合通配条件</li>
+<li>返回符合条件的记录（假设10条）给服务层</li>
+<li>服务层返回数据</li>
+</ol>
+</li>
+</ul>
+<h4 id="索引下推的必要条件">
+<a class="header-anchor" href="#%e7%b4%a2%e5%bc%95%e4%b8%8b%e6%8e%a8%e7%9a%84%e5%bf%85%e8%a6%81%e6%9d%a1%e4%bb%b6"></a>
+索引下推的必要条件
+</h4><ul>
+<li>查询必须使用二级索引（聚簇索引不会使用到索引下推）</li>
+<li>where条件中<strong>至少有一个条件涉及索引列但无法用于索引扫描</strong></li>
+</ul>
+<p><strong>存储引擎通过索引只能看到索引包含的列值</strong>，这就是为什么非索引列条件无法下推的根本原因。</p>
+<p>所以ICP通常和联合索引绑定。<strong>ICP通常和主键没关系是因为不会通常不会建立包含主键的联合索引</strong></p>
+<h3 id="13-非聚簇索引为什么不存数据地址值而存储主键">
+<a class="header-anchor" href="#13-%e9%9d%9e%e8%81%9a%e7%b0%87%e7%b4%a2%e5%bc%95%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e5%ad%98%e6%95%b0%e6%8d%ae%e5%9c%b0%e5%9d%80%e5%80%bc%e8%80%8c%e5%ad%98%e5%82%a8%e4%b8%bb%e9%94%ae"></a>
+13. 非聚簇索引为什么不存数据地址值而存储主键？
+</h3><p>因为聚簇索引中有时会引发分页操作、重排操作数据有可能会移动</p>
+<h3 id="14-说说explain">
+<a class="header-anchor" href="#14-%e8%af%b4%e8%af%b4explain"></a>
+14. 说说explain
+</h3><p><img src="./images/image-20250901211417321.png" alt="image-20250901211417321"></p>
+<p>explain用于查看一个sql语句的执行计划</p>
+<p>执行计划主要包含以下信息：</p>
+<ul>
+<li>id：查询序号</li>
+<li>select_type：查询类型</li>
+<li>table：输出结果集的表</li>
+<li>partitions：匹配的分区</li>
+<li><strong>type</strong>：表的连接类型
+<ol>
+<li>system：表中只有一行数据，const的特例。通常是系统表</li>
+<li>const：主键或者唯一索引的等值匹配</li>
+<li>eq_ref：在进行多表连接（JOIN）查询时，对于来自前一个表的每一行，在当前表中<strong>只能找到唯一的一行与之匹配</strong>。通常出现在使用<strong>主键或唯一索引</strong>作为关联条件的连接查询中。</li>
+<li>ref：非唯一索引的等值匹配</li>
+<li>fulltext:使用全文索引的时候是这个类型。要注意，<strong>全文索引的优先级很高</strong>，若全文索引和普通索引同时存在时，mysql不管代价，优先选择使用全文索引</li>
+<li>ref_or_null:类似于 <code>ref</code>，但 MySQL 必须额外对包含 <code>NULL</code> 值的行进行搜索。</li>
+<li>index_merge:表示查询使用了两个以上的索引，最后取交集或者并集，常见and ，or的条件使用了不同的索引，官方排序这个在ref_or_null之后，但是实际上由于要读取多个索引，性能可能大部分时间都不如range</li>
+<li>range：索引范围查询</li>
+<li>index：索引全表扫描</li>
+<li>all：全表扫描 性能最差</li>
+</ol>
+</li>
+<li>possible_keys：查询时可能用到的索引</li>
+<li><strong>key</strong>：实际用到的索引</li>
+<li>key_len：索引字段的长度</li>
+<li>ref：列与索引的比较
+<ol>
+<li>const：表示使用了常量值</li>
+<li>某个列名：表示使用了普通索引进行查找</li>
+<li>某个函数名：例如UPPER（）导致索引失效或者部分失效</li>
+<li>NULL：没有使用索引</li>
+</ol>
+</li>
+<li>row：预估扫描的行数</li>
+<li>filtered：表示存储引擎返回的数据在server层过滤后，剩下多少满足查询的记录数量的比例</li>
+<li>extra：执行情况描述和说明
+<ol>
+<li>distinct：在select部分使用了distinct</li>
+<li>Using filesort：表示使用了内存/磁盘排序</li>
+<li>Using Index：使用了覆盖索引</li>
+<li>Using Index Condition：使用了索引下推</li>
+<li>&hellip;</li>
+</ol>
+</li>
+</ul>
+<h3 id="15-binlog的三种模式">
+<a class="header-anchor" href="#15-binlog%e7%9a%84%e4%b8%89%e7%a7%8d%e6%a8%a1%e5%bc%8f"></a>
+15. BinLog的三种模式
+</h3><ol>
+<li>
+<p>STATEMENT</p>
+<ul>
+<li>记录内容：记录实际执行的sql语句</li>
+<li>优点：
+<ul>
+<li>日志文件小，IO压力小</li>
+<li>主从复制兼容性好</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>某些函数在主从复制不一致，如NOW()、UUID()</li>
+</ul>
+</li>
+<li>适用场景：适合sql简单且不会调用不确定的函数的场景</li>
+</ul>
+</li>
+<li>
+<p>ROW（5.7.7+后成为默认模式）</p>
+<ul>
+<li>记录内容：记录每一行的数据变化</li>
+<li>优点：
+<ul>
+<li>数据一致性高，不存在不一致的情况</li>
+</ul>
+</li>
+<li>缺点：
+<ul>
+<li>日志文件大</li>
+<li>主从复制需要更多资源</li>
+</ul>
+</li>
+<li>适用场景：要求数据一致性的场景，5.7.7之后成为mysql的默认模式</li>
+</ul>
+</li>
+<li>
+<p>MIXED</p>
+<p>记录内容：默认使用statement模式，特殊情况用row模式</p>
+<p>切换条件：包含不确定函数时</p>
+</li>
+</ol>
+<h3 id="16-说说三大日志的刷盘时机">
+<a class="header-anchor" href="#16-%e8%af%b4%e8%af%b4%e4%b8%89%e5%a4%a7%e6%97%a5%e5%bf%97%e7%9a%84%e5%88%b7%e7%9b%98%e6%97%b6%e6%9c%ba"></a>
+16. 说说三大日志的刷盘时机
+</h3><h4 id="redo-log">
+<a class="header-anchor" href="#redo-log"></a>
+redo log
+</h4><p>redo log的刷盘由<code>innodb_flush_log_at_trx_commit</code>参数控制：</p>
+<ul>
+<li><strong>0</strong>：每秒刷盘一次，事务提交时不主动刷盘（可能丢失最多1秒的数据）</li>
+<li><strong>1</strong>：每次事务提交时都刷盘（默认，最安全）</li>
+<li><strong>2</strong>：每次事务提交时将redo log写入操作系统缓存，但不刷盘（MySQL宕机不会丢失数据，但操作系统崩溃会丢失）</li>
+</ul>
+<p>此外，还有以下情况会触发redo log刷盘：</p>
+<ul>
+<li>redo log buffer空间不足时</li>
+<li>后台线程定期刷盘</li>
+<li>MySQL正常关闭时</li>
+<li>checkpoint时</li>
+</ul>
+<h4 id="bin-log">
+<a class="header-anchor" href="#bin-log"></a>
+bin log
+</h4><p>binlog的刷盘由<code>sync_binlog</code>参数控制：</p>
+<ul>
+<li><strong>0</strong>：依赖操作系统刷盘（性能最好，安全性最差）</li>
+<li><strong>1</strong>：每次事务提交都刷盘（默认，最安全）</li>
+<li><strong>N</strong>：每N次事务提交刷盘一次</li>
+</ul>
+<h4 id="undo-log">
+<a class="header-anchor" href="#undo-log"></a>
+undo log
+</h4><p>undo log的刷盘时机：</p>
+<ul>
+<li>undo log是作为redo log的一部分记录的，所以其持久化依赖于redo log的刷盘</li>
+<li>undo页的修改也会产生redo log，因此redo log刷盘时也保证了undo log的持久化</li>
+<li>事务提交时不会立即删除undo log，因为可能需要用于MVCC</li>
+</ul>
+<h3 id="17-innodb是如何实现事务的以update为例">
+<a class="header-anchor" href="#17-innodb%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e4%ba%8b%e5%8a%a1%e7%9a%84%e4%bb%a5update%e4%b8%ba%e4%be%8b"></a>
+17. InnoDB是如何实现事务的？以update为例
+</h3><p>假设待执行sql为: <code>UPDATE t SET col1='new' WHERE id=1</code></p>
+<ol>
+<li>
+<p>事务开始：分配事务id</p>
+</li>
+<li>
+<p>数据查询：</p>
+<ul>
+<li>根据聚簇索引定位到id=1的记录的所在页，检查所在页是否在Buffer Pool里面，如果不在则从磁盘加载</li>
+<li>获取记录的行锁（如果有必要）</li>
+</ul>
+</li>
+<li>
+<p>修改数据</p>
+<ul>
+<li>记录Undo Log日志，将旧值写入undo log</li>
+<li>在Buffer Pool根据sql更新数据页</li>
+<li>记录redo log日志，将物理页变更到redo log buffer中</li>
+</ul>
+</li>
+<li>
+<p>事务提交（2PC：Two-Phase Commit）</p>
+<ul>
+<li>Prepare阶段
+<ul>
+<li>在redo log中标记事务状态为prepare</li>
+<li>将redo log日志刷盘</li>
+</ul>
+</li>
+<li>Commit阶段
+<ul>
+<li>将binlog刷盘</li>
+<li>在redo log中标记事务状态为commit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>释放资源</p>
+<p>主要包括锁消除、更新事务状态为已提交等动作</p>
+</li>
+<li>
+<p>后台处理</p>
+<ul>
+<li>脏页刷盘</li>
+<li>purge清除不需要的undo log和不用的历史版本链数据</li>
+</ul>
+</li>
+</ol>
+<h3 id="18-mysql三大日志">
+<a class="header-anchor" href="#18-mysql%e4%b8%89%e5%a4%a7%e6%97%a5%e5%bf%97"></a>
+18. Mysql三大日志
+</h3><blockquote>
+<p>binlog是Mysql服务层日志</p>
+<p>redolog和undolog则独属于InnoDB,属于引擎层日志</p></blockquote>
+<h4 id="binlog">
+<a class="header-anchor" href="#binlog"></a>
+BinLog
+</h4><ul>
+<li>
+<p>作用：主要记录数据库变更操作，Mysql使用任何引擎都会有BinLog日志</p>
+</li>
+<li>
+<p>日志类型：逻辑日志</p>
+</li>
+<li>
+<p>用途：主要用于<strong>主从复制</strong>+<strong>数据恢复</strong>，保障事务的持久性</p>
+</li>
+</ul>
+<h4 id="redolog">
+<a class="header-anchor" href="#redolog"></a>
+Redolog
+</h4><blockquote>
+<p>WAL(<strong>Write-Ahead Logging</strong>):在数据本身的变更写入磁盘之前，必须先将描述这个变更的日志（redo Log）写入磁盘。也就是日志先行。</p>
+<p>具体步骤如下：</p>
+<ul>
+<li>修改数据</li>
+<li>生成日志</li>
+<li>日志刷盘</li>
+<li>数据刷盘</li>
+</ul>
+<p>好处：</p>
+<ul>
+<li>保证持久性，实现崩溃恢复</li>
+<li>将随机写（写数据是随机写）变为顺序写（写redolog是顺序写），极大提升性能。通过WAL，数据库只需要在提交时完成一次快速的顺序IO（日志刷盘）就可以返回。而耗时的随机IO（脏数据刷盘）可以放到后台批量、缓慢的进行</li>
+<li>组提交，由于redlog是顺序追加，所以可以将多个并发事务的redolog刷盘操作合并成一次刷盘，大大降低了磁盘IO的次数。</li>
+</ul></blockquote>
+<ul>
+<li>作用：记录数据页的物理变化</li>
+<li>日志类型：物理日志；顺序IO</li>
+<li>用途：崩溃恢复时<strong>结合checkpoint和binglog</strong>进行数据恢复，保障事务的一致性和持久性</li>
+<li>好处：
+<ul>
+<li>降低刷盘频率</li>
+<li>顺序写入</li>
+</ul>
+</li>
+</ul>
+<h4 id="undolog">
+<a class="header-anchor" href="#undolog"></a>
+Undolog
+</h4><ul>
+<li>作用：记录修改前的行数据快照</li>
+<li>日志类型：逻辑日志</li>
+<li>用途：MVCC、保障事务的原子性（失败撤销）</li>
+</ul>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>除了上面三个日志</p>
+<p>还有：</p>
+<ul>
+<li>一般查询日志</li>
+<li>慢查询日志</li>
+<li>错误日志</li>
+</ul></p>
+  </blockquote>
+
+<h3 id="19-change-buffer">
+<a class="header-anchor" href="#19-change-buffer"></a>
+19. Change Buffer
+</h3><p>Change Buffer 是 <strong>Buffer Pool 中的一块特殊内存空间</strong>，其主要作用是缓存<strong>对非唯一二级索引（non-unique secondary index）页的更改操作</strong>。</p>
+<ul>
+<li><strong>目的</strong>：将针对二级索引的随机写 I/O 合并起来，变成顺序写 I/O，从而极大地提升<strong>写操作</strong>的性能。</li>
+<li><strong>前提</strong>：操作只针对<strong>非唯一</strong>的二级索引。对主键索引和唯一索引的修改无法使用 Change Buffer。</li>
+</ul>
+<p>假设我们有一张表 <code>users</code>，在 <code>age</code> 字段上有一个非唯一的二级索引。执行 <code>INSERT INTO users (name, age) VALUES ('Alice', 30);</code>：</p>
+<ol>
+<li>
+<p><strong>判断</strong>：InnoDB 发现要修改 <code>age</code> 索引，且该索引页<strong>不在</strong> Buffer Pool 中。</p>
+</li>
+<li>
+<p><strong>缓存操作</strong>：它不会立即去磁盘读取 <code>age=30</code> 对应的索引页，而是将 <strong>“在 age 索引中为 30 这个值添加一条记录”</strong> 这个<strong>操作信息</strong>缓存到 Change Buffer 中。</p>
+</li>
+<li>
+<p><strong>标记事务完成</strong>：事务可以很快完成，因为只在内存中记录了一个操作，避免了等待磁盘 I/O。</p>
+</li>
+<li>
+<p><strong>后续合并（Merge）</strong>：</p>
+<ul>
+<li>
+<p>当未来某个时刻（例如，有 SELECT 查询需要读取 <code>age=30</code> 的索引页时），InnoDB 才会将对应的索引页从磁盘加载到 Buffer Pool。</p>
+</li>
+<li>
+<p>此时，<strong>Change Buffer 会将其缓存的关于这个页的所有更改操作（如插入、删除记录）应用到新加载的索引页上</strong>，使其保持最新状态。</p>
+</li>
+<li>
+<p>之后，这个被更新过的索引页就变成了 Buffer Pool 中的脏页，等待后台线程刷盘。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>最后change buffer的变动也会跟随redo log日志保存。</p>
+<h3 id="20-说说checkpoint">
+<a class="header-anchor" href="#20-%e8%af%b4%e8%af%b4checkpoint"></a>
+20. 说说CheckPoint
+</h3><blockquote>
+<p>LSN(<strong>Log Sequence Number</strong>, 日志序列号)：代表redolog的总写入量。<strong>LSN 是数据库内部的一致性坐标</strong>。通过比较数据页的 <code>pageLSN</code> 和 redo log 的 LSN，InnoDB 可以精确知道哪些修改已经落盘，哪些还需要重做。</p></blockquote>
+<h4 id="崩溃恢复">
+<a class="header-anchor" href="#%e5%b4%a9%e6%ba%83%e6%81%a2%e5%a4%8d"></a>
+崩溃恢复
+</h4><p>数据库的崩溃恢复大致会经历以下过程：</p>
+<ul>
+<li>数据库重启：InnoDB读取redolog文件头中记录的最后一个CheckPoint的LSN</li>
+<li>重放redo log：从上面检查点的位置开始，扫描并重放后续的redolog记录</li>
+<li>快速完成：检查点之前的数据肯定已经完成了磁盘持久化，这样就避免了从头开始重放redolog</li>
+</ul>
+<h4 id="checkpoint定义">
+<a class="header-anchor" href="#checkpoint%e5%ae%9a%e4%b9%89"></a>
+CheckPoint定义
+</h4><p>CheckPoint类似游戏“存档点”，其核心作用是：</p>
+<ul>
+<li>将buffer pool中的脏数据刷盘到磁盘中</li>
+<li>推进并标记redo log的复用点，标识到此的所有的数据都已经完成持久化</li>
+</ul>
+<h4 id="必要性">
+<a class="header-anchor" href="#%e5%bf%85%e8%a6%81%e6%80%a7"></a>
+必要性
+</h4><p>如果没有CheckPoint，那么数据库会面临以下几个问题：</p>
+<ul>
+<li>redo log无限增长</li>
+<li>崩溃恢复时间过长</li>
+</ul>
+<h3 id="21-mysql主从复制原理与方式">
+<a class="header-anchor" href="#21-mysql%e4%b8%bb%e4%bb%8e%e5%a4%8d%e5%88%b6%e5%8e%9f%e7%90%86%e4%b8%8e%e6%96%b9%e5%bc%8f"></a>
+21. Mysql主从复制原理与方式
+</h3><h4 id="原理">
+<a class="header-anchor" href="#%e5%8e%9f%e7%90%86"></a>
+原理
+</h4><p>Mysql主从复制指将一个Mysql数据库（<strong>主库</strong>）的数据复制到一个/多个Mysql数据库的过程。其核心思想是<strong>主库记录所有数据变更，从库读取并应用这些数据变更</strong>。</p>
+<p>核心步骤：</p>
+<ol>
+<li>日志记录：主库将所有数据变更事件记录在二进制日志（bin log）中</li>
+<li>日志传输：从库的IO线程连接到主库，请求获取binlog内容主库的binlog dump线程将日志内容发送给从库</li>
+<li>日志重放：从库的sql线程读取中继日志（relay log）中的事件，重新执行这些sql语句，实现数据同步</li>
+</ol>
+<h4 id="工作流程">
+<a class="header-anchor" href="#%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b"></a>
+工作流程
+</h4><ol>
+<li>主库记录数据变更
+<ul>
+<li>事务提交时，主库将变更写入binlog</li>
+<li>使用sync_binlong参数控制刷盘策略</li>
+</ul>
+</li>
+<li>从库请求日志
+<ul>
+<li><strong>从库IO线程</strong>使用主库账号连接主库</li>
+<li>请求从指定位置开始获取binlog</li>
+</ul>
+</li>
+<li>主库发送日志
+<ul>
+<li><strong>主库binlog dump线程</strong>读取binlog日志</li>
+<li>通过TCP连接发送给从库IO线程</li>
+</ul>
+</li>
+<li>从库存储日志
+<ul>
+<li><strong>从库IO线程</strong>将收到的binlog日志写入relay log</li>
+<li>记录已接收到的binlog位置信息</li>
+</ul>
+</li>
+<li>从库应用日志
+<ul>
+<li><strong>从库sql线程</strong>读取relay log中的事件并解析成sql</li>
+<li>在从库执行sql语句</li>
+<li>记录已执行的relay log位置信息</li>
+</ul>
+</li>
+</ol>
+<h4 id="同步方式">
+<a class="header-anchor" href="#%e5%90%8c%e6%ad%a5%e6%96%b9%e5%bc%8f"></a>
+同步方式
+</h4><ol>
+<li>
+<p>异步复制（默认）</p>
+<p>Mysql主从复制默认是异步的。在异步复制中，主库写入binlog日志后即可成功返回客户端，无须等待binlog日志传递给从库的过程。</p>
+</li>
+<li>
+<p>同步复制</p>
+<p>Mysql的主节点需要等待<strong>所有的从节点</strong>返回数据复制成功的信息，才可以提交事务</p>
+</li>
+<li>
+<p>半同步复制</p>
+<p>Mysql的主节点仅需等待<strong>一个或一部分</strong>从节点返回数据复制成功的信息，便可以提交事务</p>
+</li>
+</ol>
+<h3 id="22-mysql主从同步延时产生原因">
+<a class="header-anchor" href="#22-mysql%e4%b8%bb%e4%bb%8e%e5%90%8c%e6%ad%a5%e5%bb%b6%e6%97%b6%e4%ba%a7%e7%94%9f%e5%8e%9f%e5%9b%a0"></a>
+22. Mysql主从同步延时产生原因
+</h3><blockquote>
+<p>延时主要发生在主从复制的两个阶段：传输阶段和重放阶段</p></blockquote>
+<ol>
+<li>硬件问题
+<ul>
+<li>CPU资源不足
+<ul>
+<li>主库：高并发写入</li>
+<li>从库：在旧版本中，从库的sql线程是单线程导致cpu利用率不足</li>
+</ul>
+</li>
+<li>磁盘IO性能差
+<ul>
+<li>主库：主库使用了每次事务提交都对binlog刷盘，产生大量随机IO。</li>
+<li>从库：</li>
+</ul>
+</li>
+<li>网络宽带不足或延迟高
+<ul>
+<li>大量业务请求打满宽带</li>
+<li>跨机房同步导致延迟较高</li>
+</ul>
+</li>
+<li>主从配置部队称</li>
+</ul>
+</li>
+<li>业务问题:
+<ul>
+<li>长事务</li>
+<li>从库中的慢查询争抢资源</li>
+</ul>
+</li>
+</ol>
+<h2 id="sql相关">
+<a class="header-anchor" href="#sql%e7%9b%b8%e5%85%b3"></a>
+Sql相关
+</h2><h3 id="1-通用sql函数">
+<a class="header-anchor" href="#1-%e9%80%9a%e7%94%a8sql%e5%87%bd%e6%95%b0"></a>
+1. 通用sql函数
+</h3><ul>
+<li>
+<p>CONCAT(str1, str2,&hellip;)</p>
+<p>作用：将多个字符串拼接成一个字符串<br>
+<strong>需要注意的是：只要其中有一个参数是null  最终拼接值也是null</strong></p>
+</li>
+<li>
+<p>FORMAT(x, d)</p>
+<p>作用：将数字格式化为易读的字符串形式，包含千位分隔符和指定小数位数</p>
+<p>x为要格式化的数字，d为保留的小数位位数（默认为0）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">FORMAT</span><span class="p">(</span><span class="mi">1234567</span><span class="p">.</span><span class="mi">89</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 结果：&#39;1,234,567.89&#39;
+</span></span></span></code></pre></div></li>
+<li>
+<p>CURDATE()， CURTIME()， NOW()</p>
+<p>作用:返回不同格式的时间</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">CURDATE</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 可能返回: &#39;2023-10-25&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">CURTIME</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 可能返回: &#39;14:30:45&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">NOW</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 可能返回: &#39;2023-10-25 14:30:45&#39;
+</span></span></span></code></pre></div></li>
+<li>
+<p>DAY(date), MONTH(date), YEAR(date), WEEK(date[, mode]), WEEKDAY(date)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="k">DAY</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">    </span><span class="c1">-- 返回 25
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DAYOFMONTH</span><span class="p">(</span><span class="n">CURDATE</span><span class="p">());</span><span class="w"> </span><span class="c1">-- 返回当前日
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MONTH</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MONTH</span><span class="p">(</span><span class="n">NOW</span><span class="p">());</span><span class="w">         </span><span class="c1">-- 返回当前月份
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 2023
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="s1">&#39;1999-01-01&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 1999
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- mode有多种模式可选 具体的自己查询
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">WEEK</span><span class="p">(</span><span class="nb">date</span><span class="p">[,</span><span class="w"> </span><span class="k">mode</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">WEEK</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">      </span><span class="c1">-- 默认模式0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">WEEK</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">   </span><span class="c1">-- 使用ISO标准(周一为一周开始)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 返回日期的星期 （0：周一；1：周二；2：周三...）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">WEEKDAY</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">WEEKDAY</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回2（星期三）
+</span></span></span></code></pre></div></li>
+<li>
+<p>HOUR(), MINUTE(), SECOND</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 从时间值中提取小时部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">HOUR</span><span class="p">(</span><span class="s1">&#39;14:30:45&#39;</span><span class="p">);</span><span class="w">    </span><span class="c1">-- 返回 14
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">HOUR</span><span class="p">(</span><span class="n">NOW</span><span class="p">());</span><span class="w">        </span><span class="c1">-- 返回当前小时数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">HOUR</span><span class="p">(</span><span class="s1">&#39;2023-10-25 08:15:00&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 8
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 从时间值中提取分钟部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">(</span><span class="s1">&#39;14:30:45&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 30
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MINUTE</span><span class="p">(</span><span class="n">CURTIME</span><span class="p">());</span><span class="w">   </span><span class="c1">-- 返回当前分钟数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 从时间值中提取秒部分
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SECOND</span><span class="p">(</span><span class="s1">&#39;14:30:45&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 45
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SECOND</span><span class="p">(</span><span class="n">NOW</span><span class="p">());</span><span class="w">      </span><span class="c1">-- 返回当前秒数
+</span></span></span></code></pre></div></li>
+<li>
+<p>DATEDIFF()</p>
+<p>作用：计算两个日期之间天数差的函数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- DATEDIFF(date1, date2)   返回值：date1 减去 date2 的天数差（整数）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="s1">&#39;2023-10-30&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-10-30&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 -5
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">DATEDIFF</span><span class="p">(</span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-10-25&#39;</span><span class="p">);</span><span class="w">  </span><span class="c1">-- 返回 0
+</span></span></span></code></pre></div></li>
+</ul>
+<h3 id="2-sql语句优化有哪些办法todo">
+<a class="header-anchor" href="#2-sql%e8%af%ad%e5%8f%a5%e4%bc%98%e5%8c%96%e6%9c%89%e5%93%aa%e4%ba%9b%e5%8a%9e%e6%b3%95todo"></a>
+2. sql语句优化有哪些办法（TODO）
+</h3><h3 id="3-countcount1和count列名的区别">
+<a class="header-anchor" href="#3-countcount1%e5%92%8ccount%e5%88%97%e5%90%8d%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+3. count(*)、count(1)和count(列名)的区别
+</h3><ol>
+<li>
+<p>count(*):</p>
+<p>统计所有行数，包括NULL值，<strong>推荐写法</strong></p>
+</li>
+<li>
+<p>count(1):</p>
+<p>统计所有行数，相当于每行返回一个常量值1然后计数，和count(*)性能几乎相同</p>
+</li>
+<li>
+<p>count(列名)：</p>
+<p>统计指定列有数据的的数量，忽略NULL值</p>
+</li>
+</ol>
+<h3 id="4-说说exists和in的区别">
+<a class="header-anchor" href="#4-%e8%af%b4%e8%af%b4exists%e5%92%8cin%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+4. 说说exists和in的区别
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-- IN 
+</span></span><span class="line"><span class="cl">SELECT * FROM A WHERE id IN (SELECT id FROM B);
+</span></span><span class="line"><span class="cl">-- EXISTS
+</span></span><span class="line"><span class="cl">SELECT * FROM A WHERE EXISTS (SELECT 1 FROM B WHERE B.id = A.id);
+</span></span></code></pre></div><p><img src="./images/image-20250901102642673.png" alt="image-20250901102642673"></p>
+<p>使用In的时候，sql会先查询B表再查询A表；exists则是先查询A表，再检查B表。我们要遵循的基本规则是小表驱动大表，也就是先查询小表再查询大表，如果A表数据较少，则用in比较好，反之A表数据比较多，则适合exits</p>
+<p>需要注意的是：exists的子查询实际上并不返回任何数据，因为它只作检查，因此仅返回True或者False</p>
+<h3 id="5-distinct和grout-by">
+<a class="header-anchor" href="#5-distinct%e5%92%8cgrout-by"></a>
+5. Distinct和Grout By
+</h3><p>结论：Mysql8.0之前，group by会对结果进行隐式排序，因此dintinct的效率略微高于group by；但是在Mysql 8.0之后，Mysql删除了隐式排序，此时两者效率近乎等价</p>
+<p>但是通常更推荐group by:</p>
+<ul>
+<li>语义更为清洗</li>
+<li>group by可以对数据进行更为复杂的处理（例如对其他自带的聚合）</li>
+<li>group by之后还可以对数据进行过滤操作</li>
+</ul>
+<h3 id="6-索引失效的场景">
+<a class="header-anchor" href="#6-%e7%b4%a2%e5%bc%95%e5%a4%b1%e6%95%88%e7%9a%84%e5%9c%ba%e6%99%af"></a>
+6. 索引失效的场景
+</h3><ol>
+<li>不符合最左匹配原则，例如联合索引或者like左模糊匹配</li>
+<li>索引列（参与运算 or 隐式转换 or 函数计算）</li>
+<li>or关键字使用不当：例如其中一个没有索引导致全表</li>
+<li>普通索引使用不等于</li>
+<li>普通索引使用is not null</li>
+<li>普通索引使用not in</li>
+<li>查询数据太多回表代价太大，放弃索引使用全表扫描</li>
+</ol>
+<h2 id="综合">
+<a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
+综合
+</h2><h3 id="1mysql-数据库作发布系统的存储一天五万条以上的增量预计运维三">
+<a class="header-anchor" href="#1mysql-%e6%95%b0%e6%8d%ae%e5%ba%93%e4%bd%9c%e5%8f%91%e5%b8%83%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%ad%98%e5%82%a8%e4%b8%80%e5%a4%a9%e4%ba%94%e4%b8%87%e6%9d%a1%e4%bb%a5%e4%b8%8a%e7%9a%84%e5%a2%9e%e9%87%8f%e9%a2%84%e8%ae%a1%e8%bf%90%e7%bb%b4%e4%b8%89"></a>
+1.MySQL 数据库作发布系统的存储，一天五万条以上的增量，预计运维三
+</h3><p>年,怎么优化？</p>
+
+  <blockquote class="alert-blockquote tip">
+    <p class="alert-heading">
+      Tip
+    </p>
+    <p><p>日增量5w条，那么三年预计数据大概在5500w左右<br>
+所有的系统架构设计 都要从未来大致的数据规模出发</p></p>
+  </blockquote>
+
+<ul>
+<li>
+<p>数据库层面：</p>
+<ol>
+<li>合适的存储引擎，毫无疑问选择InnoDB，支持事务、行级锁以及崩溃恢复能力，并且支持高并发读写场景</li>
+<li>合理的字段设计，满足最小需求原则</li>
+<li>合理的表结构设计，尽量不要设计大表，如果有则最好拆分小表</li>
+<li>表结构按照业务需求可以进行一定程度的冗余，避免频繁的联表查询</li>
+<li>合理的索引设计</li>
+</ol>
+</li>
+<li>
+<p>业务层面：</p>
+<ol>
+<li>sql编写尽量使用索引，只查询出需要使用的字段，同时尽量使用覆盖索引，避免回表操作。</li>
+<li>大查询拆分，例如联表操作可以简化两个查询操作</li>
+<li>批处理操作</li>
+</ol>
+</li>
+<li>
+<p>架构层面：</p>
+<ol>
+<li>
+<p>数据读写分离</p>
+</li>
+<li>
+<p>数据分区</p>
+</li>
+<li>
+<p>数据归档</p>
+</li>
+<li>
+<p>垂直分库/水平分表</p>
+<p>分库分表常用思路：</p>
+<ul>
+<li>
+<p>hash取模：通常对用户id</p>
+<p>优点是平均；缺点是扩容较为麻烦</p>
+</li>
+<li>
+<p>range范围：通常对用户id 或者 时间</p>
+<p>优点是扩容简单；缺点是流量存在热点（最新的数据访问可能更频繁）</p>
+</li>
+<li>
+<p>hash和range结合</p>
+</li>
+<li>
+<p>一致性hash</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>监控：开启关键指标监控，如连接数、慢查询数量等</p>
+</li>
+</ul>
+<h3 id="2-大批量如千万级数据导入该怎么优化">
+<a class="header-anchor" href="#2-%e5%a4%a7%e6%89%b9%e9%87%8f%e5%a6%82%e5%8d%83%e4%b8%87%e7%ba%a7%e6%95%b0%e6%8d%ae%e5%af%bc%e5%85%a5%e8%af%a5%e6%80%8e%e4%b9%88%e4%bc%98%e5%8c%96"></a>
+2. 大批量（如千万级）数据导入该怎么优化？
+</h3><ol>
+<li>
+<p>导入过程中删除不重要的索引，在导入完成后再重新建立</p>
+</li>
+<li>
+<p>使用批处理，通常每个批次的数量设置为1000，java层面的批处理基于preparedStatement。（通常一个语句不要超过1M大小）</p>
+<blockquote>
+<p>PreparedStatement是Java JDBC API中的一个重要接口，用于执行预编译的SQL语句。它比普通的Statement更高效、更安全，特别是在需要多次执行相似SQL语句时。</p>
+<p>主要特点：</p>
+<ul>
+<li>预编译：sql语句会在首次执行时被预编译并缓存，后续执行只需使用编译好的语句和数据填充</li>
+<li>防止sql注入：自动处理参数转义，有效防止SQL注入攻击</li>
+<li>类型安全：支持参数的类型检查</li>
+</ul></blockquote>
+</li>
+<li>
+<p>rewriteBatchedStatement设置为true，这是JDBC层面的一个重要优化，作用是改写多条相同的插入sql为一条。通常和批处理一起。</p>
+</li>
+<li>
+<p>合适的事务管理，每个事务数据不能太多也不能太少  可以10个批次1w条一个事务</p>
+</li>
+<li>
+<p>开启多线程，并发导入</p>
+</li>
+<li>
+<p>如果业务允许，可以预填充id</p>
+</li>
+<li>
+<p>尽量保证数据的有序（针对主键）插入，这样会降低主键索引的插入成本</p>
+</li>
+</ol>
+<h3 id="3-分库分表会带来什么问题如果解决">
+<a class="header-anchor" href="#3-%e5%88%86%e5%ba%93%e5%88%86%e8%a1%a8%e4%bc%9a%e5%b8%a6%e6%9d%a5%e4%bb%80%e4%b9%88%e9%97%ae%e9%a2%98%e5%a6%82%e6%9e%9c%e8%a7%a3%e5%86%b3"></a>
+3. 分库分表会带来什么问题，如果解决
+</h3><p>是否分库分表要根据业务规模来决定。分库分表会带来以下问题：</p>
+<ol>
+<li>
+<p>分布式事务问题<br>
+根据业务需求使用合适的分布式事务中间件（有最终一致性和强一致性）</p>
+</li>
+<li>
+<p>跨节点关联查询</p>
+<p>解决方法：</p>
+<ul>
+<li>
+<p>建立全局表</p>
+</li>
+<li>
+<p>字段冗余</p>
+</li>
+<li>
+<p>数据组装</p>
+</li>
+</ul>
+</li>
+<li>
+<p>跨节点统计、排序</p>
+</li>
+<li>
+<p>全局主键<br>
+使用雪花id</p>
+</li>
+<li>
+<p>数据迁移</p>
+<p>要分两个阶段进行数据迁移，先进行数据双写，然后进行历史数据同步，最后比较，测试。</p>
+</li>
+</ol>
+<h3 id="4-一条sql执行时间过长如何优化">
+<a class="header-anchor" href="#4-%e4%b8%80%e6%9d%a1sql%e6%89%a7%e8%a1%8c%e6%97%b6%e9%97%b4%e8%bf%87%e9%95%bf%e5%a6%82%e4%bd%95%e4%bc%98%e5%8c%96"></a>
+4. 一条sql执行时间过长如何优化？
+</h3><ul>
+<li>sql层面
+<ol>
+<li>首先根据提取慢sql，使用explain检查该语句的执行计划，检查索引是否生效且合理，或者多表连接索引是否生效</li>
+<li>检查查询字段，是否可以简化，从而使用索引覆盖或者降低排序等内存消耗</li>
+<li>是否遵循小表驱动大表</li>
+<li>是否由于深分页导致慢sql</li>
+<li>大查询拆解成小查询，提高系统吞吐量</li>
+</ol>
+</li>
+<li>数据层面
+<ol>
+<li>大表是否需要拆分，包含分库分表等策略</li>
+<li>是否由于数据库压力导致吞吐量下降，可以采用读写分离</li>
+<li>是否需要冗余字段，降低联表压力</li>
+<li>是否允许一定时间内的旧值存在，可以采用缓存+定时任务查询自动更新</li>
+</ol>
+</li>
+</ul>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/mysql"
+        rel="tag"
+        >MYSQL</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
+              data-sizes="auto"
+              alt="Jvm面试题"
+              class="lazyload"
+            /><a href="/post/interview/jvm/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">Jvm面试题</h3>
+      </div></nav></article></section>
+        </div><footer id="footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      tscxk
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;25.1k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;00:52</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql基础">Mysql基础</a>
+      <ul>
+        <li><a href="#1-mysql数据库中myisam和innodb的区别">1. MySQL数据库中MyISAM和InnoDB的区别</a></li>
+        <li><a href="#2-数据库的三范式">2. 数据库的三范式</a></li>
+        <li><a href="#3-b树和b树-为什么mysql选择b树">3. B树和B+树 为什么Mysql选择B+树</a></li>
+        <li><a href="#4-一条sql的执行过程">4. 一条sql的执行过程</a></li>
+        <li><a href="#5-sql的执行顺序">5. SQL的执行顺序</a></li>
+        <li><a href="#6-spring中事务的传播行为">6. Spring中事务的传播行为</a></li>
+        <li><a href="#7-mysql的四大事务特性是如何实现的">7. Mysql的四大事务特性是如何实现的？</a></li>
+        <li><a href="#8-为什么mysql的可重复读不会产生幻读">8. 为什么mysql的可重复读不会产生幻读</a></li>
+        <li><a href="#9-说说记录锁间隙锁和临键锁">9. 说说记录锁、间隙锁和临键锁</a></li>
+        <li><a href="#10-介绍下mvcc">10. 介绍下MVCC</a></li>
+        <li><a href="#11-什么是意向锁">11. 什么是意向锁</a></li>
+        <li><a href="#12-索引下推是什么">12. 索引下推是什么？</a></li>
+        <li><a href="#13-非聚簇索引为什么不存数据地址值而存储主键">13. 非聚簇索引为什么不存数据地址值而存储主键？</a></li>
+        <li><a href="#14-说说explain">14. 说说explain</a></li>
+        <li><a href="#15-binlog的三种模式">15. BinLog的三种模式</a></li>
+        <li><a href="#16-说说三大日志的刷盘时机">16. 说说三大日志的刷盘时机</a></li>
+        <li><a href="#17-innodb是如何实现事务的以update为例">17. InnoDB是如何实现事务的？以update为例</a></li>
+        <li><a href="#18-mysql三大日志">18. Mysql三大日志</a></li>
+        <li><a href="#19-change-buffer">19. Change Buffer</a></li>
+        <li><a href="#20-说说checkpoint">20. 说说CheckPoint</a></li>
+        <li><a href="#21-mysql主从复制原理与方式">21. Mysql主从复制原理与方式</a></li>
+        <li><a href="#22-mysql主从同步延时产生原因">22. Mysql主从同步延时产生原因</a></li>
+      </ul>
+    </li>
+    <li><a href="#sql相关">Sql相关</a>
+      <ul>
+        <li><a href="#1-通用sql函数">1. 通用sql函数</a></li>
+        <li><a href="#2-sql语句优化有哪些办法todo">2. sql语句优化有哪些办法（TODO）</a></li>
+        <li><a href="#3-countcount1和count列名的区别">3. count(*)、count(1)和count(列名)的区别</a></li>
+        <li><a href="#4-说说exists和in的区别">4. 说说exists和in的区别</a></li>
+        <li><a href="#5-distinct和grout-by">5. Distinct和Grout By</a></li>
+        <li><a href="#6-索引失效的场景">6. 索引失效的场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#综合">综合</a>
+      <ul>
+        <li><a href="#1mysql-数据库作发布系统的存储一天五万条以上的增量预计运维三">1.MySQL 数据库作发布系统的存储，一天五万条以上的增量，预计运维三</a></li>
+        <li><a href="#2-大批量如千万级数据导入该怎么优化">2. 大批量（如千万级）数据导入该怎么优化？</a></li>
+        <li><a href="#3-分库分表会带来什么问题如果解决">3. 分库分表会带来什么问题，如果解决</a></li>
+        <li><a href="#4-一条sql执行时间过长如何优化">4. 一条sql执行时间过长如何优化？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="tscxk"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">tscxk</div>
+  <div class="sidebar-description">叽里咕噜...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">6</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      3
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">7</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "tscxk",
+          title: "Mysql面试题",
+          url: "https:\/\/tscxk.github.io\/post\/interview\/mysql\/",
+          description: "Mysql面试",
+          cover: "https:\/\/tscxk.github.io\/images\/banner.webp",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
+          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-entry',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
+            new PhotoSwipeLightbox({
+              gallery: '.article-gallery',
+              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script><script
+    src="https://npm.webcache.cn/aplayer@1.10.1/dist/APlayer.min.js"
+    integrity="sha384-gdGYZwHnfJM54evoZhpO0s6ZF5BQiybkiyW7VXr&#43;h5UfruuRL/aORyw&#43;5&#43;HZoU6e" crossorigin="anonymous"></script><script>
+    var isMobile = window.matchMedia('(max-width: 959px)').matches;
+    if (isMobile) {
+      const meting = _$('meting-js');
+      if (meting) {
+        meting.setAttribute('fixed', 'true');
+        const aside = meting.parentNode;
+        if (aside?.tagName === 'ASIDE') {
+          aside.removeChild(meting);
+          document.body.appendChild(meting);
+        }
+      }
+    }
+  </script><script
+    src="https://npm.webcache.cn/meting@2.0.1/dist/Meting.min.js"
+    integrity="sha384-ASVlpKF80A22OXTK3tfEjZm1EL6uFMKIC4p8&#43;0maanw1S/IyB&#43;Y4JG&#43;ZDU7GpKE8" crossorigin="anonymous"></script></body>
+</html>

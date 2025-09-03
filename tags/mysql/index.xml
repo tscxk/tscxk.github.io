@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>面试题 on My New Hugo Site</title>
-    <link>https://tscxk.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+    <title>Mysql on My New Hugo Site</title>
+    <link>https://tscxk.github.io/tags/mysql/</link>
     <description>Recent content from My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Wed, 03 Sep 2025 16:50:51 +0800</lastBuildDate>
     
     
-    <atom:link href="https://tscxk.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="https://tscxk.github.io/tags/mysql/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -47,32 +47,6 @@ Mysql基础
 <p>InnoDB:</p>
         
         <hr><p>本文2025-08-26首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-03</p>]]>
-      </description>
-      
-        <category>面试题</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>Jvm面试题</title>
-      <link>https://tscxk.github.io/post/interview/jvm/</link>
-      <pubDate>Fri, 22 Aug 2025 10:08:31 &#43;0800</pubDate>
-      <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/interview/jvm/</guid>
-      <description>
-        <![CDATA[<h1>Jvm面试题</h1><p>作者：tscxk（952505116@qq.com）</p>
-        
-          <h2 id="综合">
-<a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
-综合
-</h2><h3 id="1-说说jvm的主要组成部分和流程">
-<a class="header-anchor" href="#1-%e8%af%b4%e8%af%b4jvm%e7%9a%84%e4%b8%bb%e8%a6%81%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86%e5%92%8c%e6%b5%81%e7%a8%8b"></a>
-1. 说说JVM的主要组成部分和流程
-</h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
-        
-        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-26</p>]]>
       </description>
       
         <category>面试题</category>
