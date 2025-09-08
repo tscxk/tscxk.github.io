@@ -12,12 +12,34 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 08 Sep 2025 09:08:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Sep 2025 09:56:04 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>模板创建来源</title>
+      <link>https://tscxk.github.io/post/first/</link>
+      <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/first/</guid>
+      <description>
+        <![CDATA[<h1>模板创建来源</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <p>This is a Chinese test post.</p>
+<p>文章模板转载来源：<br>
+<a href="https://github.com/D-Sketon/hugo-theme-reimu" title="Github" target="_blank">Github</a></p>
+<p>部署参考：<br>
+<a href="https://linux.do/t/topic/878595" title="部署参考" target="_blank">部署参考</a></p>
+        
+        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-08</p>]]>
+      </description>
+      
+    </item>
     
     
 
@@ -30,7 +52,7 @@
       <description>
         <![CDATA[<h1>Mq</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          
+          <p>测试一下</p>
         
         <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-08</p>]]>
       </description>
@@ -130,71 +152,6 @@ Mysql基础
       </description>
       
         <category>面试</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>模板创建来源</title>
-      <link>https://tscxk.github.io/post/first/</link>
-      <pubDate>Thu, 09 Jun 2022 20:12:52 &#43;0800</pubDate>
-      <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/first/</guid>
-      <description>
-        <![CDATA[<h1>模板创建来源</h1><p>作者：tscxk（952505116@qq.com）</p>
-        
-          <p>This is a Chinese test post.</p>
-<p>文章模板转载来源：<br>
-<a href="https://github.com/D-Sketon/hugo-theme-reimu" title="Github" target="_blank">Github</a></p>
-<p>部署参考：<br>
-<a href="https://linux.do/t/topic/878595" title="部署参考" target="_blank">部署参考</a></p>
-<p>引入github警告框参考：</p>
-<p><a href="https://blog.grew.cc/posts/hugo-alert-blockquote/">Hugo系列(八)：添加GitHub风格的Alert块引用 | Tom&rsquo;s Blog</a></p>
-
-  <blockquote class="alert-blockquote important">
-    <p class="alert-heading">
-      Important
-    </p>
-    <p><p>要在main.css引入我们的自定义样式文件：<br>
-@import &ldquo;custom&rdquo;;</p></p>
-  </blockquote>
-
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">post</span><span class="o">.</span><span class="n">scss</span>
-</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">post</span><span class="o">-</span><span class="n">wrapper</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">opacity</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  <span class="o">.</span><span class="n">sidebar</span><span class="o">-</span><span class="n">right</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">#sidebar {</span>
-</span></span><span class="line"><span class="cl">    <span class="n">opacity</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">sidebar</span><span class="o">-</span><span class="n">menu</span><span class="o">-</span><span class="n">link</span><span class="o">-</span><span class="n">wrap</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">position</span><span class="p">:</span> <span class="n">relative</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">justify</span><span class="o">-</span><span class="n">content</span><span class="p">:</span> <span class="n">center</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">//</span> <span class="n">border</span><span class="p">:</span> <span class="mi">10</span><span class="n">px</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">color</span><span class="o">-</span><span class="n">red</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">shadow</span><span class="p">)</span> <span class="n">double</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">border</span><span class="p">:</span> <span class="mi">3</span><span class="n">px</span> <span class="n">solid</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">color</span><span class="o">-</span><span class="n">red</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">shadow</span><span class="p">);</span>  <span class="o">/*</span> <span class="err">使用你的浅绿色</span> <span class="p">(</span><span class="c1">#abebc6) */</span>
-</span></span><span class="line"><span class="cl">  <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="mi">12</span><span class="n">px</span><span class="p">;</span>  <span class="o">/*</span> <span class="err">推荐</span> <span class="mi">4</span><span class="o">-</span><span class="mi">12</span><span class="n">px</span> <span class="err">根据元素大小调整</span> <span class="o">*/</span>
-</span></span><span class="line"><span class="cl">  <span class="n">transition</span><span class="p">:</span> <span class="n">border</span> <span class="mf">0.5</span><span class="n">s</span><span class="p">,</span> <span class="n">background</span> <span class="mf">0.5</span><span class="n">s</span><span class="p">,</span> <span class="n">color</span> <span class="mf">0.5</span><span class="n">s</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">width</span><span class="p">:</span> <span class="mi">70</span><span class="o">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">max</span><span class="o">-</span><span class="n">width</span><span class="p">:</span> <span class="mi">200</span><span class="n">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">margin</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span> <span class="n">auto</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="mf">0.2</span><span class="n">s</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="o">&amp;</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">border</span><span class="p">:</span> <span class="mi">3</span><span class="n">px</span> <span class="n">solid</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">color</span><span class="o">-</span><span class="n">red</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">shadow</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">transform</span><span class="p">:</span> <span class="n">scale</span><span class="p">(</span><span class="mf">1.08</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">link</span><span class="o">-</span><span class="n">active</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">background</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">red</span><span class="o">-</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">border</span><span class="p">:</span> <span class="mi">3</span><span class="n">px</span> <span class="n">solid</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">color</span><span class="o">-</span><span class="n">red</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">shadow</span><span class="p">);</span>
-</span></span></code></pre></div>
-        
-        <hr><p>本文2022-06-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-25</p>]]>
-      </description>
       
     </item>
     
