@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 26 Aug 2025 20:38:58 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Sep 2025 09:59:50 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/jvm/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,13 +22,13 @@
     
 
     <item>
-      <title>Jvm面试题</title>
+      <title>Jvm面试</title>
       <link>https://tscxk.github.io/post/interview/jvm/</link>
       <pubDate>Fri, 22 Aug 2025 10:08:31 &#43;0800</pubDate>
       <author>952505116@qq.com (tscxk)</author>
       <guid>https://tscxk.github.io/post/interview/jvm/</guid>
       <description>
-        <![CDATA[<h1>Jvm面试题</h1><p>作者：tscxk（952505116@qq.com）</p>
+        <![CDATA[<h1>Jvm面试</h1><p>作者：tscxk（952505116@qq.com）</p>
         
           <h2 id="综合">
 <a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
@@ -38,10 +38,10 @@
 1. 说说JVM的主要组成部分和流程
 </h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
         
-        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-08-26</p>]]>
+        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-05</p>]]>
       </description>
       
-        <category>面试题</category>
+        <category>面试</category>
       
     </item>
     

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面试 on My New Hugo Site</title>
+    <link>https://tscxk.github.io/categories/%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content from My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>952505116@qq.com (tscxk)</managingEditor>
+    <webMaster>952505116@qq.com (tscxk)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Mon, 08 Sep 2025 09:08:45 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://tscxk.github.io/categories/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Mq</title>
+      <link>https://tscxk.github.io/post/interview/mq/</link>
+      <pubDate>Mon, 08 Sep 2025 09:07:51 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/mq/</guid>
+      <description>
+        <![CDATA[<h1>Mq</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          
+        
+        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-08</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Redis</title>
+      <link>https://tscxk.github.io/post/interview/redis/</link>
+      <pubDate>Fri, 05 Sep 2025 09:59:02 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/redis/</guid>
+      <description>
+        <![CDATA[<h1>Redis</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="redis基础">
+<a class="header-anchor" href="#redis%e5%9f%ba%e7%a1%80"></a>
+Redis基础
+</h2><blockquote>
+<p>Redis是用C语言开发的</p></blockquote>
+<h3 id="1-使用缓存的优缺点">
+<a class="header-anchor" href="#1-%e4%bd%bf%e7%94%a8%e7%bc%93%e5%ad%98%e7%9a%84%e4%bc%98%e7%bc%ba%e7%82%b9"></a>
+1. 使用缓存的优缺点
+</h3><h4 id="优点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9"></a>
+优点
+</h4><ul>
+<li>
+<p>高性能（最根本的问题）</p>
+<p>对于能够容忍短时间内不一致的数据，使用缓存能够大大加快查询时间并降低数据库压力。因为缓存通常基于内存，性能相较于使用磁盘的数据库要强上许多数量级。</p>
+        
+        <hr><p>本文2025-09-05首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-07</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Mysql面试</title>
+      <link>https://tscxk.github.io/post/interview/mysql/</link>
+      <pubDate>Tue, 26 Aug 2025 20:22:56 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/mysql/</guid>
+      <description>
+        <![CDATA[<h1>Mysql面试</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="mysql基础">
+<a class="header-anchor" href="#mysql%e5%9f%ba%e7%a1%80"></a>
+Mysql基础
+</h2><h3 id="1-mysql数据库中myisam和innodb的区别">
+<a class="header-anchor" href="#1-mysql%e6%95%b0%e6%8d%ae%e5%ba%93%e4%b8%admyisam%e5%92%8cinnodb%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+1. MySQL数据库中MyISAM和InnoDB的区别
+</h3><p>MyISAM:</p>
+<ul>
+<li>不支持事务，但每次查询都是原子的</li>
+<li>不支持行级锁</li>
+<li>不支持外键约束</li>
+<li>使用非聚簇索引</li>
+<li>存储表的总行数</li>
+</ul>
+<p>InnoDB:</p>
+        
+        <hr><p>本文2025-08-26首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-06</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Jvm面试</title>
+      <link>https://tscxk.github.io/post/interview/jvm/</link>
+      <pubDate>Fri, 22 Aug 2025 10:08:31 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/jvm/</guid>
+      <description>
+        <![CDATA[<h1>Jvm面试</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="综合">
+<a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
+综合
+</h2><h3 id="1-说说jvm的主要组成部分和流程">
+<a class="header-anchor" href="#1-%e8%af%b4%e8%af%b4jvm%e7%9a%84%e4%b8%bb%e8%a6%81%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86%e5%92%8c%e6%b5%81%e7%a8%8b"></a>
+1. 说说JVM的主要组成部分和流程
+</h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
+        
+        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-05</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on My New Hugo Site</title>
+    <link>https://tscxk.github.io/tags/redis/</link>
+    <description>Recent content from My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>952505116@qq.com (tscxk)</managingEditor>
+    <webMaster>952505116@qq.com (tscxk)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Sun, 07 Sep 2025 23:17:12 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://tscxk.github.io/tags/redis/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Redis</title>
+      <link>https://tscxk.github.io/post/interview/redis/</link>
+      <pubDate>Fri, 05 Sep 2025 09:59:02 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/redis/</guid>
+      <description>
+        <![CDATA[<h1>Redis</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="redis基础">
+<a class="header-anchor" href="#redis%e5%9f%ba%e7%a1%80"></a>
+Redis基础
+</h2><blockquote>
+<p>Redis是用C语言开发的</p></blockquote>
+<h3 id="1-使用缓存的优缺点">
+<a class="header-anchor" href="#1-%e4%bd%bf%e7%94%a8%e7%bc%93%e5%ad%98%e7%9a%84%e4%bc%98%e7%bc%ba%e7%82%b9"></a>
+1. 使用缓存的优缺点
+</h3><h4 id="优点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9"></a>
+优点
+</h4><ul>
+<li>
+<p>高性能（最根本的问题）</p>
+<p>对于能够容忍短时间内不一致的数据，使用缓存能够大大加快查询时间并降低数据库压力。因为缓存通常基于内存，性能相较于使用磁盘的数据库要强上许多数量级。</p>
+        
+        <hr><p>本文2025-09-05首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-07</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+  </channel>
+</rss>

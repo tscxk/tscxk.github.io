@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  Mysql面试题 | tscxk
+  Mysql面试 | tscxk
 </title>
 <meta
   name="description"
@@ -31,7 +31,7 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.14df05c02c63459533ffcbb5e07f8ba38b8a4eed13a1e5c3b19d3045491c4e2a.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mysql面试题 | tscxk" />
+  <meta property="og:title" content="Mysql面试 | tscxk" />
   <meta
     property="og:description"
     content="Mysql面试"
@@ -47,7 +47,7 @@
   />
   <meta property="article:author" content="tscxk" />
   <meta property="article:published_time" content="2025-08-26T20:22:56&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-03T16:56:59&#43;08:00" /><meta property="article:tag" content="mysql" /><meta name="twitter:card" content="summary" />
+  <meta property="article:modified_time" content="2025-09-06T15:12:09&#43;08:00" /><meta property="article:tag" content="mysql" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.17c905cd4d0df4b63a6a2d1aa20d344aa9e2450f1441cd34a78159e8a421f814.css" />
 <link
@@ -169,9 +169,9 @@
         });
       </script>
     </nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="Mysql面试题"><div id="header-outer">
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="Mysql面试"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">Mysql面试题</h1>
+            <h1 data-aos="slide-up">Mysql面试</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -226,6 +226,7 @@
         <li><a href="#2-大批量如千万级数据导入该怎么优化">2. 大批量（如千万级）数据导入该怎么优化？</a></li>
         <li><a href="#3-分库分表会带来什么问题如果解决">3. 分库分表会带来什么问题，如果解决？</a></li>
         <li><a href="#4-一条sql执行时间过长如何优化">4. 一条sql执行时间过长如何优化？</a></li>
+        <li><a href="#5-spring事务如何与mysql事务如何建立联系工作流程">5. Spring事务如何与Mysql事务如何建立联系？工作流程？</a></li>
       </ul>
     </li>
   </ul>
@@ -243,7 +244,7 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">6</div>
+    <div>文章</div><div class="sidebar-state-number">8</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -253,7 +254,7 @@
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">7</div>
+    <div class="sidebar-state-number">9</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -314,21 +315,21 @@
       >2025-08-26</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-09-03</time
+      >2025-09-06</time
     >
   </span><span
       class="article-date-link icon-calendar-plus"
       data-aos="zoom-in"
     >
-      <time datetime="2025-09-03 16:56:59.3081184 &#43;0800 CST" itemprop="dateModified"
-        >2025-09-03</time
+      <time datetime="2025-09-06 15:12:09.8356936 &#43;0800 CST" itemprop="dateModified"
+        >2025-09-06</time
       >
     </span></div>
 <div class="article-category"><a
       class="article-category-link"
-      href="/categories/%e9%9d%a2%e8%af%95%e9%a2%98"
+      href="/categories/%e9%9d%a2%e8%af%95"
       data-aos="zoom-in"
-      >面试题</a
+      >面试</a
     ></div>
 </div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="mysql基础">
 <a class="header-anchor" href="#mysql%e5%9f%ba%e7%a1%80"></a>
@@ -985,7 +986,12 @@ LIMIT：分页
 <p>在没有MVCC的情况下，数据库通常通过锁来实现并发控制，这不仅会使数据库的并发能力变差，大量的锁还会带来严重的性能开销和死锁风险。</p>
 <p>特点：</p>
 <ul>
-<li>读写不阻塞</li>
+<li>读写不阻塞
+<ul>
+<li>读操作访问历史版本，不影响在写的操作</li>
+<li>写操作创建新版本，不影响在读的操作</li>
+</ul>
+</li>
 <li>降低死锁概率</li>
 <li>解决快照读的幻读问题</li>
 </ul></blockquote>
@@ -1242,8 +1248,8 @@ bin log
 </h4><p>binlog的刷盘由<code>sync_binlog</code>参数控制：</p>
 <ul>
 <li><strong>0</strong>：依赖操作系统刷盘（性能最好，安全性最差）</li>
-<li><strong>1</strong>：每次事务提交都刷盘（默认，最安全）</li>
-<li><strong>N</strong>：每N次事务提交刷盘一次</li>
+<li><strong>1</strong>：每次事务提交时都刷盘（默认，最安全）</li>
+<li><strong>N</strong>：每N次事务提交时刷盘一次</li>
 </ul>
 <h4 id="undo-log">
 <a class="header-anchor" href="#undo-log"></a>
@@ -1835,6 +1841,25 @@ Sql相关
 </ol>
 </li>
 </ul>
+<h3 id="5-spring事务如何与mysql事务如何建立联系工作流程">
+<a class="header-anchor" href="#5-spring%e4%ba%8b%e5%8a%a1%e5%a6%82%e4%bd%95%e4%b8%8emysql%e4%ba%8b%e5%8a%a1%e5%a6%82%e4%bd%95%e5%bb%ba%e7%ab%8b%e8%81%94%e7%b3%bb%e5%b7%a5%e4%bd%9c%e6%b5%81%e7%a8%8b"></a>
+5. Spring事务如何与Mysql事务如何建立联系？工作流程？
+</h3><p>它们之间的联系是通过spring事务管理机制实现的。其中Spring事务是逻辑层面的事务管理，Mysql事务是物理层面的事务管理。Spring的事务最终都会委托给数据库的事务机制实现：</p>
+<p>工作流程如下（例如带有注解@Transactional）：</p>
+<ul>
+<li>AOP拦截</li>
+<li>事务管理器获取</li>
+<li>数据库连接获取：从连接池获取数据库连接</li>
+<li>Mysql事务开启：
+<ul>
+<li>关闭自动提交</li>
+<li>切换隔离级别</li>
+</ul>
+</li>
+<li>事务执行</li>
+<li>事务提交/事务回滚</li>
+<li>连接释放：连接返回连接池</li>
+</ul>
 </div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
       <a
@@ -1851,11 +1876,19 @@ Sql相关
   ><div class="article-nav-link-wrap article-nav-link-left"><img
               data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
               data-sizes="auto"
-              alt="Jvm面试题"
+              alt="Jvm面试"
               class="lazyload"
             /><a href="/post/interview/jvm/"></a>
         <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">Jvm面试题</h3>
+        <h3 class="article-nav-title">Jvm面试</h3>
+      </div><div class="article-nav-link-wrap article-nav-link-right"><img
+              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
+              data-sizes="auto"
+              alt="Redis"
+              class="lazyload"
+            /><a href="/post/interview/redis/"></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">Redis</h3>
       </div></nav></article></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
@@ -1876,10 +1909,10 @@ Sql相关
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;25.1k</span
+          >&nbsp;35.3k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:52</span>
+        <span class="icon-coffee">&nbsp;01:13</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -1947,6 +1980,7 @@ Sql相关
         <li><a href="#2-大批量如千万级数据导入该怎么优化">2. 大批量（如千万级）数据导入该怎么优化？</a></li>
         <li><a href="#3-分库分表会带来什么问题如果解决">3. 分库分表会带来什么问题，如果解决？</a></li>
         <li><a href="#4-一条sql执行时间过长如何优化">4. 一条sql执行时间过长如何优化？</a></li>
+        <li><a href="#5-spring事务如何与mysql事务如何建立联系工作流程">5. Spring事务如何与Mysql事务如何建立联系？工作流程？</a></li>
       </ul>
     </li>
   </ul>
@@ -1964,7 +1998,7 @@ Sql相关
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">6</div>
+    <div>文章</div><div class="sidebar-state-number">8</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
@@ -1974,7 +2008,7 @@ Sql相关
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">7</div>
+    <div class="sidebar-state-number">9</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -2048,7 +2082,7 @@ Sql相关
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "tscxk",
-          title: "Mysql面试题",
+          title: "Mysql面试",
           url: "https:\/\/tscxk.github.io\/post\/interview\/mysql\/",
           description: "Mysql面试",
           cover: "https:\/\/tscxk.github.io\/images\/banner.webp",
