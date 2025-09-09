@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 08 Sep 2025 15:11:48 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 09 Sep 2025 20:14:33 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/mq/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -30,9 +30,19 @@
       <description>
         <![CDATA[<h1>Mq</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          <p>测试一下</p>
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-为什么要使用mq有什么优缺点">
+<a class="header-anchor" href="#1-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8mq%e6%9c%89%e4%bb%80%e4%b9%88%e4%bc%98%e7%bc%ba%e7%82%b9"></a>
+1. 为什么要使用MQ？有什么优缺点
+</h3><p>主要是因为MQ的优点，或者说是使用MQ的核心目的主要是：</p>
+<ul>
+<li>
+<p>任务异步</p>
+<p>场景：部分比较耗时的操作，例如报表导出、发短信、日志存储等操作</p>
         
-        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-08</p>]]>
+        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-09</p>]]>
       </description>
       
         <category>面试</category>

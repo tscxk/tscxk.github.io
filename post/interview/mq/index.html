@@ -47,7 +47,7 @@
   />
   <meta property="article:author" content="tscxk" />
   <meta property="article:published_time" content="2025-09-08T09:07:51&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-08T15:11:48&#43;08:00" /><meta property="article:tag" content="mq" /><meta name="twitter:card" content="summary" />
+  <meta property="article:modified_time" content="2025-09-09T20:14:33&#43;08:00" /><meta property="article:tag" content="mq" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/cover/7.jpg" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.17c905cd4d0df4b63a6a2d1aa20d344aa9e2450f1441cd34a78159e8a421f814.css" />
 <link
@@ -183,7 +183,32 @@
       data-aos="fade-up"
     ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#1-为什么要使用mq有什么优缺点">1. 为什么要使用MQ？有什么优缺点</a></li>
+        <li><a href="#2-mq有哪些常见问题怎么解决">2. MQ有哪些常见问题？怎么解决？</a></li>
+        <li><a href="#3-rocketmq的组成和常见概念">3. Rocketmq的组成和常见概念</a></li>
+        <li><a href="#4-rocketmq">4. RocketMq</a></li>
+        <li><a href="#5-rocketmq的消费模式">5. RocketMq的消费模式</a></li>
+        <li><a href="#6-rocketmq如何保证消息不丢失">6. RocketMq如何保证消息不丢失</a></li>
+        <li><a href="#7-简单说说生产者和消费者需要做些什么">7. 简单说说生产者和消费者需要做些什么</a></li>
+        <li><a href="#8-如何处理消息堆积">8. 如何处理消息堆积？</a></li>
+        <li><a href="#9-rocketmq如何实现分布式事务">9. Rocketmq如何实现分布式事务？</a></li>
+        <li><a href="#10-broker是怎么保存消息的">10. broker是怎么保存消息的？</a></li>
+        <li><a href="#11-rocketmq怎么对文件读写的">11. RocketMq怎么对文件读写的？</a></li>
+        <li><a href="#12-rocketmq的刷盘方式">12. RocketMq的刷盘方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#综合">综合</a>
+      <ul>
+        <li><a href="#1-为什么选择rocketmq">1. 为什么选择RocketMq?</a></li>
+        <li><a href="#2-kafkatodo-暂时不弄">2. Kafka（TODO 暂时不弄）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
@@ -268,14 +293,14 @@
       >2025-09-08</time
     >
     <time style="display: none;" id="post-update-time"
-      >2025-09-08</time
+      >2025-09-09</time
     >
   </span><span
       class="article-date-link icon-calendar-plus"
       data-aos="zoom-in"
     >
-      <time datetime="2025-09-08 15:11:48.3364346 &#43;0800 CST" itemprop="dateModified"
-        >2025-09-08</time
+      <time datetime="2025-09-09 20:14:33.3673094 &#43;0800 CST" itemprop="dateModified"
+        >2025-09-09</time
       >
     </span></div>
 <div class="article-category"><a
@@ -284,8 +309,496 @@
       data-aos="zoom-in"
       >面试</a
     ></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><p>测试一下</p>
-</div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-为什么要使用mq有什么优缺点">
+<a class="header-anchor" href="#1-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8mq%e6%9c%89%e4%bb%80%e4%b9%88%e4%bc%98%e7%bc%ba%e7%82%b9"></a>
+1. 为什么要使用MQ？有什么优缺点
+</h3><p>主要是因为MQ的优点，或者说是使用MQ的核心目的主要是：</p>
+<ul>
+<li>
+<p>任务异步</p>
+<p>场景：部分比较耗时的操作，例如报表导出、发短信、日志存储等操作</p>
+<p>MQ作用：只需将任务添加到消息队列后即可返回给用户，后续耗时操作交给消息队列负责处理，<strong>提高了系统的即时响应速度</strong></p>
+</li>
+<li>
+<p>业务解耦</p>
+<p>场景：上游系统调用若干下游系统，</p>
+<p>问题：上下游之间耦合严重（任意一个下游系统错误都会导致整个业务出错；每次添加一个下游系统时，上游系统都要修改代码）</p>
+<p>MQ作用：上游系统只需将消息丢给消息队列，下游系统只需要按需订阅自己需要的消息进行消费，<strong>降低了系统的耦合度</strong></p>
+</li>
+<li>
+<p>流量削峰</p>
+<p>场景：上游系统突发流量，例如大量报表导出任务</p>
+<p>问题：下游系统很可能扛不住突发的大流量，需要对流量进行一定限制</p>
+<p>MQ作用：将任务请求放进消息队列中排序，<strong>下游系统按照自己消费能力消费消息，提高系统的可用性和稳定性</strong></p>
+</li>
+</ul>
+<p>除此之外，部分消息队列还提供以下特性：</p>
+<ul>
+<li>顺序性</li>
+<li>持久化</li>
+<li>最终一致性</li>
+</ul>
+<h4 id="mq的缺点">
+<a class="header-anchor" href="#mq%e7%9a%84%e7%bc%ba%e7%82%b9"></a>
+MQ的缺点
+</h4><p>没有银弹，引入MQ也带来了一些复杂性和挑战：</p>
+<ul>
+<li>系统的复杂性提高</li>
+<li>系统可用性降低：消息队列成为了最脆弱的地方，如果消息队列崩溃，那么相关业务也会出错</li>
+<li>消息的丢失</li>
+<li>消息的重复性消费</li>
+<li>消息的持久化</li>
+<li>消息的一致性</li>
+</ul>
+<h3 id="2-mq有哪些常见问题怎么解决">
+<a class="header-anchor" href="#2-mq%e6%9c%89%e5%93%aa%e4%ba%9b%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98%e6%80%8e%e4%b9%88%e8%a7%a3%e5%86%b3"></a>
+2. MQ有哪些常见问题？怎么解决？
+</h3><ol>
+<li>
+<p>消息的顺序问题</p>
+<p>在Rocketmq里面，Message Queue是典型的FIFO，天然顺序。因此我们只需要确保顺序生产顺序消费即可。<br>
+具体来讲就是使用一个线程生产消息，使用一个queue存储消息，使用一个线程消费消息，这样就严格保证了消息的顺序消费。</p>
+
+  <blockquote class="alert-blockquote important">
+    <p class="alert-heading">
+      Important
+    </p>
+    <p><p>这种方案很明显严重限制了应用的吞吐量。</p>
+<p><strong>也因此，我们更应该结合业务的角度去确保消息的顺序性</strong>，而不是单单依靠消息系统来确保。</p>
+<p>例如将一个用户的消息（下单、发货、收获、结算）都发送到一个消息队列中，同时确保这些消息只会被一个消费者消费即可，那么就是总体无序（还有很多其他的用户消息），业务有序。</p></p>
+  </blockquote>
+
+</li>
+<li>
+<p>消息重复消息</p>
+<p>由于网络问题导致重复投递；或者消费者消费后宕机，重启后再次受到消息等多种原因，消费者可能会面临消息重复消费的问题，</p>
+<p>解决思想：保证业务的幂等性</p>
+<p>解决方案：</p>
+<ul>
+<li>
+<p>基于数据库</p>
+<ul>
+<li>
+<p>对于新增数据：使用数据库唯一索引确保消息的幂等性。在封装到消息队列中时添加全局唯一id，并在新增到数据库时将这个id保存起来作为唯一键，后续如果重复消息就会插入失败，避免了消息的重复消费</p>
+</li>
+<li>
+<p>对于修改数据：通常需要根据业务字段确保。比较常规的解决方法是采用乐观锁的方案，例如记录上一次修改的原始值，状态值等信息，在更新数据的时候进行期望值的匹配，如果匹配成功则修改成功，否则修改失败，</p>
+</li>
+</ul>
+</li>
+<li>
+<p>基于redis</p>
+<ul>
+<li>
+<p>同样我们需要给消息一个全局唯一的id，在消费的时候我们通过redis获取一个分布式锁，通过分布式锁来限制消息的重复性消费</p>
+<blockquote>
+<p>在实际业务中，我们可以设置一定的过期时间，例如3600s，超过这个时间我们就认为消息不会重复性消费了</p>
+<p>同时我们可以采用redis+数据库两层来判断</p>
+<p>先判断redis，再用数据库兜底</p></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>消息丢失</p>
+</li>
+<li>
+<p>消息堆积</p>
+</li>
+</ol>
+<h3 id="3-rocketmq的组成和常见概念">
+<a class="header-anchor" href="#3-rocketmq%e7%9a%84%e7%bb%84%e6%88%90%e5%92%8c%e5%b8%b8%e8%a7%81%e6%a6%82%e5%bf%b5"></a>
+3. Rocketmq的组成和常见概念
+</h3><p>RocketMq总体由四个部分（角色）构成：</p>
+<ul>
+<li>
+<p>NameServer：轻量级无状态的路由管理中心</p>
+<p>核心职责：</p>
+<ul>
+<li>服务注册：所有的broker都需要向NameServer注册自己的信息</li>
+<li>心跳维护：Broker定期向NameServer发送心跳，证明自己还活着</li>
+<li>路由发现：生产者和消费者客户端会主动从NameServer拉取最新的路由信息，知道哪个Topic的哪个Queue在哪个Broker上</li>
+</ul>
+</li>
+<li>
+<p>Broker：消息的存储和转发中心</p>
+<ul>
+<li>Broker 内部维护着一个个 Consumer Queue，用来存储消息的索引，真正存储消息的地方是 CommitLog（日志文件）</li>
+<li>单个 Broker 与所有的 Nameserver 保持着长连接和心跳，并会定时将 Topic 信息同步到 NameServer，和 NameServer 的通信底层是通过 Netty 实现的。</li>
+</ul>
+</li>
+<li>
+<p>Producer：消息的生产者</p>
+<p>RocketMq提供了三种方式发送消息：</p>
+<ul>
+<li>同步发送：生产者将消息发送给broker后，会一直等待broker返回的结果</li>
+<li>异步发送：生产者将消息发送给broker后，不用等待broker的结果，但是需要提供一个回调函数，broker处理完消息后，会异步地调用这个回调函数生产者的发送结果</li>
+<li>单向发送：生产者将消息发送给broker后，不用等待broker的结果，也不会提供回调函数</li>
+</ul>
+</li>
+<li>
+<p>Consumer：消息的消费者</p>
+<p>支持PULL（主动拉取消息消费）和PULL（被动消费）两种消费模式，支持<strong>集群消费</strong>和<strong>广播消费</strong></p>
+</li>
+</ul>
+<p>还有一些基础概念</p>
+<ul>
+<li>
+<p>Message</p>
+<p>具体的消息，每条消息必须具备<strong>一个主题</strong>和<strong>一个可选的tag</strong></p>
+</li>
+<li>
+<p>Topic</p>
+<p>消息的归类，相当于对消息的一级分类，<strong>是必选属性</strong></p>
+</li>
+<li>
+<p>Tag</p>
+<p>可以简单看作消息的二级分类，<strong>是可选属性</strong></p>
+</li>
+<li>
+<p>Group</p>
+<p>通常指Consumer Group,这个概念是针对消费者体现的，多个消费者可以归属到一个消费组里面</p>
+</li>
+<li>
+<p>Message Queue</p>
+<p>消息队列，一个Topic可以设置多个消息队列，也就是一个topic对应多个Queue</p>
+</li>
+<li>
+<p>Offset</p>
+<p>在 Topic 的消费过程中，由于消息需要被不同的组进行多次消费，所以消费完的消息并不会立即被删除，这就需要 RocketMQ 为每个消费组在每个队列上维护一个消费位置（Consumer Offset），这个位置之前的消息都被消费过，之后的消息都没有被消费过，每成功消费一条消息，消费位置就加一。</p>
+</li>
+</ul>
+<h3 id="4-rocketmq">
+<a class="header-anchor" href="#4-rocketmq"></a>
+4. RocketMq
+</h3><h3 id="5-rocketmq的消费模式">
+<a class="header-anchor" href="#5-rocketmq%e7%9a%84%e6%b6%88%e8%b4%b9%e6%a8%a1%e5%bc%8f"></a>
+5. RocketMq的消费模式
+</h3><ol>
+<li>
+<p>集群消费</p>
+<p>如果消息投递到一个消费组里面，那么仅会有一个消费者能够消费该消息</p>
+<p>如果消息投递到多个消费组里面，那么每个消费组里面仅会有一个消费者能够消费该消息</p>
+</li>
+<li>
+<p>广播消费</p>
+<p>如果一个消息投递到一个消费组里面，那么里面的所有消费者都能够消费到这条消息</p>
+</li>
+</ol>
+<h3 id="6-rocketmq如何保证消息不丢失">
+<a class="header-anchor" href="#6-rocketmq%e5%a6%82%e4%bd%95%e4%bf%9d%e8%af%81%e6%b6%88%e6%81%af%e4%b8%8d%e4%b8%a2%e5%a4%b1"></a>
+6. RocketMq如何保证消息不丢失
+</h3><p>消息丢失在三个阶段都可能发生：生产阶段、存储阶段、消费阶段，因此这三个阶段我们都需要考虑</p>
+<h4 id="生产阶段">
+<a class="header-anchor" href="#%e7%94%9f%e4%ba%a7%e9%98%b6%e6%ae%b5"></a>
+生产阶段
+</h4><p>生产者发送消息的方式应选择同步发送或者异步发送来<strong>确保消息正确投递到broker</strong></p>
+<ul>
+<li>同步发送：如果消息投递失败，应重试直到消息投递成功</li>
+<li>异步发送：在回调函数里面检查发送结果，如果发送失败，应尝试重新发送</li>
+</ul>
+<h4 id="存储阶段">
+<a class="header-anchor" href="#%e5%ad%98%e5%82%a8%e9%98%b6%e6%ae%b5"></a>
+存储阶段
+</h4><p>存储阶段应确保消息能够持久化到磁盘中，因此最好修改刷盘策略为同步刷盘，确保数据能够持久化。但是异步刷盘其实也是可以的</p>
+<h4 id="消费阶段">
+<a class="header-anchor" href="#%e6%b6%88%e8%b4%b9%e9%98%b6%e6%ae%b5"></a>
+消费阶段
+</h4><p>确保消息被正确消费，所以应完全消费之后再手动进行消息的ack确认</p>
+<h3 id="7-简单说说生产者和消费者需要做些什么">
+<a class="header-anchor" href="#7-%e7%ae%80%e5%8d%95%e8%af%b4%e8%af%b4%e7%94%9f%e4%ba%a7%e8%80%85%e5%92%8c%e6%b6%88%e8%b4%b9%e8%80%85%e9%9c%80%e8%a6%81%e5%81%9a%e4%ba%9b%e4%bb%80%e4%b9%88"></a>
+7. 简单说说生产者和消费者需要做些什么
+</h3><h4 id="生产者">
+<a class="header-anchor" href="#%e7%94%9f%e4%ba%a7%e8%80%85"></a>
+生产者
+</h4><p>生产者具体负责一下工作：</p>
+<ol>
+<li>
+<p>获取topic-broker的映射关系</p>
+<p>producer启动时，也需要指定NameSrv的地址，从NameSrv集群中选一台建立长连接。</p>
+<p>生产者每30s从NameSrv获取topic和broker的映射关系更新到本地内存中，然后再和topic涉及到的所有broker建立长连接，每30s发送一次心跳</p>
+</li>
+<li>
+<p>生产端的负载均衡</p>
+<p>生产者会按照一定的策略选择broker发送，通常是轮询</p>
+</li>
+</ol>
+<h4 id="消费者">
+<a class="header-anchor" href="#%e6%b6%88%e8%b4%b9%e8%80%85"></a>
+消费者
+</h4><ol>
+<li>
+<p>获取topic-broker的映射关系</p>
+<p>和生产者类似</p>
+</li>
+<li>
+<p>消费端的负载均衡</p>
+</li>
+</ol>
+<h3 id="8-如何处理消息堆积">
+<a class="header-anchor" href="#8-%e5%a6%82%e4%bd%95%e5%a4%84%e7%90%86%e6%b6%88%e6%81%af%e5%a0%86%e7%a7%af"></a>
+8. 如何处理消息堆积？
+</h3><p>消息堆积需要从多个维度去进行考虑，分别是生产者和消费者角度</p>
+<h4 id="消费者角度">
+<a class="header-anchor" href="#%e6%b6%88%e8%b4%b9%e8%80%85%e8%a7%92%e5%ba%a6"></a>
+消费者角度
+</h4><p>通常我们先考虑消费者情况，通常大类原因包括：</p>
+<ul>
+<li>消费能力不足
+<ul>
+<li>消费者扩容：<strong>前提是当前Message Queue的数量 &gt; 消费者数量</strong>，因为一个queue只能绑定一个消费者</li>
+<li>消息重建：当消费者数量已经达到了Message Queue数量的时候，这个时候再新增消费者是不能提高消费能力的。这个时候应新建一个临时的Topic，然后<strong>将堆积数据消费到临时的Topic中</strong>。（相当于用两个Topic来消费业务，提高消息处理能力。也可以只靠临时Topic具备更大的Queue数量然后配对应的消费者）</li>
+</ul>
+</li>
+<li>硬件故障：
+<ul>
+<li>消费者宕机</li>
+<li>GC停顿</li>
+</ul>
+</li>
+<li>消费逻辑异常
+<ul>
+<li>代码异常，如死锁，死循环</li>
+<li>下游系统调用缓慢超时</li>
+<li>消费逻辑资源占用较高，如计算缓慢，IO缓慢</li>
+</ul>
+</li>
+</ul>
+<h4 id="生产者角度">
+<a class="header-anchor" href="#%e7%94%9f%e4%ba%a7%e8%80%85%e8%a7%92%e5%ba%a6"></a>
+生产者角度
+</h4><p>关注较少，如果是非核心业务通常进行业务降级，减少消息的生产</p>
+<h3 id="9-rocketmq如何实现分布式事务">
+<a class="header-anchor" href="#9-rocketmq%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e5%88%86%e5%b8%83%e5%bc%8f%e4%ba%8b%e5%8a%a1"></a>
+9. Rocketmq如何实现分布式事务？
+</h3><p>Rocketmq实现分布式事务是其非常核心且强大的功能之一，<strong>它采用的经典的最终一致性方案，称为“事务消息”</strong>。这是通过“两阶段提交”和“事务状态回查”组合实现的。它主要包括两个核心阶段：</p>
+<ul>
+<li>
+<p>发送半消息并执行本地事务</p>
+<ol>
+<li>发送半消息
+<ul>
+<li>生产者向broker发送一条半消息</li>
+<li>半消息对消费者不可见，它被存储在RocketMq的一个特殊topic中</li>
+</ul>
+</li>
+<li>执行本地事务
+<ul>
+<li>半消息发送成功后，生产者开始执行本地事务逻辑</li>
+</ul>
+</li>
+<li>提交或回滚
+<ul>
+<li>本地事务完成后，生产者会根据结果向broker发送提交或回滚的命令</li>
+<li>如果是提交命令：将半消息从特殊主题转移到真正的目标主题中，此时半消息变为真正的消息</li>
+<li>如果是回滚命令：broker收到命令后，会直接丢地该半消息</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>事务状态回查</p>
+<p>为了防止网络抖动或生产者宕机导致命令不可达的兜底机制</p>
+<ul>
+<li>场景：如果生产者执行完本地事务后，由于网络故障、宕机等原因，一直没有向 Broker 发送 Commit 或 Rollback 指令，这条半消息就会一直处于“悬而未决”的状态。</li>
+<li>回查：对于上述这种状态的半消息，需要生产者提供一个回查机制用来判断当前消息关联的本地事务结果是提交了还是回滚了，broker根据此决定是保留消息还是丢地消息</li>
+</ul>
+</li>
+</ul>
+<p>可以看出来，RocketMQ 的分布式事务方案本质上是<strong>将分布式事务问题转化为一个本地事务问题+一个消息可靠性投递问题</strong>。</p>
+<p>优点</p>
+<ul>
+<li>最终一致性</li>
+<li>高可用性</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>最终一致性</li>
+<li>消费者需要幂等</li>
+<li>需要实现额外的回查逻辑</li>
+</ul>
+<h3 id="10-broker是怎么保存消息的">
+<a class="header-anchor" href="#10-broker%e6%98%af%e6%80%8e%e4%b9%88%e4%bf%9d%e5%ad%98%e6%b6%88%e6%81%af%e7%9a%84"></a>
+10. broker是怎么保存消息的？
+</h3><h4 id="一核心设计思想">
+<a class="header-anchor" href="#%e4%b8%80%e6%a0%b8%e5%bf%83%e8%ae%be%e8%ae%a1%e6%80%9d%e6%83%b3"></a>
+一、核心设计思想
+</h4><ol>
+<li>
+<p>顺序写入</p>
+<p>无论消息来自多少个 Topic，所有新消息都<strong>追加写入（Append）</strong> 到最后一个文件末尾。磁盘的顺序写速度极快，几乎可以达到磁盘的物理极限。</p>
+</li>
+<li>
+<p>内存映射文件（mmap - Memory Mapped File）</p>
+<p>将磁盘文件映射到进程的内存地址空间，对文件的读写操作转化为对内存的操作，避免了传统的 <code>read/write</code> 系统调用，极大提升了性能。</p>
+</li>
+<li>
+<p>异步刷盘</p>
+<p>刷盘（将内存数据持久化到磁盘）和主从复制都是异步进行的，生产者发送消息后，只要写入内存就返回成功，从而极快地响应生产者。</p>
+</li>
+</ol>
+<h4 id="二-存储结构和文件组织">
+<a class="header-anchor" href="#%e4%ba%8c-%e5%ad%98%e5%82%a8%e7%bb%93%e6%9e%84%e5%92%8c%e6%96%87%e4%bb%b6%e7%bb%84%e7%bb%87"></a>
+二、 存储结构和文件组织
+</h4><p>Broker的消息存储主要是三个核心部分组成：</p>
+<ol>
+<li>
+<p>CommitLog（真正的消息仓库）</p>
+<p><strong>所有主题（Topic）的所有消息都顺序地写入同一个文件集合——CommitLog</strong>。这是真正的消息实体存储地</p>
+<ul>
+<li>文件结构：CommitLog 由多个文件组成，每个文件固定大小（默认1G），写满一个再创建下一个</li>
+<li>目的：保证绝对的顺序写入，这是RocketMq高吞吐量的核心，它牺牲了读的便利性，换来写的极致性能</li>
+</ul>
+</li>
+<li>
+<p>ConsumeQueue（消息的逻辑队列索引）</p>
+<p>为<strong>每个 Topic 的每个 Queue</strong> 构建的一个<strong>消费队列索引文件——ConsumeQueue</strong></p>
+<ul>
+<li>文件结构：其中保存的每个消息条目包含以下信息，每个条目固定20字节
+<ul>
+<li><code>CommitLog Offset</code> (8 bytes):在CommitLog中的物理偏移量</li>
+<li><code>Size</code> (4 bytes):消息长度</li>
+<li><code>Message Tag HashCode</code> (8 bytes)：消息Tag的哈希值，用于消息过滤</li>
+</ul>
+</li>
+<li>工作方式：每当消息写入 CommitLog 后，就会有个专门的线程去读取新写入的commitLog数据，然后解析出该消息属于哪个Topic的哪个Queue，然后将对应的索引信息追加到ConsumeQueue的末尾</li>
+<li>目的：将物理存储和逻辑队列分离。消费者拉取消息是，需要先查询ConsumeQueue得到索引，再根据索引去CommitLog精准读取消息，有点类似数据库查询了,相当于用空间换取读性能。</li>
+</ul>
+</li>
+<li>
+<p>IndexFile（消息的哈希索引）</p>
+<p>为了支持按 <strong>Message Key</strong> 或 <strong>时间范围</strong> 查询消息，RocketMQ 还提供了索引文件（IndexFile）。</p>
+<ul>
+<li>工作方式：它通过哈希表的结构来存储索引，key 可以是消息的 Key 或 Unique ID，value 则是该消息在 CommitLog 中的偏移量。</li>
+<li><strong>设计目的</strong>：主要用于运维命令查询和消息追踪，普通的消息消费流程不依赖它。</li>
+</ul>
+</li>
+</ol>
+<h3 id="11-rocketmq怎么对文件读写的">
+<a class="header-anchor" href="#11-rocketmq%e6%80%8e%e4%b9%88%e5%af%b9%e6%96%87%e4%bb%b6%e8%af%bb%e5%86%99%e7%9a%84"></a>
+11. RocketMq怎么对文件读写的？
+</h3><p>Rocketmq对文件的读写巧妙地利用了操作系统的一些高效的文件读写方式：</p>
+<ul>
+<li>顺序读取：CommitLog的写入采用顺序写，极大提高了写入速度</li>
+<li>PageCache</li>
+<li>零拷贝：</li>
+</ul>
+<h4 id="pagecache">
+<a class="header-anchor" href="#pagecache"></a>
+PageCache
+</h4><p>什么是页缓存？</p>
+<p>为了提升对磁盘文件的读写效率，linux内核会以页为单位，将文件划分为多个数据块。当用户需要对文件中的某个数据块进行读写的时候，linux首先会分配一个内存页绑定对应数据块，将堆磁盘的读写转为对内存的读写。</p>
+<p><a href="https://cloud.tencent.com/developer/article/1848933">一文看懂 | 什么是页缓存（Page Cache）-腾讯云开发者社区-腾讯云</a></p>
+<h4 id="零拷贝">
+<a class="header-anchor" href="#%e9%9b%b6%e6%8b%b7%e8%b4%9d"></a>
+零拷贝
+</h4><h5 id="什么是零拷贝">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af%e9%9b%b6%e6%8b%b7%e8%b4%9d"></a>
+什么是零拷贝
+</h5><p>要理解什么是零拷贝，我们需要先了解传统的“非零拷贝”是如何工作的。</p>
+<p>如果服务器要把本机数据的内容发送给客户端，<strong>传统做法通常靠read+write</strong></p>
+<ol>
+<li>read系统调用：用户线程发起系统调用，要求读取磁盘数据，从用户态-&gt;内核态</li>
+<li>DMA拷贝：磁盘控制器通过DMA将数据从磁盘拷贝到内核缓存中</li>
+<li>CPU拷贝：CPU将数据从内核缓冲区拷贝到用户缓冲区中</li>
+<li>read系统调用返回：read系统调用完成，从内核态-&gt;用户态</li>
+<li>write系统调用：用户线程发起系统调用，准备将数据发送到网络，从用户态-&gt;内核态</li>
+<li>CPU拷贝：CPU将数据从用户缓冲区拷贝到Socket缓冲区中</li>
+<li>DMA拷贝：网卡控制器将数据用Socket缓冲区拷贝到网卡，最后发送出去</li>
+<li>write系统调用返回：write系统调用返回，从内核态-&gt;用户态</li>
+</ol>
+<p>大致流程额如下：<img src="./images/image-20250909191141745.png" alt="image-20250909191141745" style="zoom:50%;" /></p>
+<p>可以发现，在传统的“非零拷贝”工作过程中，发生了4次上下文切换+2次DMA拷贝+2次CPU拷贝。</p>
+<h5 id="rocketmq的零拷贝是如何实现的">
+<a class="header-anchor" href="#rocketmq%e7%9a%84%e9%9b%b6%e6%8b%b7%e8%b4%9d%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84"></a>
+RocketMQ的零拷贝是如何实现的？
+</h5><p>RocketMq主要使用了两种零拷贝技术</p>
+<ol>
+<li>
+<p>mmap+write（mmap取代了read）</p>
+<p><strong>这种方式主要用在Broker快速读取commitLog/cosumeQueue文件以相应消费者的拉取请求</strong></p>
+<ul>
+<li>mmap：内存映射文件，将处于内核态的磁盘数据直接映射到用户进程的虚拟空间中，避免了一次CPU拷贝。相当于用户将对应数据所在的内核缓存的地址拷贝到socket缓冲区中，而无需拷贝数据本身。</li>
+<li>write：当需要发送数据，broker调用write系统调用</li>
+</ul>
+<p><strong>效果：减少了一次从内核缓存到用户缓冲区的CPU拷贝</strong>，用户调用调用write仍需要CPU将数据从内核缓存拷贝到socket缓冲区中</p>
+</li>
+<li>
+<p>sendFile（真正的零拷贝，取代了read+write）</p>
+<p>这是Linux2.4+内核提供的系统调用，是实现零拷贝的终极武器，RocketMQ在传输消息内容时主要使用此方式</p>
+<p>作用：直接在内核空间中将数据从一个文件描述符传输到另一个文件描述符，完全绕过用户空间</p>
+<p>使用sendFile的流程：</p>
+<ul>
+<li>Broker 进程调用 <code>sendfile(out_fd, in_fd, ...)</code>，其中 <code>in_fd</code> 是文件描述符，<code>out_fd</code> 是网络套接字描述符</li>
+<li><strong>DMA 拷贝</strong>：DMA 引擎将数据从磁盘<strong>拷贝到内核缓冲区（PageCache）</strong>。</li>
+<li><strong>CPU 拷贝</strong>：CPU 仅将数据的<strong>地址和长度描述符</strong>拷贝到 <strong>Socket 缓冲区</strong>。</li>
+<li><strong>DMA 拷贝</strong>：DMA 引擎依据 Socket 缓冲区中的描述符，<strong>直接从 PageCache 中将数据拷贝到网卡</strong>。</li>
+</ul>
+<p>整个过程数据<strong>完全不需要经过用户空间</strong>，只发生了2次上下文切换（sendFile调用和返回）+2次DMA拷贝，做到了真正的零（CPU）拷贝</p>
+</li>
+</ol>
+<h3 id="12-rocketmq的刷盘方式">
+<a class="header-anchor" href="#12-rocketmq%e7%9a%84%e5%88%b7%e7%9b%98%e6%96%b9%e5%bc%8f"></a>
+12. RocketMq的刷盘方式
+</h3><p>Rocket提供了两种刷盘策略</p>
+<ul>
+<li>
+<p>异步刷盘（默认策略）</p>
+<p>默认的刷盘策略，为了保证高性能。</p>
+<p>工作流程：</p>
+<ol>
+<li>写入PageCache：生产者发送消息刀刀Broker后，直接被追加到PageCache中。</li>
+<li>立即返回成功：只要消息写入PageCache，就立刻向生产者返回写入成功的消息，此时数据仅在内存中，还没刷入磁盘</li>
+<li>异步持久化：后台存在一个专门的线程，定时将PageCache中的数据异步刷新到磁盘中</li>
+</ol>
+<p>优点：速度快，延迟低</p>
+<p>缺点：存在数据丢失的风险，如果broker突然宕机，还没刷新到磁盘中的数据可能会丢失</p>
+<p><strong>适用场景</strong>：追求高吞吐、低延迟的场景，且能够容忍在极端情况下丢失少量消息。例如，业务日志、监控数据、非核心的订单状态同步等。</p>
+</li>
+<li>
+<p>同步刷盘</p>
+<p>相较于异步刷盘，会等到PageCache中的数据刷新到磁盘后才会给生产者返回发送成功的消息</p>
+<p>优点：数据可靠性高</p>
+<p>缺点：性能较低、延迟较高（通常比异步刷盘慢10倍），因为需要等待磁盘IO操作完成</p>
+<p><strong>适用场景</strong>：对数据可靠性要求极高的金融、交易等核心业务场景。例如，支付成功、核心订单创建等消息。</p>
+</li>
+</ul>
+<h2 id="综合">
+<a class="header-anchor" href="#%e7%bb%bc%e5%90%88"></a>
+综合
+</h2><h3 id="1-为什么选择rocketmq">
+<a class="header-anchor" href="#1-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9rocketmq"></a>
+1. 为什么选择RocketMq?
+</h3><ol>
+<li>生态良好：隶属于SpringcloudAlibaba生态，国内社区更为活跃，文档丰富</li>
+<li>学习成本较低：使用java编写，更容易学习和排查问题</li>
+<li>丰富的消息类型和功能：
+<ul>
+<li>顺序消费</li>
+<li>延时消息</li>
+<li>消息过滤：支持基于 <strong>SQL92 语法的消息过滤</strong>和更轻量的 <strong>Tag 过滤</strong></li>
+<li>消息回溯</li>
+</ul>
+</li>
+<li>自带控制台</li>
+</ol>
+<blockquote>
+<p>你为什么选择Rocketmq而不是Kafka？</p>
+<p>主要是基于<strong>开发效率、功能匹配度和团队技术栈</strong>的综合考虑。虽然 Kafka 在吞吐量上可能有理论优势，但 RocketMQ 提供的<strong>开箱即用的功能</strong>让我能更快速地实现业务需求。</p>
+<ul>
+<li>延时任务（核心）：任务创建后延时启动</li>
+<li>技术栈更熟悉，社区支持好</li>
+<li>后续项目会想SpringCloudAlibaba进化，组件兼容性更高</li>
+</ul>
+<p>我的项目<strong>不需要 Kafka 极限的吞吐性能</strong>（评论采集通常不是海量日志那种级别），但非常看重<strong>开发的便捷性、功能的丰富性和实现的简洁性</strong>。RocketMQ 提供的延时消息、消息过滤等功能都是开箱即用的，让我能专注于业务逻辑而不是基础组件的能力建设，这是我当时选择它的最核心原因。</p></blockquote>
+<h3 id="2-kafkatodo-暂时不弄">
+<a class="header-anchor" href="#2-kafkatodo-%e6%9a%82%e6%97%b6%e4%b8%8d%e5%bc%84"></a>
+2. Kafka（TODO 暂时不弄）
+</h3></div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
       <a
         class="article-tag-list-link"
@@ -326,10 +839,10 @@
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;35.2k</span
+          >&nbsp;42.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;01:14</span>
+        <span class="icon-coffee">&nbsp;01:27</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -353,7 +866,32 @@
       </div><nav id="mobile-nav">
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#1-为什么要使用mq有什么优缺点">1. 为什么要使用MQ？有什么优缺点</a></li>
+        <li><a href="#2-mq有哪些常见问题怎么解决">2. MQ有哪些常见问题？怎么解决？</a></li>
+        <li><a href="#3-rocketmq的组成和常见概念">3. Rocketmq的组成和常见概念</a></li>
+        <li><a href="#4-rocketmq">4. RocketMq</a></li>
+        <li><a href="#5-rocketmq的消费模式">5. RocketMq的消费模式</a></li>
+        <li><a href="#6-rocketmq如何保证消息不丢失">6. RocketMq如何保证消息不丢失</a></li>
+        <li><a href="#7-简单说说生产者和消费者需要做些什么">7. 简单说说生产者和消费者需要做些什么</a></li>
+        <li><a href="#8-如何处理消息堆积">8. 如何处理消息堆积？</a></li>
+        <li><a href="#9-rocketmq如何实现分布式事务">9. Rocketmq如何实现分布式事务？</a></li>
+        <li><a href="#10-broker是怎么保存消息的">10. broker是怎么保存消息的？</a></li>
+        <li><a href="#11-rocketmq怎么对文件读写的">11. RocketMq怎么对文件读写的？</a></li>
+        <li><a href="#12-rocketmq的刷盘方式">12. RocketMq的刷盘方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#综合">综合</a>
+      <ul>
+        <li><a href="#1-为什么选择rocketmq">1. 为什么选择RocketMq?</a></li>
+        <li><a href="#2-kafkatodo-暂时不弄">2. Kafka（TODO 暂时不弄）</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 </div></div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
