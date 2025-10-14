@@ -47,10 +47,10 @@
     content="/"
   />
   <meta property="article:author" content="tscxk" />
-  <meta property="article:published_time" content="2025-09-08T09:07:51&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-09T20:14:33&#43;08:00" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2025-10-14T14:36:00&#43;08:00" />
+  <meta property="article:modified_time" content="2025-10-14T14:56:02&#43;08:00" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" /><link rel="alternate" type="application/rss+xml" href="https://tscxk.github.io/index.xml" title="My New Hugo Site">
-<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.17c905cd4d0df4b63a6a2d1aa20d344aa9e2450f1441cd34a78159e8a421f814.css" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.80c101887e286efa25202ecd895cce3d6ab763f01b28399ac563b0b26b034778.css" />
 <link
     rel="preload"
     as="style"
@@ -81,19 +81,23 @@
   </div>
   <script>
     var time = null;
+    var loaderEl = document.getElementById('loader');
     var startLoading = () => {
       time = Date.now();
-      document.getElementById('loader').classList.remove("loading");
+      loaderEl.classList.remove("loading");
     }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
     var endLoading = () => {
       if (!time) {
-        document.body.style.overflow = 'auto';
-        document.getElementById('loader').classList.add("loading");
+        hideLoader();
       } else {
         if (Date.now() - time > 500) {
           time = null;
-          document.body.style.overflow = 'auto';
-          document.getElementById('loader').classList.add("loading");
+          hideLoader();
         } else {
           setTimeout(endLoading, 500 - (Date.now() - time));
           time = null;
@@ -101,15 +105,14 @@
       }
     }
     window.addEventListener('DOMContentLoaded', endLoading);
-    document.getElementById('loader').addEventListener('click', endLoading);
-  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
-</div>
-<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
 本文章没有找到对应的语言版本
 </div>
 <div id="heatmap-tooltip"></div><div id="container">
       <div id="wrap"><div id="header-nav">
-  <nav id="main-nav"><span class="main-nav-link-wrap">
+  <nav id="main-nav" aria-label="Primary navigation"><span class="main-nav-link-wrap">
         <div class='main-nav-icon icon rotate'>&#xe62b;</div>
         <a class="main-nav-link" href="/">首页</a>
       </span><span class="main-nav-link-wrap">
@@ -121,15 +124,15 @@
       </span><span class="main-nav-link-wrap">
         <div class='main-nav-icon icon rotate'>&#xe62b;</div>
         <a class="main-nav-link" href="/friend">友链</a>
-      </span><a id="main-nav-toggle" class="nav-icon"></a>
+      </span><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
-  <nav id="sub-nav"><a id="nav-rss-link" class="nav-icon" href="/index.xml" title="RSS 订阅" target="_blank"></a></nav><nav id="i18n-nav">
+  <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-rss-link" class="nav-icon" href="/index.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a></nav><nav id="i18n-nav" aria-label="Language selection">
       <div class="custom-dropdown">
-        <div class="select-selected" id="select-selected">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
           <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
           <span id="selected-lang">简体中文</span>
         </div>
-        <ul class="select-items" id="select-items"><li data-value="en"  >English</li><li data-value="zh-cn" class="selected" >简体中文</li><li data-value="zh-tw"  >繁體中文</li></ul>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages"><li data-value="en" role="option" arial-selected="false" >English</li><li data-value="zh-cn" role="option" class="selected" arial-selected="true" >简体中文</li><li data-value="zh-tw" role="option" arial-selected="false" >繁體中文</li></ul>
       </div>
       <script>
         var selectSelected = document.getElementById("select-selected");
@@ -139,6 +142,8 @@
 
         selectSelected.addEventListener("click", () => {
           selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
         });
 
         selectOptions.forEach((item) => {
@@ -166,18 +171,20 @@
         document.addEventListener("click", (event) => {
           if (!event.target.closest(".custom-dropdown")) {
             selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
           }
         });
       </script>
     </nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="My New Hugo Site"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="My New Hugo Site"><div id="header-outer">
     <div id="header-title"><span id="logo">
             <h1 data-aos="slide-up">My New Hugo Site</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"><span id="subtitle">叽里咕噜说些什么比较好呢...</span></h2></div>
   </div>
 </header><div id="content"
+          aria-label="Page content"
           class="sidebar-left"
-            ><aside id="sidebar"><div class="sidebar-wrapper-container "><div class="sidebar-wrapper">
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container "><div class="sidebar-wrapper">
     <div
       class="sidebar-wrap"
       data-aos="fade-up"
@@ -193,17 +200,17 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">14</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      3
+      4
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">9</div>
+    <div class="sidebar-state-number">12</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -250,16 +257,24 @@
         <h3 class="widget-title">分类</h3></div>
       <div class="widget">
         <ul class="category-list"><li class="category-list-item">
-                <a class="category-list-link" href="/categories/test/"
+                <a class="category-list-link" href="/categories/test/" 
+                  title="Test"
                   >Test</a
                 >
               </li><li class="category-list-item">
-                <a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                <a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
+                  title="学习笔记"
                   >学习笔记</a
                 >
               </li><li class="category-list-item">
-                <a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/"
+                <a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/" 
+                  title="面试"
                   >面试</a
+                >
+              </li><li class="category-list-item">
+                <a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/" 
+                  title="面试··"
+                  >面试··</a
                 >
               </li></ul>
       </div>
@@ -270,13 +285,14 @@
       data-aos="fade-up"
     >
       <div style="display: flex; justify-content: space-between;">
-        <h3 class="widget-title">标签</h3></div>
+        <h3 class="widget-title">标签</h3><a class="widget-link" href="/tags/">查看更多</a></div>
       <div class="widget">
         <ul class="tag-list" itemprop="keywords"><li class="tag-item">
                 <a
                   class="tag-link"
                   href="/tags/java/"
                   aria-label="标签: JAVA"
+                  title="JAVA"
                 >
                   JAVA
                 </a>
@@ -285,6 +301,7 @@
                   class="tag-link"
                   href="/tags/jvm/"
                   aria-label="标签: Jvm"
+                  title="Jvm"
                 >
                   Jvm
                 </a>
@@ -293,6 +310,7 @@
                   class="tag-link"
                   href="/tags/markdown/"
                   aria-label="标签: Markdown"
+                  title="Markdown"
                 >
                   Markdown
                 </a>
@@ -301,6 +319,7 @@
                   class="tag-link"
                   href="/tags/mq/"
                   aria-label="标签: Mq"
+                  title="Mq"
                 >
                   Mq
                 </a>
@@ -309,6 +328,7 @@
                   class="tag-link"
                   href="/tags/mysql/"
                   aria-label="标签: Mysql"
+                  title="Mysql"
                 >
                   Mysql
                 </a>
@@ -317,6 +337,7 @@
                   class="tag-link"
                   href="/tags/redis/"
                   aria-label="标签: Redis"
+                  title="Redis"
                 >
                   Redis
                 </a>
@@ -325,6 +346,7 @@
                   class="tag-link"
                   href="/tags/springboot/"
                   aria-label="标签: SpringBoot"
+                  title="SpringBoot"
                 >
                   SpringBoot
                 </a>
@@ -333,14 +355,25 @@
                   class="tag-link"
                   href="/tags/test/"
                   aria-label="标签: Test"
+                  title="Test"
                 >
                   Test
                 </a>
               </li><li class="tag-item">
                 <a
                   class="tag-link"
+                  href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+                  aria-label="标签: 并发编程"
+                  title="并发编程"
+                >
+                  并发编程
+                </a>
+              </li><li class="tag-item">
+                <a
+                  class="tag-link"
                   href="/tags/%E6%BA%90%E7%A0%81/"
                   aria-label="标签: 源码"
+                  title="源码"
                 >
                   源码
                 </a>
@@ -394,9 +427,24 @@
             >Test</a
           ><a
             style="font-size:10px"
+            href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+            aria-label="标签: 并发编程"
+            >并发编程</a
+          ><a
+            style="font-size:10px"
             href="/tags/%E6%BA%90%E7%A0%81/"
             aria-label="标签: 源码"
             >源码</a
+          ><a
+            style="font-size:10px"
+            href="/tags/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/"
+            aria-label="标签: 综合场景"
+            >综合场景</a
+          ><a
+            style="font-size:10px"
+            href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
+            aria-label="标签: 网络协议"
+            >网络协议</a
           ></div>
   </div>
 </div><div class="widget-wrapper">
@@ -407,33 +455,298 @@
       <h3 class="widget-title">最新文章</h3>
       <div class="widget">
         <ul><li>
-              <a href="/post/interview/mq/">Mq</a>
+              <a href="/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/" title="综合场景">综合场景</a>
             </li><li>
-              <a href="/post/interview/redis/">Redis</a>
+              <a href="/post/interview/io/" title="IO">IO</a>
             </li><li>
-              <a href="/post/interview/mysql/">Mysql面试</a>
+              <a href="/post/interview/java_%E5%9F%BA%E7%A1%80/" title="Java">Java</a>
             </li><li>
-              <a href="/post/interview/jvm/">Jvm面试</a>
+              <a href="/post/interview/springboot/" title="SpringBoot">SpringBoot</a>
             </li><li>
-              <a href="/post/mysql/index_fail/">索引失效场景</a>
+              <a href="/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="并发编程">并发编程</a>
             </li></ul>
       </div>
     </div>
   </div></div></div></aside>
-<section id="main"><div class="post-wrapper">
+<section id="main" aria-label="Main content"><div class="post-wrapper">
   <div
     class="
-      post-wrap-left
+      post-wrap left
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/"
+        aria-label="综合场景"
+        title="综合场景"
+      >
+      </a><div
+      class="
+        post-cover left
+      "
+    ><img
+          data-src="/cover/14.jpg"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-10-14</span
+        ><span
+            ><span class="icon-calendar-plus"></span
+            >2025-10-14</span
+          ><span
+          ><span class="icon-pencil"></span
+          >0 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >0 分钟</span
+        >
+      </div>
+      <h2 class="post-title">综合场景</h2>
+      <article class="post-article">默认描述</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap right
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/interview/io/"
+        aria-label="IO"
+        title="IO"
+      >
+      </a><div
+      class="
+        post-cover right
+      "
+    ><img
+          data-src="/cover/11.jpg"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-09-25</span
+        ><span
+            ><span class="icon-calendar-plus"></span
+            >2025-10-13</span
+          ><span
+          ><span class="icon-pencil"></span
+          >699 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >2 分钟</span
+        >
+      </div>
+      <h2 class="post-title">IO</h2>
+      <article class="post-article">默认描述</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap left
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/interview/java_%E5%9F%BA%E7%A1%80/"
+        aria-label="Java"
+        title="Java"
+      >
+      </a><div
+      class="
+        post-cover left
+      "
+    ><img
+          data-src="/cover/13.jpg"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-09-24</span
+        ><span
+            ><span class="icon-calendar-plus"></span
+            >2025-10-13</span
+          ><span
+          ><span class="icon-pencil"></span
+          >0 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >0 分钟</span
+        >
+      </div>
+      <h2 class="post-title">Java</h2>
+      <article class="post-article">默认描述</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap right
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/interview/springboot/"
+        aria-label="SpringBoot"
+        title="SpringBoot"
+      >
+      </a><div
+      class="
+        post-cover right
+      "
+    ><img
+          data-src="/cover/12.jpg"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-09-24</span
+        ><span
+            ><span class="icon-calendar-plus"></span
+            >2025-10-13</span
+          ><span
+          ><span class="icon-pencil"></span
+          >2332 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >5 分钟</span
+        >
+      </div>
+      <h2 class="post-title">SpringBoot</h2>
+      <article class="post-article">默认描述</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap left
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+        aria-label="并发编程"
+        title="并发编程"
+      >
+      </a><div
+      class="
+        post-cover left
+      "
+    ><img
+          data-src="/cover/10.jpg"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-09-22</span
+        ><span
+            ><span class="icon-calendar-plus"></span
+            >2025-10-13</span
+          ><span
+          ><span class="icon-pencil"></span
+          >3936 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >8 分钟</span
+        >
+      </div>
+      <h2 class="post-title">并发编程</h2>
+      <article class="post-article">默认描述</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap right
+    "
+    data-aos="fade-up"
+  ><a
+        class="post-link"
+        href="/post/interview/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
+        aria-label="网络协议"
+        title="网络协议"
+      >
+      </a><div
+      class="
+        post-cover right
+      "
+    ><img
+          data-src="/cover/9.jpg"
+          data-sizes="auto"
+          alt=""
+          class="lazyload"
+        /></div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span
+          ><span class="icon-calendar"></span
+          >2025-09-09</span
+        ><span
+            ><span class="icon-calendar-plus"></span
+            >2025-09-25</span
+          ><span
+          ><span class="icon-pencil"></span
+          >4531 字</span
+        >
+        <span
+          ><span class="icon-clock"></span
+          >10 分钟</span
+        >
+      </div>
+      <h2 class="post-title">网络协议</h2>
+      <article class="post-article">计算机网络相关</article>
+    </div>
+  </div>
+</div>
+<div class="post-wrapper">
+  <div
+    class="
+      post-wrap left
     "
     data-aos="fade-up"
   ><a
         class="post-link"
         href="/post/interview/mq/"
-        aria-label="Mq"
+        aria-label="消息队列"
+        title="消息队列"
       >
       </a><div
       class="
-        post-cover-left
+        post-cover left
       "
     ><img
           data-src="/cover/7.jpg"
@@ -448,7 +761,7 @@
           >2025-09-08</span
         ><span
             ><span class="icon-calendar-plus"></span
-            >2025-09-09</span
+            >2025-09-22</span
           ><span
           ><span class="icon-pencil"></span
           >6856 字</span
@@ -458,7 +771,7 @@
           >14 分钟</span
         >
       </div>
-      <h2 class="post-title">Mq</h2>
+      <h2 class="post-title">消息队列</h2>
       <article class="post-article">默认描述</article>
     </div>
   </div>
@@ -466,17 +779,18 @@
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-right
+      post-wrap right
     "
     data-aos="fade-up"
   ><a
         class="post-link"
         href="/post/interview/redis/"
         aria-label="Redis"
+        title="Redis"
       >
       </a><div
       class="
-        post-cover-right
+        post-cover right
       "
     ><img
           data-src="/cover/4.jpg"
@@ -509,17 +823,18 @@
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-left
+      post-wrap left
     "
     data-aos="fade-up"
   ><a
         class="post-link"
         href="/post/interview/mysql/"
         aria-label="Mysql面试"
+        title="Mysql面试"
       >
       </a><div
       class="
-        post-cover-left
+        post-cover left
       "
     ><img
           data-src="/cover/3.jpg"
@@ -552,17 +867,18 @@
 <div class="post-wrapper">
   <div
     class="
-      post-wrap-right
+      post-wrap right
     "
     data-aos="fade-up"
   ><a
         class="post-link"
         href="/post/interview/jvm/"
         aria-label="Jvm面试"
+        title="Jvm面试"
       >
       </a><div
       class="
-        post-cover-right
+        post-cover right
       "
     ><img
           data-src="/cover/5.jpg"
@@ -577,14 +893,14 @@
           >2025-08-22</span
         ><span
             ><span class="icon-calendar-plus"></span
-            >2025-09-08</span
+            >2025-09-25</span
           ><span
           ><span class="icon-pencil"></span
-          >7443 字</span
+          >7534 字</span
         >
         <span
           ><span class="icon-clock"></span
-          >15 分钟</span
+          >16 分钟</span
         >
       </div>
       <h2 class="post-title">Jvm面试</h2>
@@ -592,181 +908,11 @@
     </div>
   </div>
 </div>
-<div class="post-wrapper">
-  <div
-    class="
-      post-wrap-left
-    "
-    data-aos="fade-up"
-  ><a
-        class="post-link"
-        href="/post/mysql/index_fail/"
-        aria-label="索引失效场景"
-      >
-      </a><div
-      class="
-        post-cover-left
-      "
-    ><img
-          data-src="/cover/6.jpg"
-          data-sizes="auto"
-          alt=""
-          class="lazyload"
-        /></div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span
-          ><span class="icon-calendar"></span
-          >2025-08-21</span
-        ><span
-            ><span class="icon-calendar-plus"></span
-            >2025-09-08</span
-          ><span
-          ><span class="icon-pencil"></span
-          >313 字</span
-        >
-        <span
-          ><span class="icon-clock"></span
-          >1 分钟</span
-        >
-      </div>
-      <h2 class="post-title">索引失效场景</h2>
-      <article class="post-article">默认描述</article>
-    </div>
-  </div>
-</div>
-<div class="post-wrapper">
-  <div
-    class="
-      post-wrap-right
-    "
-    data-aos="fade-up"
-  ><a
-        class="post-link"
-        href="/post/study/java/spring/source_code/test/"
-        aria-label="Test"
-      >
-      </a><div
-      class="
-        post-cover-right
-      "
-    ><img
-          data-src="/cover/8.jpg"
-          data-sizes="auto"
-          alt=""
-          class="lazyload"
-        /></div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span
-          ><span class="icon-calendar"></span
-          >2025-08-21</span
-        ><span
-            ><span class="icon-calendar-plus"></span
-            >2025-09-08</span
-          ><span
-          ><span class="icon-pencil"></span
-          >462 字</span
-        >
-        <span
-          ><span class="icon-clock"></span
-          >1 分钟</span
-        >
-      </div>
-      <h2 class="post-title">Test</h2>
-      <article class="post-article">springboot启动流程（JDK17）</article>
-    </div>
-  </div>
-</div>
-<div class="post-wrapper">
-  <div
-    class="
-      post-wrap-left
-    "
-    data-aos="fade-up"
-  ><a
-        class="post-link"
-        href="/post/main/"
-        aria-label="Markdown Basic Elements"
-      >
-      </a><div
-      class="
-        post-cover-left
-      "
-    ><img
-          data-src="/cover/2.jpg"
-          data-sizes="auto"
-          alt=""
-          class="lazyload"
-        /></div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span
-          ><span class="icon-calendar"></span
-          >2022-06-09</span
-        ><span
-            ><span class="icon-calendar-plus"></span
-            >2025-09-08</span
-          ><span
-          ><span class="icon-pencil"></span
-          >1690 字</span
-        >
-        <span
-          ><span class="icon-clock"></span
-          >4 分钟</span
-        >
-      </div>
-      <h2 class="post-title">Markdown Basic Elements</h2>
-      <article class="post-article">测试 Markdown 基本元素</article>
-    </div>
-  </div>
-</div>
-<div class="post-wrapper">
-  <div
-    class="
-      post-wrap-right
-    "
-    data-aos="fade-up"
-  ><a
-        class="post-link"
-        href="/post/first/"
-        aria-label="模板创建来源"
-      >
-      </a><div
-      class="
-        post-cover-right
-      "
-    ><img
-          data-src="/cover/1.jpg"
-          data-sizes="auto"
-          alt=""
-          class="lazyload"
-        /></div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span
-          ><span class="icon-calendar"></span
-          >2022-06-09</span
-        ><span
-            ><span class="icon-calendar-plus"></span
-            >2025-09-08</span
-          ><span
-          ><span class="icon-pencil"></span
-          >27 字</span
-        >
-        <span
-          ><span class="icon-clock"></span
-          >1 分钟</span
-        >
-      </div>
-      <h2 class="post-title">模板创建来源</h2>
-      <article class="post-article">中文測試</article>
-    </div>
-  </div>
-</div>
-<nav id="page-nav" data-aos="fade-up"><span class="page-number current">1</span></nav>
+<nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">
+      下一页 &raquo;
+    </a></nav>
 </section>
-        </div><footer id="footer">
+        </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
     <div class="footer-line"></div>
   </div>
@@ -777,18 +923,20 @@
         基于&nbsp;<a
           href="https://gohugo.io/"
           target="_blank"
+          rel="noopener nofollow noreferrer"
           >Hugo</a
         >&nbsp; Theme.<a
           href="https://github.com/D-Sketon/hugo-theme-reimu"
           target="_blank"
+          rel="noopener nofollow noreferrer"
           >Reimu</a
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;42.0k</span
+          >&nbsp;53.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;01:27</span>
+        <span class="icon-coffee">&nbsp;01:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -809,7 +957,7 @@
             <div class="sidebar-top-taichi rotate"></div>
             <div class="arrow-up"></div>
           </div><div id="mask" class="hide"></div>
-      </div><nav id="mobile-nav">
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
@@ -822,17 +970,17 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">14</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      3
+      4
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">9</div>
+    <div class="sidebar-state-number">12</div>
   </a>
 </div>
 <div class="sidebar-social"></div>

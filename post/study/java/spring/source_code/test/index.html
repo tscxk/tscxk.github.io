@@ -49,7 +49,7 @@
   <meta property="article:published_time" content="2025-08-21T10:12:19&#43;08:00" />
   <meta property="article:modified_time" content="2025-09-08T15:29:33&#43;08:00" /><meta property="article:tag" content="SpringBoot源码JAVA" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/cover/8.jpg" />
-<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.17c905cd4d0df4b63a6a2d1aa20d344aa9e2450f1441cd34a78159e8a421f814.css" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.80c101887e286efa25202ecd895cce3d6ab763f01b28399ac563b0b26b034778.css" />
 <link
     rel="preload"
     as="style"
@@ -80,19 +80,23 @@
   </div>
   <script>
     var time = null;
+    var loaderEl = document.getElementById('loader');
     var startLoading = () => {
       time = Date.now();
-      document.getElementById('loader').classList.remove("loading");
+      loaderEl.classList.remove("loading");
     }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
     var endLoading = () => {
       if (!time) {
-        document.body.style.overflow = 'auto';
-        document.getElementById('loader').classList.add("loading");
+        hideLoader();
       } else {
         if (Date.now() - time > 500) {
           time = null;
-          document.body.style.overflow = 'auto';
-          document.getElementById('loader').classList.add("loading");
+          hideLoader();
         } else {
           setTimeout(endLoading, 500 - (Date.now() - time));
           time = null;
@@ -100,15 +104,14 @@
       }
     }
     window.addEventListener('DOMContentLoaded', endLoading);
-    document.getElementById('loader').addEventListener('click', endLoading);
-  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
-</div>
-<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
 本文章没有找到对应的语言版本
 </div>
 <div id="heatmap-tooltip"></div><div id="container">
       <div id="wrap"><div id="header-nav">
-  <nav id="main-nav"><span class="main-nav-link-wrap">
+  <nav id="main-nav" aria-label="Primary navigation"><span class="main-nav-link-wrap">
         <div class='main-nav-icon icon rotate'>&#xe62b;</div>
         <a class="main-nav-link" href="/">首页</a>
       </span><span class="main-nav-link-wrap">
@@ -120,15 +123,15 @@
       </span><span class="main-nav-link-wrap">
         <div class='main-nav-icon icon rotate'>&#xe62b;</div>
         <a class="main-nav-link" href="/friend">友链</a>
-      </span><a id="main-nav-toggle" class="nav-icon"></a>
+      </span><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
-  <nav id="sub-nav"></nav><nav id="i18n-nav">
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav><nav id="i18n-nav" aria-label="Language selection">
       <div class="custom-dropdown">
-        <div class="select-selected" id="select-selected">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
           <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
           <span id="selected-lang">简体中文</span>
         </div>
-        <ul class="select-items" id="select-items"><li data-value="en"  >English</li><li data-value="zh-cn" class="selected" >简体中文</li><li data-value="zh-tw"  >繁體中文</li></ul>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages"><li data-value="en" role="option" arial-selected="false" >English</li><li data-value="zh-cn" role="option" class="selected" arial-selected="true" >简体中文</li><li data-value="zh-tw" role="option" arial-selected="false" >繁體中文</li></ul>
       </div>
       <script>
         var selectSelected = document.getElementById("select-selected");
@@ -138,6 +141,8 @@
 
         selectSelected.addEventListener("click", () => {
           selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
         });
 
         selectOptions.forEach((item) => {
@@ -165,19 +170,21 @@
         document.addEventListener("click", (event) => {
           if (!event.target.closest(".custom-dropdown")) {
             selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
           }
         });
       </script>
     </nav></div>
-<header id="header"><picture></picture>
-    <img  fetchpriority="high" src="/cover/8.jpg" alt="Test"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture>
+    <img  fetchpriority="high" src="/cover/8.jpg"  alt="Test"><div id="header-outer">
     <div id="header-title"><span id="logo">
             <h1 data-aos="slide-up">Test</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
+          aria-label="Page content"
           class="sidebar-left"
-            ><aside id="sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
     <div
       class="sidebar-wrap"
       data-aos="fade-up"
@@ -197,17 +204,17 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">14</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      3
+      4
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">9</div>
+    <div class="sidebar-state-number">12</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -249,9 +256,8 @@
             <div class="sidebar-common-btn"></div>
           </div></div>
   </div><div class="sidebar-widget"></div></div></aside>
-<section id="main"><article
+<section id="main" aria-label="Main content"><article
   class="h-entry article"
-  itemprop="blogPost"
   itemscope
   itemtype="https://schema.org/BlogPosting"
 >
@@ -319,25 +325,34 @@
 </footer>
   </div><nav
     id="article-nav"
+    aria-label="Article navigation"
     data-aos="fade-up"
-  ><div class="article-nav-link-wrap article-nav-link-left"><img
+  ><div class="article-nav-link-wrap left"><img
             data-src="/cover/2.jpg"
             data-sizes="auto"
             alt="Markdown Basic Elements"
             class="lazyload"
-          /><a href="/post/main/"></a>
+          /><a
+          href="/post/main/"
+          aria-label="前一篇:Markdown Basic Elements"
+          title="前一篇:Markdown Basic Elements"
+        ></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">Markdown Basic Elements</h3>
-      </div><div class="article-nav-link-wrap article-nav-link-right"><img
+      </div><div class="article-nav-link-wrap right"><img
             data-src="/cover/6.jpg"
             data-sizes="auto"
             alt="索引失效场景"
             class="lazyload"
-          /><a href="/post/mysql/index_fail/"></a>
+          /><a
+          href="/post/mysql/index_fail/"
+          aria-label="后一篇:索引失效场景"
+          title="后一篇:索引失效场景"
+        ></a>
         <div class="article-nav-caption">后一篇</div>
         <h3 class="article-nav-title">索引失效场景</h3>
       </div></nav></article></section>
-        </div><footer id="footer">
+        </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
     <div class="footer-line"></div>
   </div>
@@ -348,18 +363,20 @@
         基于&nbsp;<a
           href="https://gohugo.io/"
           target="_blank"
+          rel="noopener nofollow noreferrer"
           >Hugo</a
         >&nbsp; Theme.<a
           href="https://github.com/D-Sketon/hugo-theme-reimu"
           target="_blank"
+          rel="noopener nofollow noreferrer"
           >Reimu</a
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;42.0k</span
+          >&nbsp;53.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;01:27</span>
+        <span class="icon-coffee">&nbsp;01:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -380,7 +397,7 @@
             <div class="sidebar-top-taichi rotate"></div>
             <div class="arrow-up"></div>
           </div><div id="mask" class="hide"></div>
-      </div><nav id="mobile-nav">
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents"></nav>
@@ -397,17 +414,17 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">14</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      3
+      4
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">9</div>
+    <div class="sidebar-state-number">12</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -486,17 +503,16 @@
           description: "springboot启动流程（JDK17）",
           cover: "https:\/\/tscxk.github.io\/cover\/8.jpg",
         };
-      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
-          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
             new PhotoSwipeLightbox({
-              gallery: '.article-entry',
-              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
           }
-          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
-            new PhotoSwipeLightbox({
-              gallery: '.article-gallery',
-              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
-          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
           window.lightboxStatus = 'done';
           window.removeEventListener('lightbox:ready', pswp);
         }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络协议 on My New Hugo Site</title>
+    <link>https://tscxk.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</link>
+    <description>Recent content from My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>952505116@qq.com (tscxk)</managingEditor>
+    <webMaster>952505116@qq.com (tscxk)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Thu, 25 Sep 2025 16:46:24 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://tscxk.github.io/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>网络协议</title>
+      <link>https://tscxk.github.io/post/interview/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Tue, 09 Sep 2025 22:41:58 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</guid>
+      <description>
+        <![CDATA[<h1>网络协议</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><blockquote>
+<p>参考：<a href="https://xiaolincoding.com/interview/network.html#https%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B%E8%AF%B4%E4%B8%80%E4%B8%8B">计算机网络面试题 | 小林coding | Java面试学习</a></p></blockquote>
+<h3 id="1-浏览器打开一个网页背后做了什么">
+<a class="header-anchor" href="#1-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%93%e5%bc%80%e4%b8%80%e4%b8%aa%e7%bd%91%e9%a1%b5%e8%83%8c%e5%90%8e%e5%81%9a%e4%ba%86%e4%bb%80%e4%b9%88"></a>
+1. 浏览器打开一个网页，背后做了什么？
+</h3><p>浏览器打开一个网页大致可以分为以下几个核心阶段：</p>
+        
+        <hr><p>本文2025-09-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-25</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+  </channel>
+</rss>

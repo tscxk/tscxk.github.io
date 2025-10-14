@@ -1,0 +1,914 @@
+<!doctype html>
+<html
+  lang="zh-cn" 
+  data-theme-mode="auto"
+  >
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no"
+/><title>
+  并发编程 | tscxk
+</title>
+<meta
+  name="description"
+  content="默认描述"
+/><script>
+  window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://tscxk.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"i18n_languages\":[{\"Lang\":\"en\",\"LanguageName\":\"English\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"zh-cn\",\"LanguageName\":\"简体中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false},{\"Lang\":\"zh-tw\",\"LanguageName\":\"繁體中文\",\"LanguageCode\":\"\",\"Title\":\"\",\"LanguageDirection\":\"\",\"Weight\":1,\"Disabled\":false}],\"icon_font\":\"4552607_4k4bc36ef96\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
+  
+</script>
+<link
+    rel="preload"
+    as="style"
+    crossorigin
+    href="https://fontsapi.zeoseven.com/292/main/result.css"
+    onload="this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    href="//at.alicdn.com/t/c/font_4552607_4k4bc36ef96.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  /><link rel="stylesheet" href="/css/loader.min.14df05c02c63459533ffcbb5e07f8ba38b8a4eed13a1e5c3b19d3045491c4e2a.css" />
+<meta property="og:type" content="website" />
+  <meta property="og:title" content="并发编程 | tscxk" />
+  <meta
+    property="og:description"
+    content="默认描述"
+  />
+  <meta property="og:url" content="https://tscxk.github.io/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" />
+  <meta
+    property="og:site_name"
+    content="My New Hugo Site"
+  />
+  <meta
+    property="og:image"
+    content="/cover/10.jpg"
+  />
+  <meta property="article:author" content="tscxk" />
+  <meta property="article:published_time" content="2025-09-22T21:59:52&#43;08:00" />
+  <meta property="article:modified_time" content="2025-10-13T17:02:35&#43;08:00" /><meta property="article:tag" content="java并发编程" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/cover/10.jpg" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.80c101887e286efa25202ecd895cce3d6ab763f01b28399ac563b0b26b034778.css" />
+<link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css"
+    integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei&#43;Zx/1oA/0l8ysE" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><link
+    rel="preload"
+    as="style"
+    href="https://npm.webcache.cn/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///&#43;d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous"onload="this.onload=null;this.rel='stylesheet'"
+  /><script
+    src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js"
+    integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script><link
+    rel="stylesheet"
+    href="https://npm.webcache.cn/@reimujs/aos@0.1.2/dist/aos.css"
+    integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous"/></head>
+  <body><div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate"><svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+          M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg></div><div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
+本文章没有找到对应的语言版本
+</div>
+<div id="heatmap-tooltip"></div><div id="container">
+      <div id="wrap"><div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation"><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/">首页</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/archives">归档</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/about">关于</a>
+      </span><span class="main-nav-link-wrap">
+        <div class='main-nav-icon icon rotate'>&#xe62b;</div>
+        <a class="main-nav-link" href="/friend">友链</a>
+      </span><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation"></nav><nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">简体中文</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages"><li data-value="en" role="option" arial-selected="false" >English</li><li data-value="zh-cn" role="option" class="selected" arial-selected="true" >简体中文</li><li data-value="zh-tw" role="option" arial-selected="false" >繁體中文</li></ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            if (item.dataset.value === 'zh-cn') {
+              return;
+            }
+            if (!langMap[item.dataset.value]) {
+              _$("#lang-tooltip").style.opacity = "1";
+              setTimeout(() => {
+                _$("#lang-tooltip").style.opacity = "0";
+              }, 1000);
+              return;
+            }
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav></div>
+<header id="header" aria-label="Site header"><picture></picture>
+    <img  fetchpriority="high" src="/cover/10.jpg"  alt="并发编程"><div id="header-outer">
+    <div id="header-title"><span id="logo">
+            <h1 data-aos="slide-up">并发编程</h1>
+          </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
+  </div>
+</header><div id="content"
+          aria-label="Page content"
+          class="sidebar-left"
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container sticky"><div class="sidebar-wrapper">
+    <div
+      class="sidebar-wrap"
+      data-aos="fade-up"
+    ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#1线程池参数">1.线程池参数</a></li>
+        <li><a href="#2-volatile关键字">2. Volatile关键字</a></li>
+        <li><a href="#3hashmap为什么线程不安全">3.HashMap为什么线程不安全</a></li>
+        <li><a href="#4-concurrenthashmap">4. ConcurrentHashMap</a></li>
+        <li><a href="#5-reentrantlock相关">5. ReentrantLock相关</a></li>
+        <li><a href="#6-aqs相关">6. AQS相关</a></li>
+        <li><a href="#7-cas">7. CAS</a></li>
+        <li><a href="#8-为什么非公平锁吞吐量更大">8. 为什么非公平锁吞吐量更大？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="tscxk"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">tscxk</div>
+  <div class="sidebar-description">叽里咕噜...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">14</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      4
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">12</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
+  </div><div class="sidebar-widget"></div></div></aside>
+<section id="main" aria-label="Main content"><article
+  class="h-entry article"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
+    data-aos="fade-up"
+  >
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link icon-calendar"
+    data-aos="zoom-in"
+  >
+    <time datetime="2025-09-22 21:59:52 &#43;0800 CST" itemprop="datePublished"
+      >2025-09-22</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2025-10-13</time
+    >
+  </span><span
+      class="article-date-link icon-calendar-plus"
+      data-aos="zoom-in"
+    >
+      <time datetime="2025-10-13 17:02:35.2827755 &#43;0800 CST" itemprop="dateModified"
+        >2025-10-13</time
+      >
+    </span></div>
+<div class="article-category"><a
+      class="article-category-link"
+      href="/categories/%e9%9d%a2%e8%af%95"
+      data-aos="zoom-in"
+      >面试</a
+    ></div>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1线程池参数">
+<a class="header-anchor" href="#1%e7%ba%bf%e7%a8%8b%e6%b1%a0%e5%8f%82%e6%95%b0"></a>
+1.线程池参数
+</h3><blockquote>
+<p>线程池工作原理：</p>
+<p>线程池是为了减少频繁的线程创建和销毁带来的性能损耗。</p>
+<p>当提交一个任务时，如果还有空闲的核心线程，那么就会将任务给核心线程<br>
+否则加入到等待队列，如果队列也满了，那么就会检测存活线程是否达到了最大线程<br>
+如果没有达到，那就创建新的线程并且从队列中获取队头的任务进行处理，然后将当前任务加入到等待队列末尾<br>
+如果存活线程已经到了最大线程数，就会按照线程池配置的拒绝策略处理任务</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">* 线程池创建接口
+</span></span></span><span class="line"><span class="cl"><span class="cm">**/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="nf">ThreadPoolExecutor</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">corePoolSize</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">maximumPoolSize</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">keepAliveTime</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">TimeUnit</span><span class="w"> </span><span class="n">unit</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">BlockingQueue</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;</span><span class="w"> </span><span class="n">workQueue</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ThreadFactory</span><span class="w"> </span><span class="n">threadFactory</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">RejectedExecutionHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>corePoolSize：核心线程数</li>
+<li>maximumPoolSize：最大线程总数</li>
+<li>keepAliveTime：存活时间。当线程池中线程数量大于核心线程，并且某个线程的空闲时间超过了keepAliveTime，那么这个线程就会被销毁</li>
+<li>unit：存活时间单位</li>
+<li>workQueue：工作队列</li>
+<li>threadFactory：线程工厂。通常用来给线程取名字</li>
+<li>handler：拒绝策略。当存活线程和工作队列都已经达到上限，对于新增任务按照拒绝策略进行处理</li>
+</ul>
+<h5 id="线程池有哪些拒绝策略">
+<a class="header-anchor" href="#%e7%ba%bf%e7%a8%8b%e6%b1%a0%e6%9c%89%e5%93%aa%e4%ba%9b%e6%8b%92%e7%bb%9d%e7%ad%96%e7%95%a5"></a>
+线程池有哪些拒绝策略？
+</h5><ol>
+<li>CallerRunsPolicy：将任务返回给调用者执行</li>
+<li>AbortPolicy：抛出任务拒绝的异常</li>
+<li>DiscardPolicy：将任务丢弃后不做任何处理（通常没人用）</li>
+<li>DiscardOldestPolicy：抛弃等待队列中最老的（队头）任务，然后将任务加入队尾</li>
+<li>自定义拒绝策略：通过实现接口可以自定义任务拒绝策略。</li>
+</ol>
+<h5 id="线程池队列选择">
+<a class="header-anchor" href="#%e7%ba%bf%e7%a8%8b%e6%b1%a0%e9%98%9f%e5%88%97%e9%80%89%e6%8b%a9"></a>
+线程池队列选择
+</h5><ol>
+<li>
+<p>有界队列（ArrayBlockingQueue）</p>
+<p>当任务数量稳定可控时，并且需要限制线程池中任务数量，防止任务挤压对系统造成过高压力时常采用有届队列</p>
+</li>
+<li>
+<p>无界队列（LinkedBlockingQueue）</p>
+<p>当我们不关注任务是否挤压，即所有任务都需要处理，并且不存在任务积压风险是可以选择</p>
+</li>
+<li>
+<p>同步队列（SynchronousQueue）</p>
+<p><strong>SynchronousQueue是一个不缓存任何任务的队列，它会直接将任务交给线程池中的线程来执行。如果没有线程空闲，提交任务的线程将会被阻塞直到有线程来处理任务</strong></p>
+<p>适用于需要快速处理每个任务的场景，常用于高并发、需要快速响应的场景</p>
+</li>
+</ol>
+<h3 id="2-volatile关键字">
+<a class="header-anchor" href="#2-volatile%e5%85%b3%e9%94%ae%e5%ad%97"></a>
+2. Volatile关键字
+</h3><h5 id="为什么要用volatile关键字">
+<a class="header-anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8volatile%e5%85%b3%e9%94%ae%e5%ad%97"></a>
+为什么要用volatile关键字？
+</h5><ul>
+<li>
+<p>禁止指令重排序</p>
+<blockquote>
+<p>instance = new Singleton();并不是原子性操作，这里有三步</p>
+<ul>
+<li>分配内存空间</li>
+<li>初始化对象</li>
+<li>将对象引用赋值给instance</li>
+</ul>
+<p>如果没有volatile，那么可能会先执行第三步，那么拿到的对象就会是一个还没完全初始化的对象导致错误。</p></blockquote>
+</li>
+<li>
+<p>保证变量的可见性</p>
+</li>
+</ul>
+<h5 id="volatile如何保证变量的可见性">
+<a class="header-anchor" href="#volatile%e5%a6%82%e4%bd%95%e4%bf%9d%e8%af%81%e5%8f%98%e9%87%8f%e7%9a%84%e5%8f%af%e8%a7%81%e6%80%a7"></a>
+volatile如何保证变量的可见性
+</h5><blockquote>
+<p>可见性问题的本质：每个线程都有自己的工作内存（缓存）。当线程读取变量时，可能从自己的工作内存中获取缓存数据，而不是从主存中获取数据，这就导致了可见性问题。同理，当更新数据时可能也是先对自己工作内存中的数据修改而没有立马同步到主存中也会导致类似问题。</p></blockquote>
+<p>可见性机制：</p>
+<ol>
+<li>强制主存读写
+<ul>
+<li>当写一个volatile变量时，JVM会立即将修改后的值刷新到主存中</li>
+<li>当读一个volatile变量时，jvm会直接从主存中进行读取</li>
+</ul>
+</li>
+<li>内存屏障
+<ul>
+<li>volatile通过在读写操作前后插入内存屏障来保证可见性</li>
+<li>写操作后的StoreLoad屏障会强制将写缓冲区的数据刷新到主内存</li>
+<li>读操作前的LoadLoad屏障会强制从主内存重新加载数据</li>
+</ul>
+</li>
+</ol>
+<h5 id="哪些地方用到volatile">
+<a class="header-anchor" href="#%e5%93%aa%e4%ba%9b%e5%9c%b0%e6%96%b9%e7%94%a8%e5%88%b0volatile"></a>
+哪些地方用到volatile
+</h5><ul>
+<li>双重检查锁</li>
+<li>和CAS搭配：例如Atomic类</li>
+</ul>
+<h3 id="3hashmap为什么线程不安全">
+<a class="header-anchor" href="#3hashmap%e4%b8%ba%e4%bb%80%e4%b9%88%e7%ba%bf%e7%a8%8b%e4%b8%8d%e5%ae%89%e5%85%a8"></a>
+3.HashMap为什么线程不安全
+</h3><blockquote>
+<p><a href="https://cloud.tencent.com/developer/article/1631902">面试官：HashMap 为什么线程不安全？-腾讯云开发者社区-腾讯云</a></p></blockquote>
+<ol>
+<li>
+<p>数据覆盖（JDK7/8）</p>
+<p>由于hashmap的put操作有以下几个操作：</p>
+<ul>
+<li>计算hash</li>
+<li>计算桶位置</li>
+<li>修改数据</li>
+</ul>
+<p>如果多个线程同时进行put操作，且桶位置计算结果相同，此时先修改的数据就会被后修改的覆盖掉，导致数据丢失</p>
+</li>
+<li>
+<p>扩容导致死循环（JDK7）</p>
+<p>只需要AB扩容后还在一个桶内即可导致问题</p>
+<p>具体原因：头插法会导致仍然处于同一个桶位的元素倒序排序，例如有两个元素A-&gt;B始终在同一个桶位</p>
+<p>正常来说只有一个线程扩容最终会变成B-&gt;A的样子</p>
+<p>但是假如两个线程同时扩容就可能会导致A-&gt;B-&gt;A问题</p>
+</li>
+<li>
+<p>扩容导致数据丢失（JDK7）</p>
+<p>只需要ACB  其中AB扩容后在一个桶内 C在另一个桶内</p>
+<p>当两个线程同时扩容时，会导致C死循环，B数据丢失</p>
+</li>
+</ol>
+<h5 id="hashmap线程安全的解决方案">
+<a class="header-anchor" href="#hashmap%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8%e7%9a%84%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88"></a>
+HashMap线程安全的解决方案：
+</h5><ol>
+<li>
+<p>使用HashTable（不推荐）</p>
+<p>HashTable的操作和HashMap操作基本一致，相当于在HashMap的所有方法上添加了Synchronized锁，性能极低</p>
+</li>
+<li>
+<p>使用Collections.synchronizedMap（不推荐）</p>
+<p>对整个Map实例加了一个全局锁</p>
+</li>
+<li>
+<p>ConcurrentHashMap（推荐）</p>
+</li>
+</ol>
+<h3 id="4-concurrenthashmap">
+<a class="header-anchor" href="#4-concurrenthashmap"></a>
+4. ConcurrentHashMap
+</h3><p>总的来说，ConcurrentHashMap的线程安全体现在：</p>
+<ol>
+<li>CAS+Synchronized(jdk1.7使用分段锁)保证了数据修改不存在冲突，volatile保证了数据的可见性</li>
+<li>扩容安全：使用全局的扩容table 同时逐个桶迁移</li>
+<li>迭代安全</li>
+</ol>
+<h5 id="jdk17">
+<a class="header-anchor" href="#jdk17"></a>
+Jdk1.7
+</h5><p>核心理念是分段。Jdk1.7采用分段锁机制，整体组成如下：</p>
+<ul>
+<li>一个ConcurrentHashMap由多个Segment组成（默认16个）</li>
+<li>每个Segment：
+<ul>
+<li>是一个独立的ReentrantLock(可重入锁)，负责保护自己的分段</li>
+<li>内部维护了一个HashEntry数组，相当于一个小型HashMap</li>
+<li>都有自己的count（元素数量）和modCount（修改次数），用于统计和快速失败</li>
+</ul>
+</li>
+</ul>
+<h5 id="jdk18">
+<a class="header-anchor" href="#jdk18"></a>
+JDK1.8
+</h5><p>相较于jdk1.7主要有以下优化：</p>
+<ol>
+<li>引进红黑树，当hash冲突的桶的链表长度达到8的时候会转为红黑树存储</li>
+<li>不再是使用Segment锁，而是针对每个桶的头结点进行加锁单位。通常使用CAS+synchronized进行操作，避免不必要的锁开销</li>
+</ol>
+<h3 id="5-reentrantlock相关">
+<a class="header-anchor" href="#5-reentrantlock%e7%9b%b8%e5%85%b3"></a>
+5. ReentrantLock相关
+</h3><p>ReentrantLock是java.util.concurrent包下的一个类，实现了Lock接口，并且通过名字可以发现其主要特性是可重入性。它的基础特性包含：</p>
+<ul>
+<li>可重入性：这意味着同一个线程可以多次获取锁而不会被阻塞。这和synchronized关键特性是一样的。</li>
+<li>显示锁：和synchronized的隐式锁（自动管理锁的获取和释放）不同，ReentrantLock锁的获取和释放需要手动控制。</li>
+</ul>
+<p>基本使用示例如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Counter</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span><span class="w"> </span><span class="c1">// 手动获取锁</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 其他需要同步的代码...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="c1">// 必须在 finally 块中手动释放锁！</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>关键点：</p>
+<ul>
+<li>lock()：获取锁。如果锁被其他线程获取，当前线程会被挂起，直到获取锁</li>
+<li>unlock()：释放锁，<font color='red'>需要注意的是一定要在finally块中手动释放</font></li>
+</ul>
+<h4 id="和synchronized的区别">
+<a class="header-anchor" href="#%e5%92%8csynchronized%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+和Synchronized的区别
+</h4><table>
+  <thead>
+      <tr>
+          <th>特性</th>
+          <th>Synchronized</th>
+          <th>ReentrantLock</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>实现方式</strong></td>
+          <td>java关键字，JVM实现</td>
+          <td>JDK级别的类，通过API实现</td>
+      </tr>
+      <tr>
+          <td><strong>锁的获取</strong></td>
+          <td>隐式获取和释放</td>
+          <td>显示调用lock()和unlock()</td>
+      </tr>
+      <tr>
+          <td><strong>是否公平</strong></td>
+          <td>仅支持非公平锁</td>
+          <td>支持公平锁和非公平锁</td>
+      </tr>
+      <tr>
+          <td><strong>是否可中断</strong></td>
+          <td>不可中断</td>
+          <td>ReentrantLock 可以响应中断，解决死锁的问题</td>
+      </tr>
+      <tr>
+          <td><strong>用法</strong></td>
+          <td>synchronized 可用来修饰普通方法、静态方法和代码块</td>
+          <td>ReentrantLock 只能用在代码块上</td>
+      </tr>
+  </tbody>
+</table>
+<p>同时ReentrantLock还支持一些高级特性：</p>
+<ul>
+<li>尝试非阻塞获取锁</li>
+<li>可以为获取锁设置超时时间</li>
+<li><strong>丰富的条件变量</strong>，这是可重入锁的一个巨大优势</li>
+</ul>
+<p>大部分时候我们都可以选择Synchronized，其代码更加简洁不容易出错，并且性能问题已经得到了很好的改善。</p>
+<p>但是在以下需求产生时我们还是要考虑使用ReentrantLock：</p>
+<ul>
+<li>需要非阻塞、可中断、超时的高级锁特性</li>
+<li>需要公平锁特性</li>
+<li>需要实现复杂的同步逻辑，特别是需要多个条件变量的场景。</li>
+</ul>
+<h3 id="6-aqs相关">
+<a class="header-anchor" href="#6-aqs%e7%9b%b8%e5%85%b3"></a>
+6. AQS相关
+</h3><p>AQS是构建<strong>锁和同步器</strong>的基础框架，位于java.util的并发包中，jdk的许多同步工具都是基于AQS构建的，例如：</p>
+<ul>
+<li>ReentrantLock</li>
+<li>ReentrantReadWriteLock</li>
+<li>Semaphore</li>
+<li>CountDownLatch</li>
+</ul>
+<p><strong>核心机制</strong>：</p>
+<ul>
+<li>
+<p>state字段</p>
+<p>AQS 使用一个 <strong>int 类型的 volatile 变量（state）</strong> 来表示同步状态。这里state根据具体实现类的作用有不同的含义：例如在CountDownLatch中表示还需要倒数的数量，在Semaphore表示剩余许可证的数量，在ReentrantLock表示重入次数。</p>
+</li>
+<li>
+<p>变种CLH队列</p>
+<p>AQS 使用一个虚拟的<strong>双向队列</strong>（CLH 锁的变种）来管理等待线程</p>
+</li>
+<li>
+<p>CAS操作</p>
+</li>
+<li>
+<p>预设的模板方法</p>
+</li>
+</ul>
+<h3 id="7-cas">
+<a class="header-anchor" href="#7-cas"></a>
+7. CAS
+</h3><p>CAS是并发编程中的重要基石，是构建许多高级并发工具的基础，它的全称是Compare And Swps（比较并交换），它通常包含三个操作数：</p>
+<ul>
+<li>内存位置（V）</li>
+<li>期望的原值（A）</li>
+<li>新值（B）</li>
+</ul>
+<p>许多地方都会用到它，例如ReentrantLock、CountDownLatch、ConcurrentHashMap、Atomic等都会用到，它也是乐观锁的实现核心。</p>
+<p>但是它也存在若干缺点：</p>
+<ul>
+<li>
+<p>ABA问题</p>
+<p>解决方案：添加版本号或者时间戳</p>
+</li>
+<li>
+<p>竞争激烈时循环时间长开销大</p>
+<p>解决方案：使用悲观锁，竞争激烈的时候不建议使用乐观锁</p>
+</li>
+</ul>
+<h3 id="8-为什么非公平锁吞吐量更大">
+<a class="header-anchor" href="#8-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9d%9e%e5%85%ac%e5%b9%b3%e9%94%81%e5%90%9e%e5%90%90%e9%87%8f%e6%9b%b4%e5%a4%a7"></a>
+8. 为什么非公平锁吞吐量更大？
+</h3><p>基础概念：</p>
+<ul>
+<li>公平锁：线程必须按照申请锁的时间排队获取锁</li>
+<li>非公平锁：允许“插队”，无论队列中是否存在线程排队，它都会尝试竞争一次锁，如果竞争失败，才会排队</li>
+</ul>
+<p>非公平锁吞吐量更大的核心原因是因为它减少了线程切换的开销，也就是线程挂起和恢复的操作。</p>
+<h4 id="场景一">
+<a class="header-anchor" href="#%e5%9c%ba%e6%99%af%e4%b8%80"></a>
+场景一
+</h4><p>公平锁的工作模式：</p>
+<ol>
+<li>线程A释放锁</li>
+<li>操作系统唤醒等待队列的第一个被挂起的线程B</li>
+<li>线程B被唤醒后，需要从内核态切换回用户态恢复然后尝试获取锁</li>
+<li>线程C只能排队</li>
+</ol>
+<p>非公平锁：</p>
+<ol>
+<li>线程A释放锁</li>
+<li>操作系统唤醒等待队列的第一个被挂起的线程B</li>
+<li>此时来了一个线程C抢锁成功</li>
+<li>线程B被唤醒后，发现锁已经被持有，继续挂起</li>
+</ol>
+<p>可以发现线程C减少了一次线程切换的操作</p>
+<h4 id="场景二">
+<a class="header-anchor" href="#%e5%9c%ba%e6%99%af%e4%ba%8c"></a>
+场景二
+</h4><p>对于一个刚刚释放锁又马上需要锁的线程（这种场景很常见），非公平锁的优势巨大。</p>
+<p>如果这个线程能够连续获取锁，那么也能大大减少线程切换的开销</p>
+<p>尽管非公平锁吞吐量更高，但是它也因此可能会导致<strong>线程饥饿</strong></p>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/java"
+        rel="tag"
+        >JAVA</a
+      >
+    </li><li class="article-tag-list-item" data-aos="zoom-in">
+      <a
+        class="article-tag-list-link"
+        href="/tags/%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b"
+        rel="tag"
+        >并发编程</a
+      >
+    </li></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    aria-label="Article navigation"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap left"><img
+            data-src="/cover/9.jpg"
+            data-sizes="auto"
+            alt="网络协议"
+            class="lazyload"
+          /><a
+          href="/post/interview/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
+          aria-label="前一篇:网络协议"
+          title="前一篇:网络协议"
+        ></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">网络协议</h3>
+      </div><div class="article-nav-link-wrap right"><img
+            data-src="/cover/12.jpg"
+            data-sizes="auto"
+            alt="SpringBoot"
+            class="lazyload"
+          /><a
+          href="/post/interview/springboot/"
+          aria-label="后一篇:SpringBoot"
+          title="后一篇:SpringBoot"
+        ></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">SpringBoot</h3>
+      </div></nav></article></section>
+        </div><footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info"><div>
+      <span class="icon-copyright"></span>2020-2025<span class="footer-info-sep rotate"></span>
+      tscxk
+    </div><div>
+        基于&nbsp;<a
+          href="https://gohugo.io/"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Hugo</a
+        >&nbsp; Theme.<a
+          href="https://github.com/D-Sketon/hugo-theme-reimu"
+          target="_blank"
+          rel="noopener nofollow noreferrer"
+          >Reimu</a
+        >
+      </div><div>
+        <span class="icon-brush"
+          >&nbsp;53.6k</span
+        >
+        &nbsp;|&nbsp;
+        <span class="icon-coffee">&nbsp;01:53</span>
+      </div><div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv"
+          >总访问量&nbsp;<span
+            id="busuanzi_value_site_pv"
+          ></span
+        ></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv"
+          >总访客量&nbsp;<span
+            id="busuanzi_value_site_uv"
+          ></span
+        ></span>
+      </div></div>
+</footer>
+<div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div><div id="mask" class="hide"></div>
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class">
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#1线程池参数">1.线程池参数</a></li>
+        <li><a href="#2-volatile关键字">2. Volatile关键字</a></li>
+        <li><a href="#3hashmap为什么线程不安全">3.HashMap为什么线程不安全</a></li>
+        <li><a href="#4-concurrenthashmap">4. ConcurrentHashMap</a></li>
+        <li><a href="#5-reentrantlock相关">5. ReentrantLock相关</a></li>
+        <li><a href="#6-aqs相关">6. AQS相关</a></li>
+        <li><a href="#7-cas">7. CAS</a></li>
+        <li><a href="#8-为什么非公平锁吞吐量更大">8. 为什么非公平锁吞吐量更大？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img
+    data-src="/avatar/avatar.webp"
+    data-sizes="auto"
+    alt="tscxk"
+    class="lazyload"
+  />
+  <div class="sidebar-author-name">tscxk</div>
+  <div class="sidebar-description">叽里咕噜...</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div><div class="sidebar-state-number">14</div>
+  </div>
+  <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
+    <div>分类</div>
+    <div class="sidebar-state-number">
+      4
+    </div>
+  </a>
+  <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
+    <div>标签</div>
+    <div class="sidebar-state-number">12</div>
+  </a>
+</div>
+<div class="sidebar-social"></div>
+<div class="sidebar-menu"><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/"
+        aria-label="首页"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">首页</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/archives"
+        aria-label="归档"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">归档</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/about"
+        aria-label="关于"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">关于</div>
+    </div><div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="/friend"
+        aria-label="友链"
+      ></a>
+      <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
+      <div class="sidebar-menu-link">友链</div>
+    </div></div>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
+</div><script
+    src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js"
+    integrity="sha384-3gT/vsepWkfz/ff7PpWNUeMzeWoH3cDhm/A8jM7ouoAK0/fP/9bcHHR5kHq2nf&#43;e" crossorigin="anonymous"></script><script
+    src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha384-J08i8An/QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script><script src="/js/main.js" integrity="" crossorigin="anonymous" ></script><script src="/js/aos.js" integrity="" crossorigin="anonymous" ></script><script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", aosInit);
+    } else {
+      aosInit();
+    }
+  </script><script src="/js/pjax_main.js" integrity="" crossorigin="anonymous" data-pjax></script><script
+    src="https://npm.webcache.cn/mouse-firework@0.1.1/dist/index.umd.js"
+    integrity="sha384-8LyaidD9GPxQQgLJO/WRw/O2h3BoNq/ApI/ecpvM6RsrCz2qP2ppBXUKihP4V/2d" crossorigin="anonymous"></script><script>
+  if (window.firework) {
+    const options = JSON.parse("{\"excludeelements\":[\"a\",\"button\"],\"particles\":[{\"colors\":[\"var(--red-1)\",\"var(--red-2)\",\"var(--red-3)\",\"var(--red-4)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"emit\"],\"number\":20,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.3,0.5],\"radius\":[16,32]}},{\"colors\":[\"var(--red-0)\"],\"duration\":[1200,1800],\"easing\":\"easeOutExpo\",\"move\":[\"diffuse\"],\"number\":1,\"shape\":\"circle\",\"shapeOptions\":{\"alpha\":[0.2,0.5],\"lineWidth\":6,\"radius\":20}}]}");
+    options.excludeElements = options.excludeelements;
+    delete options.excludeelements;
+    window.firework(options);
+  }
+</script>
+
+<div id="lazy-script">
+  <div><script data-pjax>
+        window.REIMU_POST = {
+          author: "tscxk",
+          title: "并发编程",
+          url: "https:\/\/tscxk.github.io\/post\/interview\/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B\/",
+          description: "默认描述",
+          cover: "https:\/\/tscxk.github.io\/cover\/10.jpg",
+        };
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
+            new PhotoSwipeLightbox({
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
+          window.lightboxStatus = 'done';
+          window.removeEventListener('lightbox:ready', pswp);
+        }
+        if(window.lightboxStatus === 'ready') {
+          pswp()
+        } else {
+          window.addEventListener('lightbox:ready', pswp);
+        }
+      </script></div>
+</div><script
+    src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js"
+    asyncintegrity="sha384-0M75wtSkhjIInv4coYlaJU83&#43;OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id&#43;S" crossorigin="anonymous"></script><script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+  </script><script>
+  const reimuCopyright = String.raw`
+   ______     ______     __     __    __     __  __    
+  /\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+  \ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+   \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+    \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                    
+  `;
+  console.log(String.raw`%c ${reimuCopyright}`, "color: #ff5252;");
+  console.log(
+    "%c Theme.Reimu" + " %c https://github.com/D-Sketon/hugo-theme-reimu ",
+    "color: white; background: #ff5252; padding:5px 0;",
+    "padding:4px;border:1px solid #ff5252;",
+  );
+</script></body>
+</html>

@@ -12,12 +12,44 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 08 Sep 2025 15:29:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 16:51:55 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/springboot/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>SpringBoot</title>
+      <link>https://tscxk.github.io/post/interview/springboot/</link>
+      <pubDate>Wed, 24 Sep 2025 10:53:30 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/springboot/</guid>
+      <description>
+        <![CDATA[<h1>SpringBoot</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-对象的创建过程">
+<a class="header-anchor" href="#1-%e5%af%b9%e8%b1%a1%e7%9a%84%e5%88%9b%e5%bb%ba%e8%bf%87%e7%a8%8b"></a>
+1. 对象的创建过程
+</h3><blockquote>
+<p>参考：<a href="https://blog.csdn.net/dxflqm_pz/article/details/142918540">JVM系列(六) -对象的创建过程_jvm创建对象的过程-CSDN博客</a></p></blockquote>
+<p>对象的创建过程通常包含：</p>
+<ol>
+<li>
+<p>类加载检查</p>
+<p>这一步实际上就是类装载的过程，毕竟创建对象前要先检查类的存在</p>
+        
+        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
     
     
 

@@ -12,12 +12,38 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 08 Sep 2025 15:12:42 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Oct 2025 19:49:38 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/test/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>IO</title>
+      <link>https://tscxk.github.io/post/interview/io/</link>
+      <pubDate>Thu, 25 Sep 2025 16:35:53 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/io/</guid>
+      <description>
+        <![CDATA[<h1>IO</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-bufferedinputstream作用">
+<a class="header-anchor" href="#1-bufferedinputstream%e4%bd%9c%e7%94%a8"></a>
+1. BufferedInputStream作用
+</h3><p>BufferedInputStream是Java的缓冲输入流，它的核心作用是通过内存缓冲区减少磁盘的IO次数，从而显著提升读取效率</p>
+        
+        <hr><p>本文2025-09-25首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
     
     
 

@@ -46,10 +46,10 @@
     content="/"
   />
   <meta property="article:author" content="tscxk" />
-  <meta property="article:published_time" content="2025-08-21T20:25:47&#43;08:00" />
-  <meta property="article:modified_time" content="2025-09-08T15:12:42&#43;08:00" /><meta name="twitter:card" content="summary" />
+  <meta property="article:published_time" content="2025-09-25T16:35:53&#43;08:00" />
+  <meta property="article:modified_time" content="2025-10-13T19:49:38&#43;08:00" /><meta name="twitter:card" content="summary" />
   <meta name="twitter:image" content="/" /><link rel="alternate" type="application/rss+xml" href="https://tscxk.github.io/tags/test/index.xml" title="My New Hugo Site">
-<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.17c905cd4d0df4b63a6a2d1aa20d344aa9e2450f1441cd34a78159e8a421f814.css" />
+<link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.80c101887e286efa25202ecd895cce3d6ab763f01b28399ac563b0b26b034778.css" />
 <link
     rel="preload"
     as="style"
@@ -80,19 +80,23 @@
   </div>
   <script>
     var time = null;
+    var loaderEl = document.getElementById('loader');
     var startLoading = () => {
       time = Date.now();
-      document.getElementById('loader').classList.remove("loading");
+      loaderEl.classList.remove("loading");
     }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
     var endLoading = () => {
       if (!time) {
-        document.body.style.overflow = 'auto';
-        document.getElementById('loader').classList.add("loading");
+        hideLoader();
       } else {
         if (Date.now() - time > 500) {
           time = null;
-          document.body.style.overflow = 'auto';
-          document.getElementById('loader').classList.add("loading");
+          hideLoader();
         } else {
           setTimeout(endLoading, 500 - (Date.now() - time));
           time = null;
@@ -100,15 +104,14 @@
       }
     }
     window.addEventListener('DOMContentLoaded', endLoading);
-    document.getElementById('loader').addEventListener('click', endLoading);
-  </script><div id="copy-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
-</div>
-<div id="lang-tooltip" style="pointer-events: none; opacity: 0; transition: all 0.2s ease; position: fixed;top: 50%;left: 50%;z-index: 999;transform: translate(-50%, -50%);color: white;background: rgba(0, 0, 0, 0.5);padding: 10px 15px;border-radius: 10px;">
+    loaderEl.addEventListener('click', endLoading);
+  </script><div id="copy-tooltip"></div>
+<div id="lang-tooltip">
 本文章没有找到对应的语言版本
 </div>
 <div id="heatmap-tooltip"></div><div id="container">
       <div id="wrap"><div id="header-nav">
-  <nav id="main-nav"><span class="main-nav-link-wrap">
+  <nav id="main-nav" aria-label="Primary navigation"><span class="main-nav-link-wrap">
         <div class='main-nav-icon icon rotate'>&#xe62b;</div>
         <a class="main-nav-link" href="/">首页</a>
       </span><span class="main-nav-link-wrap">
@@ -120,15 +123,15 @@
       </span><span class="main-nav-link-wrap">
         <div class='main-nav-icon icon rotate'>&#xe62b;</div>
         <a class="main-nav-link" href="/friend">友链</a>
-      </span><a id="main-nav-toggle" class="nav-icon"></a>
+      </span><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
-  <nav id="sub-nav"><a id="nav-rss-link" class="nav-icon" href="/tags/test/index.xml" title="RSS 订阅" target="_blank"></a></nav><nav id="i18n-nav">
+  <nav id="sub-nav" aria-label="Secondary navigation"><a id="nav-rss-link" class="nav-icon" href="/tags/test/index.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a></nav><nav id="i18n-nav" aria-label="Language selection">
       <div class="custom-dropdown">
-        <div class="select-selected" id="select-selected">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
           <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
           <span id="selected-lang">简体中文</span>
         </div>
-        <ul class="select-items" id="select-items"><li data-value="en"  >English</li><li data-value="zh-cn" class="selected" >简体中文</li><li data-value="zh-tw"  >繁體中文</li></ul>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages"><li data-value="en" role="option" arial-selected="false" >English</li><li data-value="zh-cn" role="option" class="selected" arial-selected="true" >简体中文</li><li data-value="zh-tw" role="option" arial-selected="false" >繁體中文</li></ul>
       </div>
       <script>
         var selectSelected = document.getElementById("select-selected");
@@ -138,6 +141,8 @@
 
         selectSelected.addEventListener("click", () => {
           selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
         });
 
         selectOptions.forEach((item) => {
@@ -165,18 +170,20 @@
         document.addEventListener("click", (event) => {
           if (!event.target.closest(".custom-dropdown")) {
             selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
           }
         });
       </script>
     </nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="Test"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="Test"><div id="header-outer">
     <div id="header-title"><span id="logo">
             <h1 data-aos="slide-up">标签</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"><span id="subtitle">Test</span></h2></div>
   </div>
 </header><div id="content"
+          aria-label="Page content"
           class="sidebar-left"
-            ><aside id="sidebar"><div class="sidebar-wrapper-container "><div class="sidebar-wrapper">
+            ><aside id="sidebar" aria-label="Sidebar"><div class="sidebar-wrapper-container "><div class="sidebar-wrapper">
     <div
       class="sidebar-wrap"
       data-aos="fade-up"
@@ -192,17 +199,17 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">14</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      3
+      4
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">9</div>
+    <div class="sidebar-state-number">12</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -249,16 +256,24 @@
         <h3 class="widget-title">分类</h3></div>
       <div class="widget">
         <ul class="category-list"><li class="category-list-item">
-                <a class="category-list-link" href="/categories/test/"
+                <a class="category-list-link" href="/categories/test/" 
+                  title="Test"
                   >Test</a
                 >
               </li><li class="category-list-item">
-                <a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                <a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
+                  title="学习笔记"
                   >学习笔记</a
                 >
               </li><li class="category-list-item">
-                <a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/"
+                <a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/" 
+                  title="面试"
                   >面试</a
+                >
+              </li><li class="category-list-item">
+                <a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/" 
+                  title="面试··"
+                  >面试··</a
                 >
               </li></ul>
       </div>
@@ -269,13 +284,14 @@
       data-aos="fade-up"
     >
       <div style="display: flex; justify-content: space-between;">
-        <h3 class="widget-title">标签</h3></div>
+        <h3 class="widget-title">标签</h3><a class="widget-link" href="/tags/">查看更多</a></div>
       <div class="widget">
         <ul class="tag-list" itemprop="keywords"><li class="tag-item">
                 <a
                   class="tag-link"
                   href="/tags/java/"
                   aria-label="标签: JAVA"
+                  title="JAVA"
                 >
                   JAVA
                 </a>
@@ -284,6 +300,7 @@
                   class="tag-link"
                   href="/tags/jvm/"
                   aria-label="标签: Jvm"
+                  title="Jvm"
                 >
                   Jvm
                 </a>
@@ -292,6 +309,7 @@
                   class="tag-link"
                   href="/tags/markdown/"
                   aria-label="标签: Markdown"
+                  title="Markdown"
                 >
                   Markdown
                 </a>
@@ -300,6 +318,7 @@
                   class="tag-link"
                   href="/tags/mq/"
                   aria-label="标签: Mq"
+                  title="Mq"
                 >
                   Mq
                 </a>
@@ -308,6 +327,7 @@
                   class="tag-link"
                   href="/tags/mysql/"
                   aria-label="标签: Mysql"
+                  title="Mysql"
                 >
                   Mysql
                 </a>
@@ -316,6 +336,7 @@
                   class="tag-link"
                   href="/tags/redis/"
                   aria-label="标签: Redis"
+                  title="Redis"
                 >
                   Redis
                 </a>
@@ -324,6 +345,7 @@
                   class="tag-link"
                   href="/tags/springboot/"
                   aria-label="标签: SpringBoot"
+                  title="SpringBoot"
                 >
                   SpringBoot
                 </a>
@@ -332,14 +354,25 @@
                   class="tag-link"
                   href="/tags/test/"
                   aria-label="标签: Test"
+                  title="Test"
                 >
                   Test
                 </a>
               </li><li class="tag-item">
                 <a
                   class="tag-link"
+                  href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+                  aria-label="标签: 并发编程"
+                  title="并发编程"
+                >
+                  并发编程
+                </a>
+              </li><li class="tag-item">
+                <a
+                  class="tag-link"
                   href="/tags/%E6%BA%90%E7%A0%81/"
                   aria-label="标签: 源码"
+                  title="源码"
                 >
                   源码
                 </a>
@@ -393,9 +426,24 @@
             >Test</a
           ><a
             style="font-size:10px"
+            href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+            aria-label="标签: 并发编程"
+            >并发编程</a
+          ><a
+            style="font-size:10px"
             href="/tags/%E6%BA%90%E7%A0%81/"
             aria-label="标签: 源码"
             >源码</a
+          ><a
+            style="font-size:10px"
+            href="/tags/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/"
+            aria-label="标签: 综合场景"
+            >综合场景</a
+          ><a
+            style="font-size:10px"
+            href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
+            aria-label="标签: 网络协议"
+            >网络协议</a
           ></div>
   </div>
 </div><div class="widget-wrapper">
@@ -406,20 +454,20 @@
       <h3 class="widget-title">最新文章</h3>
       <div class="widget">
         <ul><li>
-              <a href="/post/interview/mq/">Mq</a>
+              <a href="/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/" title="综合场景">综合场景</a>
             </li><li>
-              <a href="/post/interview/redis/">Redis</a>
+              <a href="/post/interview/io/" title="IO">IO</a>
             </li><li>
-              <a href="/post/interview/mysql/">Mysql面试</a>
+              <a href="/post/interview/java_%E5%9F%BA%E7%A1%80/" title="Java">Java</a>
             </li><li>
-              <a href="/post/interview/jvm/">Jvm面试</a>
+              <a href="/post/interview/springboot/" title="SpringBoot">SpringBoot</a>
             </li><li>
-              <a href="/post/mysql/index_fail/">索引失效场景</a>
+              <a href="/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="并发编程">并发编程</a>
             </li></ul>
       </div>
     </div>
   </div></div></div></aside>
-<section id="main"><div
+<section id="main" aria-label="Main content"><div
     class="archives-outer-wrap"
     data-aos="fade-up"
   ><div class="tag-wrap"><div
@@ -482,8 +530,29 @@
       class="archives-tag-list-item"
       data-aos="zoom-in"
     >
+      <a class="archives-tag-list-link" href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
+        >并发编程</a
+      >
+    </div><div
+      class="archives-tag-list-item"
+      data-aos="zoom-in"
+    >
       <a class="archives-tag-list-link" href="/tags/%E6%BA%90%E7%A0%81/"
         >源码</a
+      >
+    </div><div
+      class="archives-tag-list-item"
+      data-aos="zoom-in"
+    >
+      <a class="archives-tag-list-link" href="/tags/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/"
+        >综合场景</a
+      >
+    </div><div
+      class="archives-tag-list-item"
+      data-aos="zoom-in"
+    >
+      <a class="archives-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/"
+        >网络协议</a
       >
     </div></div>
 <div class="category-wrap"><div
@@ -507,12 +576,31 @@
       <a class="archives-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/"
         >面试</a
       >
+    </div><div
+      class="archives-category-list-item"
+      data-aos="zoom-in"
+    >
+      <a class="archives-category-list-link" href="/categories/%E9%9D%A2%E8%AF%95/"
+        >面试··</a
+      >
     </div></div><section class="archives-wrap" data-aos="fade-up">
     <div class="archive-year-wrap">
       <span class="archive-year">2025</span>
     </div>
     <ul><li class="archive-article">
-          <div class="archive-article-date-wrap">
+          <div class="archive-article-date">
+            <span>
+              <time
+                class="dt-published"
+                datetime="2025-09-25 16:35:53 &#43;0800 CST"
+                itemprop="datePublished"
+                >2025-09</time
+              >
+            </span>
+          </div><a class="archive-article-title" href="/post/interview/io/"
+              >IO</a
+            ></li><li class="archive-article">
+          <div class="archive-article-date">
             <span>
               <time
                 class="dt-published"
@@ -529,7 +617,7 @@
       <span class="archive-year">2022</span>
     </div>
     <ul><li class="archive-article">
-          <div class="archive-article-date-wrap">
+          <div class="archive-article-date">
             <span>
               <time
                 class="dt-published"
@@ -541,9 +629,9 @@
           </div><a class="archive-article-title" href="/post/main/"
               >Markdown Basic Elements</a
             ></li></ul>
-  </section></div><nav id="page-nav" data-aos="fade-up"><span class="page-number current">1</span></nav>
+  </section></div><nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up"><span class="page-number current">1</span></nav>
 </section>
-        </div><footer id="footer">
+        </div><footer id="footer" aria-label="Site footer">
   <div style="width: 100%; overflow: hidden">
     <div class="footer-line"></div>
   </div>
@@ -554,18 +642,20 @@
         基于&nbsp;<a
           href="https://gohugo.io/"
           target="_blank"
+          rel="noopener nofollow noreferrer"
           >Hugo</a
         >&nbsp; Theme.<a
           href="https://github.com/D-Sketon/hugo-theme-reimu"
           target="_blank"
+          rel="noopener nofollow noreferrer"
           >Reimu</a
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;42.0k</span
+          >&nbsp;53.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;01:27</span>
+        <span class="icon-coffee">&nbsp;01:53</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -586,7 +676,7 @@
             <div class="sidebar-top-taichi rotate"></div>
             <div class="arrow-up"></div>
           </div><div id="mask" class="hide"></div>
-      </div><nav id="mobile-nav">
+      </div><nav id="mobile-nav" aria-label="Mobile navigation">
   <div class="sidebar-wrap"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
@@ -599,17 +689,17 @@
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
-    <div>文章</div><div class="sidebar-state-number">8</div>
+    <div>文章</div><div class="sidebar-state-number">14</div>
   </div>
   <a class="sidebar-state-category" href="/categories/" aria-label="sidebar-state-category-link">
     <div>分类</div>
     <div class="sidebar-state-number">
-      3
+      4
     </div>
   </a>
   <a class="sidebar-state-tag" href="/tags/" aria-label="sidebar-state-tag-link">
     <div>标签</div>
-    <div class="sidebar-state-number">9</div>
+    <div class="sidebar-state-number">12</div>
   </a>
 </div>
 <div class="sidebar-social"></div>
@@ -685,17 +775,16 @@
           description: "",
           cover: "https:\/\/tscxk.github.io\/images\/banner.webp",
         };
-      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
-          if (_$$('.article-entry a.article-gallery-item').length > 0) {
+      </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
+          if (_$$(`${gallery} ${children}`).length > 0) {
             new PhotoSwipeLightbox({
-              gallery: '.article-entry',
-              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
+              gallery,
+              children,pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
           }
-          if(_$$('.article-gallery a.article-gallery-item').length > 0) {
-            new PhotoSwipeLightbox({
-              gallery: '.article-gallery',
-              children: 'a.article-gallery-item',pswpModule: () => safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8\u002boTJ7m3DfYEWX1fu1scuS4\u002bs")}).init();
-          }
+        }
+        const pswp = () => {
+          initPswp('.article-entry', 'a.article-gallery-item');
+          initPswp('.article-gallery', 'a.article-gallery-item');
           window.lightboxStatus = 'done';
           window.removeEventListener('lightbox:ready', pswp);
         }
