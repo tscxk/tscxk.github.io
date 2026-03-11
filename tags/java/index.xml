@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 13 Oct 2025 20:18:32 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 Oct 2025 15:52:59 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/java/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -30,9 +30,15 @@
       <description>
         <![CDATA[<h1>Java</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-java反射">
+<a class="header-anchor" href="#1-java%e5%8f%8d%e5%b0%84"></a>
+1. Java反射
+</h3><p>反射是Java语言的一个强大特性，它允许程序在运行时动态检查和修改类、方法、字段等信息，甚至可以动态调用方法和创建对象。反射是java动态性的核心体现，为框架开发提供了较大的灵活性。</p>
         
-        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-24</p>]]>
       </description>
       
         <category>面试··</category>
@@ -64,7 +70,7 @@
 如果没有达到，那就创建新的线程并且从队列中获取队头的任务进行处理，然后将当前任务加入到等待队列末尾<br>
 如果存活线程已经到了最大线程数，就会按照线程池配置的拒绝策略处理任务</p>
         
-        <hr><p>本文2025-09-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+        <hr><p>本文2025-09-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-23</p>]]>
       </description>
       
         <category>面试</category>

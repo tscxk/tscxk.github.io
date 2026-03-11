@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mybatis on My New Hugo Site</title>
+    <link>https://tscxk.github.io/tags/mybatis/</link>
+    <description>Recent content from My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>952505116@qq.com (tscxk)</managingEditor>
+    <webMaster>952505116@qq.com (tscxk)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Fri, 24 Oct 2025 20:42:32 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://tscxk.github.io/tags/mybatis/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Mybatis</title>
+      <link>https://tscxk.github.io/post/interview/mybatis/</link>
+      <pubDate>Fri, 24 Oct 2025 20:32:42 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/mybatis/</guid>
+      <description>
+        <![CDATA[<h1>Mybatis</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-mybatis分页插件的实现原理">
+<a class="header-anchor" href="#1-mybatis%e5%88%86%e9%a1%b5%e6%8f%92%e4%bb%b6%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86"></a>
+1. Mybatis分页插件的实现原理
+</h3><p>MyBatis 分页插件的核心原理是通过**拦截器（Interceptor）**动态修改 SQL 语句，附加分页逻辑（如 <code>LIMIT</code>、<code>ROWNUM</code> 等），并自动计算总数。原理如下：</p>
+        
+        <hr><p>本文2025-10-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-24</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 14 Oct 2025 14:56:02 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Nov 2025 09:26:38 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -22,95 +22,31 @@
     
 
     <item>
-      <title>综合场景</title>
-      <link>https://tscxk.github.io/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/</link>
-      <pubDate>Tue, 14 Oct 2025 14:36:00 &#43;0800</pubDate>
+      <title>Mysql面试</title>
+      <link>https://tscxk.github.io/post/interview/mysql/</link>
+      <pubDate>Tue, 26 Aug 2025 20:22:56 &#43;0800</pubDate>
       <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/</guid>
+      <guid>https://tscxk.github.io/post/interview/mysql/</guid>
       <description>
-        <![CDATA[<h1>综合场景</h1><p>作者：tscxk（952505116@qq.com）</p>
+        <![CDATA[<h1>Mysql面试</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          
+          <h2 id="mysql基础">
+<a class="header-anchor" href="#mysql%e5%9f%ba%e7%a1%80"></a>
+Mysql基础
+</h2><h3 id="1-mysql数据库中myisam和innodb的区别">
+<a class="header-anchor" href="#1-mysql%e6%95%b0%e6%8d%ae%e5%ba%93%e4%b8%admyisam%e5%92%8cinnodb%e7%9a%84%e5%8c%ba%e5%88%ab"></a>
+1. MySQL数据库中MyISAM和InnoDB的区别
+</h3><p>MyISAM:</p>
+<ul>
+<li>不支持事务，但每次查询都是原子的</li>
+<li>不支持行级锁</li>
+<li>不支持外键约束</li>
+<li>使用非聚簇索引</li>
+<li>存储表的总行数</li>
+</ul>
+<p>InnoDB:</p>
         
-        <hr><p>本文2025-10-14首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-14</p>]]>
-      </description>
-      
-        <category>面试</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>Java</title>
-      <link>https://tscxk.github.io/post/interview/java_%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Wed, 24 Sep 2025 17:55:49 &#43;0800</pubDate>
-      <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/interview/java_%E5%9F%BA%E7%A1%80/</guid>
-      <description>
-        <![CDATA[<h1>Java</h1><p>作者：tscxk（952505116@qq.com）</p>
-        
-          
-        
-        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
-      </description>
-      
-        <category>面试··</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>IO</title>
-      <link>https://tscxk.github.io/post/interview/io/</link>
-      <pubDate>Thu, 25 Sep 2025 16:35:53 &#43;0800</pubDate>
-      <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/interview/io/</guid>
-      <description>
-        <![CDATA[<h1>IO</h1><p>作者：tscxk（952505116@qq.com）</p>
-        
-          <h2 id="基础">
-<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
-基础
-</h2><h3 id="1-bufferedinputstream作用">
-<a class="header-anchor" href="#1-bufferedinputstream%e4%bd%9c%e7%94%a8"></a>
-1. BufferedInputStream作用
-</h3><p>BufferedInputStream是Java的缓冲输入流，它的核心作用是通过内存缓冲区减少磁盘的IO次数，从而显著提升读取效率</p>
-        
-        <hr><p>本文2025-09-25首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
-      </description>
-      
-        <category>面试</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>并发编程</title>
-      <link>https://tscxk.github.io/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
-      <pubDate>Mon, 22 Sep 2025 21:59:52 &#43;0800</pubDate>
-      <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
-      <description>
-        <![CDATA[<h1>并发编程</h1><p>作者：tscxk（952505116@qq.com）</p>
-        
-          <h2 id="基础">
-<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
-基础
-</h2><h3 id="1线程池参数">
-<a class="header-anchor" href="#1%e7%ba%bf%e7%a8%8b%e6%b1%a0%e5%8f%82%e6%95%b0"></a>
-1.线程池参数
-</h3><blockquote>
-<p>线程池工作原理：</p>
-<p>线程池是为了减少频繁的线程创建和销毁带来的性能损耗。</p>
-<p>当提交一个任务时，如果还有空闲的核心线程，那么就会将任务给核心线程<br>
-否则加入到等待队列，如果队列也满了，那么就会检测存活线程是否达到了最大线程<br>
-如果没有达到，那就创建新的线程并且从队列中获取队头的任务进行处理，然后将当前任务加入到等待队列末尾<br>
-如果存活线程已经到了最大线程数，就会按照线程池配置的拒绝策略处理任务</p>
-        
-        <hr><p>本文2025-09-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+        <hr><p>本文2025-08-26首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-11-05</p>]]>
       </description>
       
         <category>面试</category>
@@ -142,7 +78,41 @@
 <p>类加载检查</p>
 <p>这一步实际上就是类装载的过程，毕竟创建对象前要先检查类的存在</p>
         
-        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-11-04</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Redis</title>
+      <link>https://tscxk.github.io/post/interview/redis/</link>
+      <pubDate>Fri, 05 Sep 2025 09:59:02 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/redis/</guid>
+      <description>
+        <![CDATA[<h1>Redis</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="redis基础">
+<a class="header-anchor" href="#redis%e5%9f%ba%e7%a1%80"></a>
+Redis基础
+</h2><blockquote>
+<p>Redis是用C语言开发的</p></blockquote>
+<h3 id="1-使用缓存的优缺点">
+<a class="header-anchor" href="#1-%e4%bd%bf%e7%94%a8%e7%bc%93%e5%ad%98%e7%9a%84%e4%bc%98%e7%bc%ba%e7%82%b9"></a>
+1. 使用缓存的优缺点
+</h3><h4 id="优点">
+<a class="header-anchor" href="#%e4%bc%98%e7%82%b9"></a>
+优点
+</h4><ul>
+<li>
+<p>高性能（最根本的问题）</p>
+<p>对于能够容忍短时间内不一致的数据，使用缓存能够大大加快查询时间并降低数据库压力。因为缓存通常基于内存，性能相较于使用磁盘的数据库要强上许多数量级。</p>
+        
+        <hr><p>本文2025-09-05首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-11-04</p>]]>
       </description>
       
         <category>面试</category>
@@ -168,7 +138,91 @@
 1. 说说JVM的主要组成部分和流程
 </h3><p>JVM主要包含两个子系统和两个组件，两个子系统分别是Class loader(类装载)、Execution engine(执行引擎)；两个组件分别是Runtime data area(运行时数据区)、Native Interface(本地接口)。</p>
         
-        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-25</p>]]>
+        <hr><p>本文2025-08-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-29</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Mybatis</title>
+      <link>https://tscxk.github.io/post/interview/mybatis/</link>
+      <pubDate>Fri, 24 Oct 2025 20:32:42 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/mybatis/</guid>
+      <description>
+        <![CDATA[<h1>Mybatis</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-mybatis分页插件的实现原理">
+<a class="header-anchor" href="#1-mybatis%e5%88%86%e9%a1%b5%e6%8f%92%e4%bb%b6%e7%9a%84%e5%ae%9e%e7%8e%b0%e5%8e%9f%e7%90%86"></a>
+1. Mybatis分页插件的实现原理
+</h3><p>MyBatis 分页插件的核心原理是通过**拦截器（Interceptor）**动态修改 SQL 语句，附加分页逻辑（如 <code>LIMIT</code>、<code>ROWNUM</code> 等），并自动计算总数。原理如下：</p>
+        
+        <hr><p>本文2025-10-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-24</p>]]>
+      </description>
+      
+        <category>面试</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Java</title>
+      <link>https://tscxk.github.io/post/interview/java_%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 24 Sep 2025 17:55:49 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/java_%E5%9F%BA%E7%A1%80/</guid>
+      <description>
+        <![CDATA[<h1>Java</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1-java反射">
+<a class="header-anchor" href="#1-java%e5%8f%8d%e5%b0%84"></a>
+1. Java反射
+</h3><p>反射是Java语言的一个强大特性，它允许程序在运行时动态检查和修改类、方法、字段等信息，甚至可以动态调用方法和创建对象。反射是java动态性的核心体现，为框架开发提供了较大的灵活性。</p>
+        
+        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-24</p>]]>
+      </description>
+      
+        <category>面试··</category>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>并发编程</title>
+      <link>https://tscxk.github.io/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Mon, 22 Sep 2025 21:59:52 &#43;0800</pubDate>
+      <author>952505116@qq.com (tscxk)</author>
+      <guid>https://tscxk.github.io/post/interview/java_%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
+      <description>
+        <![CDATA[<h1>并发编程</h1><p>作者：tscxk（952505116@qq.com）</p>
+        
+          <h2 id="基础">
+<a class="header-anchor" href="#%e5%9f%ba%e7%a1%80"></a>
+基础
+</h2><h3 id="1线程池参数">
+<a class="header-anchor" href="#1%e7%ba%bf%e7%a8%8b%e6%b1%a0%e5%8f%82%e6%95%b0"></a>
+1.线程池参数
+</h3><blockquote>
+<p>线程池工作原理：</p>
+<p>线程池是为了减少频繁的线程创建和销毁带来的性能损耗。</p>
+<p>当提交一个任务时，如果还有空闲的核心线程，那么就会将任务给核心线程<br>
+否则加入到等待队列，如果队列也满了，那么就会检测存活线程是否达到了最大线程<br>
+如果没有达到，那就创建新的线程并且从队列中获取队头的任务进行处理，然后将当前任务加入到等待队列末尾<br>
+如果存活线程已经到了最大线程数，就会按照线程池配置的拒绝策略处理任务</p>
+        
+        <hr><p>本文2025-09-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-23</p>]]>
       </description>
       
         <category>面试</category>
@@ -196,7 +250,7 @@
 1. 浏览器打开一个网页，背后做了什么？
 </h3><p>浏览器打开一个网页大致可以分为以下几个核心阶段：</p>
         
-        <hr><p>本文2025-09-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-25</p>]]>
+        <hr><p>本文2025-09-09首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-21</p>]]>
       </description>
       
         <category>面试</category>
@@ -226,7 +280,7 @@
 <p>任务异步</p>
 <p>场景：部分比较耗时的操作，例如报表导出、发短信、日志存储等操作</p>
         
-        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-22</p>]]>
+        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-20</p>]]>
       </description>
       
         <category>面试</category>
@@ -236,81 +290,31 @@
     
 
     <item>
-      <title>Test</title>
-      <link>https://tscxk.github.io/post/study/java/spring/source_code/test/</link>
-      <pubDate>Thu, 21 Aug 2025 10:12:19 &#43;0800</pubDate>
+      <title>综合场景</title>
+      <link>https://tscxk.github.io/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/</link>
+      <pubDate>Tue, 14 Oct 2025 14:36:00 &#43;0800</pubDate>
       <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/study/java/spring/source_code/test/</guid>
+      <guid>https://tscxk.github.io/post/interview/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/</guid>
       <description>
-        <![CDATA[<h1>Test</h1><p>作者：tscxk（952505116@qq.com）</p>
+        <![CDATA[<h1>综合场景</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          <p>This is a Chinese test post.</p>
-<p>善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。</p>
-<p>以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？</p>
+          <ul>
+<li>
+<p>高并发评论场景搭建</p>
+<a href="https://mp.weixin.qq.com/s/EewGihaeVxKTuZNNtBTcnQ" title="面试官：如何搭建一个高可用评论系统，支撑百万级用户实时互动？" target="_blank">面试官：如何搭建一个高可用评论系统，支撑百万级用户实时互动？</a>
+</li>
+<li>
+<p>场景2</p>
+</li>
+<li>
+<p>场景3</p>
+</li>
+</ul>
         
-        <hr><p>本文2025-08-21首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-08</p>]]>
+        <hr><p>本文2025-10-14首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-14</p>]]>
       </description>
       
-        <category>学习笔记</category>
-      
-    </item>
-    
-    
-
-    <item>
-      <title>索引失效场景</title>
-      <link>https://tscxk.github.io/post/mysql/index_fail/</link>
-      <pubDate>Thu, 21 Aug 2025 20:25:47 &#43;0800</pubDate>
-      <author>952505116@qq.com (tscxk)</author>
-      <guid>https://tscxk.github.io/post/mysql/index_fail/</guid>
-      <description>
-        <![CDATA[<h1>索引失效场景</h1><p>作者：tscxk（952505116@qq.com）</p>
-        
-          <h3 id="前言">
-<a class="header-anchor" href="#%e5%89%8d%e8%a8%80"></a>
-前言
-</h3><p>把啦啦啦</p>
-<h3 id="一测试表设计">
-<a class="header-anchor" href="#%e4%b8%80%e6%b5%8b%e8%af%95%e8%a1%a8%e8%ae%be%e8%ae%a1"></a>
-一、测试表设计
-</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="o">`</span><span class="k">user</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;主键&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;用户ID（字符串类型）&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="w"> </span><span class="n">TINYINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;年龄&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">city</span><span class="o">`</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;城市&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">salary</span><span class="o">`</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;薪资&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">phone</span><span class="o">`</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;手机号&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">status</span><span class="o">`</span><span class="w"> </span><span class="n">TINYINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;状态&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">score</span><span class="o">`</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;分数&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">create_time</span><span class="o">`</span><span class="w"> </span><span class="n">DATETIME</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;创建时间&#39;</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="o">`</span><span class="n">update_time</span><span class="o">`</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c1">-- 索引配置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">  </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">uniq_user_id</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">user_id</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_username_age_city</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">username</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">age</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">city</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_create_time</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">create_time</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_score</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">score</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_phone</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">phone</span><span class="o">`</span><span class="p">),</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">KEY</span><span class="w"> </span><span class="o">`</span><span class="n">idx_status</span><span class="o">`</span><span class="w"> </span><span class="p">(</span><span class="o">`</span><span class="n">status</span><span class="o">`</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><h3 id="二失效场景">
-<a class="header-anchor" href="#%e4%ba%8c%e5%a4%b1%e6%95%88%e5%9c%ba%e6%99%af"></a>
-二、失效场景
-</h3><h4 id="场景1-索引列参与计算">
-<a class="header-anchor" href="#%e5%9c%ba%e6%99%af1-%e7%b4%a2%e5%bc%95%e5%88%97%e5%8f%82%e4%b8%8e%e8%ae%a1%e7%ae%97"></a>
-场景1： 索引列参与计算
-</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- ❌ 错误写法：对索引列使用函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">YEAR</span><span class="p">(</span><span class="n">create_time</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2025</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- ✅ 优化方案：保持索引列原始值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">user</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">create_time</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">&#39;2025-01-01&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">&#39;2025-12-31&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div>
-        
-        <hr><p>本文2025-08-21首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-08</p>]]>
-      </description>
-      
-        <category>test</category>
+        <category>面试</category>
       
     </item>
     

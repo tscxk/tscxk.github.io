@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 13 Oct 2025 17:02:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Oct 2025 23:38:17 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -44,7 +44,7 @@
 如果没有达到，那就创建新的线程并且从队列中获取队头的任务进行处理，然后将当前任务加入到等待队列末尾<br>
 如果存活线程已经到了最大线程数，就会按照线程池配置的拒绝策略处理任务</p>
         
-        <hr><p>本文2025-09-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+        <hr><p>本文2025-09-22首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-23</p>]]>
       </description>
       
         <category>面试</category>

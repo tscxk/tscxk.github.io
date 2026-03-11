@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Tue, 14 Oct 2025 14:56:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Oct 2025 15:13:54 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/%E7%BB%BC%E5%90%88%E5%9C%BA%E6%99%AF/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -30,7 +30,18 @@
       <description>
         <![CDATA[<h1>综合场景</h1><p>作者：tscxk（952505116@qq.com）</p>
         
-          
+          <ul>
+<li>
+<p>高并发评论场景搭建</p>
+<a href="https://mp.weixin.qq.com/s/EewGihaeVxKTuZNNtBTcnQ" title="面试官：如何搭建一个高可用评论系统，支撑百万级用户实时互动？" target="_blank">面试官：如何搭建一个高可用评论系统，支撑百万级用户实时互动？</a>
+</li>
+<li>
+<p>场景2</p>
+</li>
+<li>
+<p>场景3</p>
+</li>
+</ul>
         
         <hr><p>本文2025-10-14首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-14</p>]]>
       </description>

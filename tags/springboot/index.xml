@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 13 Oct 2025 16:51:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Nov 2025 22:04:44 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/springboot/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -44,7 +44,7 @@
 <p>类加载检查</p>
 <p>这一步实际上就是类装载的过程，毕竟创建对象前要先检查类的存在</p>
         
-        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-13</p>]]>
+        <hr><p>本文2025-09-24首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-11-04</p>]]>
       </description>
       
         <category>面试</category>

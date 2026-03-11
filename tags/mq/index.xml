@@ -12,7 +12,7 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Mon, 22 Sep 2025 22:02:01 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Oct 2025 17:09:33 +0800</lastBuildDate>
     
     
     <atom:link href="https://tscxk.github.io/tags/mq/index.xml" rel="self" type="application/rss&#43;xml" />
@@ -42,7 +42,7 @@
 <p>任务异步</p>
 <p>场景：部分比较耗时的操作，例如报表导出、发短信、日志存储等操作</p>
         
-        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-09-22</p>]]>
+        <hr><p>本文2025-09-08首发于<a href='https://tscxk.github.io/'>My New Hugo Site</a>，最后修改于2025-10-20</p>]]>
       </description>
       
         <category>面试</category>
